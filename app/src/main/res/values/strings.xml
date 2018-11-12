@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">Tajwid</string>
+    <string name="main_total_reading_progress_info">Вы прошли %1$d урок из %2$d</string>
+    <string name="main_letters">Буквы</string>
+    <string name="main_modules_progress_info">Пройдено %1$d из %2$d</string>
+    <string name="settings">Настройки</string>
+    <string name="main_pronunciation_rules">Правила произношения</string>
+    <string name="main_pronunciation_rules_info">Пройдено 0 из 7</string>
+    <string name="main_reading_rules">Правила чтения Корана</string>
+    <string name="main_reading_rules_info">Пройдено 0 из 17</string>
+    <string name="main_author_name">Ильдар Аляутдинов</string>
+
+    <string name="settings_notice_info">Уведомления</string>
+    <string name="settigs_communication">Связаться с автором</string>
+    <string name="settings_about_project">О проекте</string>
+    <string name="settings_recommendation">Порекомендовать приложение</string>
+    <string name="settings_assessment">Оценить в Google Play</string>
+    <string name="settings_information_website" translatable="false">play.google.com/store/apps/details?id=ru.tajwid.app</string>
+    <string name="settings_web_communication" translatable="false">play.google.com/store/apps/details?id=ru.tajwid.app</string>
+    <string name="settings_web_site_about_project"> tajwid.com</string>
+    <string name="settings_recommend_chooser_title">Выберите действие</string>
+    <string name="settings_recommend_text">Рекомендую скачать приложение Tajwid:\n\nhttps://play.google.com/store/apps/details?id=ru.tajwid.app</string>
+    <plurals name="lessons_list_sections_info">
+        <item quantity="zero">Без карточек</item>
+        <item quantity="one">%d карточка</item>
+        <item quantity="two">%d карточки</item>
+        <item quantity="few">%d карточки</item>
+        <item quantity="many">%d карточек</item>
+        <item quantity="other">%d карточек</item>
+    </plurals>
+    <string name="lessons_list_exercise_info">без упражнений</string>
+    <plurals name="lessons_list_exercises_info">
+        <item quantity="zero">без упражнений</item>
+        <item quantity="one">%d упражнение</item>
+        <item quantity="two">%d упражнения</item>
+        <item quantity="few">%d упражнения</item>
+        <item quantity="many">%d упражнений</item>
+        <item quantity="other">%d упражнений</item>
+    </plurals>
+    <string name="lessons_list_info_format">%1$s, %2$s</string>
+    <string name="lesson_title">Урок %d</string>
+    <plurals name="main_total_reading_progress_info">
+        <item quantity="zero">Вы прошли %1$d уроков из %2$d</item>
+        <item quantity="one">Вы прошли %1$d урок из %2$d</item>
+        <item quantity="two">Вы прошли %1$d урока из %2$d</item>
+        <item quantity="few">Вы прошли %1$d урока из %2$d</item>
+        <item quantity="many">Вы прошли %1$d уроков из %2$d</item>
+        <item quantity="other">Вы прошли %1$d уроков из %2$d</item>
+    </plurals>
+    <string name="lesson_font_settings">Настройки шрифта</string>
+    <string name="lesson_font_settings_size">Размер шрифта</string>
+    <string name="exercise_title">Урок %1$d. Упражнение %2$d</string>
+    <string name="go_to_lesson">перейти к упражнениям</string>
+    <string name="right">правильно</string>
+    <string name="finishing">завершить</string>
+    <string name="onward">далее</string>
+    <string name="right_answer">правильный ответ</string>
+    <string name="notification_channel_description">Вы давно не учили Таджвид</string>
+    <string name="application_for_study_koran">Приложение для изучение Корана</string>
+    <string name="go_to_the_site">На сайт</string>
+    <string name="settings_recommend_subject">Отзыв на приложение Таджвид</string>
+    <string name="exercise_pronounce_sound">Нажмите на слово, чтобы его прослушать</string>
+
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#303f9f</color>
+    <color name="colorAccent">@color/blueberry</color>
+    <color name="default_background">@color/white</color>
+    <color name="default_separator">#d7d7d7</color>
+    <color name="blueberry">#4d2d8d</color>
+    <color name="light_warm_grey">#77979797</color>
+    <color name="warm_grey">#979797</color>
+    <color name="white_three">#f7f7f7</color>
+    <color name="black">#000</color>
+    <color name="black_text">#333333</color>
+    <color name="white">#fff</color>
+    <color name="white_text">#f9f9f9</color>
+    <color name="white_four">#ffffff</color>
+    <color name="greyish_brown">#4a4a4a</color>
+    <color name="wisteria">#9782C2</color>
+    <color name="shamrock_green">#00C853</color>
+    <color name="red">#c34c5b</color>
+    <color name="test_wrong_answer_color">#e14949</color>
+</resources>

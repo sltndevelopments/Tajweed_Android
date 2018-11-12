@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/exercise_test_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:gravity="center"
+        android:textColor="@color/greyish_brown"
+        android:textSize="@dimen/text_size_20sp"
+        android:textStyle="normal"
+        tools:text="Выберите правильный ответ"/>
+
+    <TextView
+        android:id="@+id/exercise_test_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_24sp"
+        android:textStyle="normal"
+        tools:text="[ба]\nконечная"/>
+
+    <LinearLayout
+        android:id="@+id/exercise_content_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dimen_16dp"/>
+
+    <LinearLayout
+        android:id="@+id/exercise_test_go_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/exercise_test_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dimen_24dp"
+            android:contentDescription="@null"
+            tools:src="@drawable/ic_circle_check_green"/>
+
+        <TextView
+            android:id="@+id/exercise_test_text_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_size_12sp"
+            tools:text="Далее"/>
+    </LinearLayout>
+</LinearLayout>

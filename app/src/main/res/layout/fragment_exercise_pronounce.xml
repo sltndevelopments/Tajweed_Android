@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/exercise_pronounce_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:gravity="center"
+        android:textColor="@color/greyish_brown"
+        android:textSize="@dimen/text_size_20sp"
+        android:textStyle="normal"
+        tools:text="Произнесите следующие слова и звукосочетания и проверьте себя нажав на них."/>
+
+    <LinearLayout
+        android:id="@+id/exercise_pronounce_sound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_lesson_player"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:layout_marginLeft="@dimen/dimen_8dp"
+            android:text="@string/exercise_pronounce_sound"
+            android:textColor="@color/warm_grey"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/exercise_pronounce_content_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:id="@+id/exercise_pronounce_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dimen_24dp"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_go_to_lesson"/>
+
+        <TextView
+            android:id="@+id/exercise_pronounce_text_finishing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:gravity="center"
+            android:text="@string/onward"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_size_12sp"/>
+
+    </LinearLayout>
+</LinearLayout>

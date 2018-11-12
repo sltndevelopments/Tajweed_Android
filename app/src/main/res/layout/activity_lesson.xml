@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="ru.tajwid.app.ui.activity.LessonsListActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/lessons_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppToolbar"/>
+
+    <ru.tajwid.app.ui.view.FontSettingsView
+        android:id="@+id/lesson_font_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <ru.tajwid.app.ui.view.PlayerView
+        android:id="@+id/lesson_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/lesson_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lesson_content_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_16dp"
+                android:background="@color/white"
+                android:orientation="vertical"/>
+
+            <LinearLayout
+                android:id="@+id/lesson_go_to_exercises_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/lesson_image_go_to_exercises"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_32dp"
+                    android:src="@drawable/ic_go_to_lesson"
+                    tools:ignore="ContentDescription"/>
+
+                <TextView
+                    android:id="@+id/lesson_text_go_to_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_12dp"
+                    android:layout_marginBottom="@dimen/dimen_32dp"
+                    android:gravity="center"
+                    android:text="@string/go_to_lesson"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_size_12sp"/>
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/lesson_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_4dp"
+                android:layout_gravity="center"
+                android:progressDrawable="@drawable/lesson_progress_bar"
+                tools:progress="25"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
