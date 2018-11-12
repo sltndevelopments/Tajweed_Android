@@ -109,7 +109,7 @@ class ExerciseActivity : BaseActivity() {
             cardsCount += section.cards.size
         }
         val cardId = exerciseId + cardsCount
-        playSound("audio_" + (moduleId + 1) + "_" + (lessonId + 1) + "_" + (cardId) + "_" + (wordId + 1))
+        playSound(getAudioName(cardId, wordId))
     }
 
     fun isWordHasSound(wordId: Int): Boolean {
@@ -119,11 +119,15 @@ class ExerciseActivity : BaseActivity() {
         }
         val cardId = exerciseId + cardsCount
         return resources.getIdentifier(
-                "audio_" + moduleId + 1 + "_" + (lessonId + 1) + "_" + (cardId) + "_" + (wordId + 1),
+                getAudioName(cardId, wordId),
                 "raw",
                 applicationContext.packageName
         ) != 0
         //sounds.contains((moduleId + 1).toString() + "_" + (lessonId + 1) + "_" + (cardId) + "_" + (wordId + 1) + ".mp3")
+    }
+
+    fun getAudioName(cardId: Int, wordId: Int): String {
+        return "audio_" + (moduleId + 1) + "_" + (lessonId + 1) + "_" + (cardId) + "_" + (wordId + 1)
     }
 
     private fun setExerciseCompleted() {
