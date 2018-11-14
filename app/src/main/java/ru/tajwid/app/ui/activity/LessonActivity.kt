@@ -27,10 +27,10 @@ import ru.tajwid.app.R
 import ru.tajwid.app.content.data.LessonSection
 import ru.tajwid.app.content.db.DbManager
 import ru.tajwid.app.ui.view.*
-import ru.tajwid.app.utils.ArabicHighlighter
 import ru.tajwid.app.utils.FontUtils
-import ru.tajwid.app.utils.TagHighlighter
 import ru.tajwid.app.utils.ViewStateHelper
+import ru.tajwid.app.utils.highlight.ArabicHighlighter
+import ru.tajwid.app.utils.highlight.TagHighlighter
 
 
 private const val EXTRA_MODULE_ID = "module_id"

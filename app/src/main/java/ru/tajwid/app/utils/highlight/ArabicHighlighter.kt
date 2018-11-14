@@ -1,4 +1,4 @@
-package ru.tajwid.app.utils
+package ru.tajwid.app.utils.highlight
 
 import android.graphics.Typeface
 import android.text.Spannable

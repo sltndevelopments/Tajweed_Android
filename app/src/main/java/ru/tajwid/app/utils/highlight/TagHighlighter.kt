@@ -1,4 +1,4 @@
-package ru.tajwid.app.utils
+package ru.tajwid.app.utils.highlight
 
 import android.text.Spannable
 import android.text.SpannableStringBuilder

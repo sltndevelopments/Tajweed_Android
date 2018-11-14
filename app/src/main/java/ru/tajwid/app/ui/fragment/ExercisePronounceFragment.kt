@@ -19,8 +19,8 @@ import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Exercise
 import ru.tajwid.app.ui.activity.ExerciseActivity
 import ru.tajwid.app.ui.view.ExercisePronounceTextView
-import ru.tajwid.app.utils.ArabicHighlighter
 import ru.tajwid.app.utils.FontUtils
+import ru.tajwid.app.utils.highlight.ArabicHighlighter
 
 
 private const val EXTRA_EXERCISE = "exercise"

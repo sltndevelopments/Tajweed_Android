@@ -1,6 +1,7 @@
-package ru.tajwid.app.utils
+package ru.tajwid.app.utils.highlight
 
 import android.graphics.Color
+import ru.tajwid.app.utils.Finder
 
 /**
  * Created by abadretdinov
@@ -79,5 +80,5 @@ class TagFinder(text: CharSequence) : Finder<Pair<CharSequence, List<TagFinder.T
             start: Int,
             end: Int,
             val color: Int
-    ) : Finder.FinderPosition(start, end)
+    ) : FinderPosition(start, end)
 }

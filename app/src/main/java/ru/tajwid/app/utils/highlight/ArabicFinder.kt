@@ -1,4 +1,6 @@
-package ru.tajwid.app.utils
+package ru.tajwid.app.utils.highlight
+
+import ru.tajwid.app.utils.Finder
 
 /**
  * Created by abadretdinov
@@ -41,5 +43,5 @@ class ArabicFinder(text: CharSequence) : Finder<List<ArabicFinder.ArabicFinderPo
         return listOfPositions
     }
 
-    open class ArabicFinderPosition(start: Int, end: Int) : Finder.FinderPosition(start, end)
+    open class ArabicFinderPosition(start: Int, end: Int) : FinderPosition(start, end)
 }
