@@ -11,7 +11,7 @@ import android.widget.TextView
  * Created by BArtWell on 21.10.2018.
  */
 object HighlightUtils {
-    fun getSpannablePositions(text: String): Pair<String, List<Triple<Int, Int, Int>>> {
+    private fun getSpannablePositions(text: String): Pair<String, List<Triple<Int, Int, Int>>> {
         val tags = listOf("<:", "<;", ":>", ";>")
 
         val listOfSpannable = mutableListOf<Triple<Int, Int, Int>>()
@@ -87,9 +87,9 @@ object HighlightUtils {
         val flag = Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
 
         // нормальный цвет, которым окрашиваем весь невыделенный текст
-        var normalColor = view.currentTextColor
+        val normalColor = view.currentTextColor
         // храним случайно окрашенный символ, который нужно перекрасить в нормальный цвет
-        var lastFalslyColored = 0
+        var lastFalselyColored = 0
 
         /*if(spannables.second.isNotEmpty()){
           spannedText.forEachIndexed { index, _ ->
@@ -105,17 +105,17 @@ object HighlightUtils {
         * */
 
         spannables.second.forEach {
-            if (lastFalslyColored != it.first && it.first > 0) {
+            if (lastFalselyColored != it.first && it.first > 0) {
                 spannedText.setSpan(ForegroundColorSpan(normalColor), it.first - 1, it.first, flag)
             }
-            if (lastFalslyColored < it.first) {
-                spannedText.setSpan(ForegroundColorSpan(normalColor), lastFalslyColored, lastFalslyColored + 1, flag)
+            if (lastFalselyColored < it.first) {
+                spannedText.setSpan(ForegroundColorSpan(normalColor), lastFalselyColored, lastFalselyColored + 1, flag)
             }
             spannedText.setSpan(ForegroundColorSpan(it.third), it.first, it.second, flag)
-            lastFalslyColored = it.second
+            lastFalselyColored = it.second
         }
-        if (lastFalslyColored in 1 until spannedText.length) {
-            spannedText.setSpan(ForegroundColorSpan(normalColor), lastFalslyColored, lastFalslyColored + 1, flag)
+        if (lastFalselyColored in 1 until spannedText.length) {
+            spannedText.setSpan(ForegroundColorSpan(normalColor), lastFalselyColored, lastFalselyColored + 1, flag)
         }
         view.setText(spannedText, TextView.BufferType.SPANNABLE)
     }

@@ -21,13 +21,15 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.SeekBar
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_lesson.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.LessonSection
 import ru.tajwid.app.content.db.DbManager
 import ru.tajwid.app.ui.view.*
+import ru.tajwid.app.utils.ArabicHighlighter
 import ru.tajwid.app.utils.FontUtils
-import ru.tajwid.app.utils.HighlightUtils
+import ru.tajwid.app.utils.TagHighlighter
 import ru.tajwid.app.utils.ViewStateHelper
 
 
@@ -146,13 +148,21 @@ class LessonActivity : BaseActivity(), PlayerView.OnStateChangedListener, ViewSt
                         card.contentItems[contentItemId]!!.type == plainText -> {
                             view = LessonPlainTextView(this)
                             view.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-                            HighlightUtils.setHighlightedText(view, card.contentItems[contentItemId]!!.content)
+                            view.setText(
+                                    TagHighlighter(
+                                            ArabicHighlighter(card.contentItems[contentItemId]!!.content)
+                                                    .getHighlighted(null)
+                                    ).getHighlighted(view.currentTextColor),
+                                    TextView.BufferType.SPANNABLE)
                             lesson_content_container.addView(view)
                         }
                         card.contentItems[contentItemId]!!.type == arabic -> {
                             view = LessonArabicTextView(this)
                             view.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-                            HighlightUtils.setHighlightedText(view, card.contentItems[contentItemId]!!.content)
+                            view.setText(
+                                    TagHighlighter(card.contentItems[contentItemId]!!.content).getHighlighted(view.currentTextColor),
+                                    TextView.BufferType.SPANNABLE)
+
                             if (lessonId == 19 && sectionId == 0 && cardId == 0) {
                                 if (contentItemId == 1 || contentItemId == 3 || contentItemId == 5 || contentItemId == 7 || contentItemId == 9 || contentItemId == 11) {
                                     view.textSize = resources.getDimension(R.dimen.text_size_lesson20)
@@ -163,7 +173,10 @@ class LessonActivity : BaseActivity(), PlayerView.OnStateChangedListener, ViewSt
                         card.contentItems[contentItemId]!!.type == highlightedText -> {
                             view = LessonHighlitedTextView(this)
                             view.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-                            HighlightUtils.setHighlightedText(view, card.contentItems[contentItemId]!!.content)
+                            view.setText(
+                                    TagHighlighter(card.contentItems[contentItemId]!!.content).getHighlighted(view.currentTextColor),
+                                    TextView.BufferType.SPANNABLE)
+
                             lesson_content_container.addView(view)
                         }
                     }

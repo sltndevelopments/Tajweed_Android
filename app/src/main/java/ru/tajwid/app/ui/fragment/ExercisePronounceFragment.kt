@@ -19,6 +19,7 @@ import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Exercise
 import ru.tajwid.app.ui.activity.ExerciseActivity
 import ru.tajwid.app.ui.view.ExercisePronounceTextView
+import ru.tajwid.app.utils.ArabicHighlighter
 import ru.tajwid.app.utils.FontUtils
 
 
@@ -52,7 +53,9 @@ class ExercisePronounceFragment : Fragment() {
 
         exercise_pronounce_image.setOnClickListener { onExercisePronounceClick() }
 
-        exercise_pronounce_title.text = exercise.content?.title
+        exercise_pronounce_title.text = exercise.content?.let {
+            ArabicHighlighter(it.text).getHighlighted(null)
+        }
 
         FontUtils.setTextViewFont(exercise_pronounce_title, R.font.montserrat_regular)
         FontUtils.setTextViewFont(exercise_pronounce_text_finishing, R.font.proxima_nova_semibold)
