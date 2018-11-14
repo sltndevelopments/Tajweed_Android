@@ -3,7 +3,6 @@ package ru.tajwid.app.utils.highlight
 import android.graphics.Typeface
 import android.text.Spannable
 import android.text.SpannableStringBuilder
-import android.text.style.RelativeSizeSpan
 import android.text.style.StyleSpan
 
 /**
@@ -19,7 +18,7 @@ class ArabicHighlighter(private val text: CharSequence) {
             typeface?.let {
                 highlightedStringBuilder.setSpan(StyleSpan(it.style), pair.start, pair.end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             }
-            highlightedStringBuilder.setSpan(RelativeSizeSpan(sizeMultiplier), pair.start, pair.end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            highlightedStringBuilder.setSpan(BaselineRelativeSizeSpan(sizeMultiplier), pair.start, pair.end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
         return highlightedStringBuilder
     }
