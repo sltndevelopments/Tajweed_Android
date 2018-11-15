@@ -3,6 +3,7 @@ package ru.tajwid.app.ui.fragment
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.res.ResourcesCompat
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextPaint
@@ -54,7 +55,9 @@ class ExercisePronounceFragment : Fragment() {
         exercise_pronounce_image.setOnClickListener { onExercisePronounceClick() }
 
         exercise_pronounce_title.text = exercise.content?.let {
-            ArabicHighlighter(it.text).getHighlighted(null)
+            ArabicHighlighter(it.text).getHighlighted(
+                    ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
+            )
         }
 
         FontUtils.setTextViewFont(exercise_pronounce_title, R.font.montserrat_regular)

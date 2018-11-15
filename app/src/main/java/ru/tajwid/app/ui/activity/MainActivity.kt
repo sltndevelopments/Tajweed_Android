@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             menuItem.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             menuItem.setText(module.title)
             menuItem.setDescription(getString(R.string.main_modules_progress_info, moduleCompleted[module.id], moduleTotal[module.id]))
-            menuItem.setListener(View.OnClickListener { startActivity(LessonsListActivity.getIntent(this, getString(R.string.main_letters), module.id)) })
+            menuItem.setListener(View.OnClickListener { startActivity(LessonsListActivity.getIntent(this, module.title, module.id)) })
             main_menu_container.addView(menuItem)
         }
     }

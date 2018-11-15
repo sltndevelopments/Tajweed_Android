@@ -3,6 +3,7 @@ package ru.tajwid.app.utils
 import android.support.annotation.FontRes
 import android.support.v4.content.res.ResourcesCompat
 import android.widget.TextView
+import ru.tajwid.app.R
 
 //private const val FONT_PATH = "fonts/"
 
@@ -20,6 +21,11 @@ class FontUtils {
             textView.typeface = ResourcesCompat.getFont(textView.context, fontResId)
             /*val typeface = Typeface.createFromAsset(textView.context.assets, FONT_PATH + font)
             textView.typeface = typeface*/
+        }
+
+        @FontRes
+        fun getArabicTypefaceResId(): Int {
+            return R.font.traditional_arabic_regular
         }
     }
 }
