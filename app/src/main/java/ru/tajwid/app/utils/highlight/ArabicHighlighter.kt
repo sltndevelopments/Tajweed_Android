@@ -10,7 +10,7 @@ import android.text.style.RelativeSizeSpan
  * on 14.11.2018
  */
 class ArabicHighlighter(private val text: CharSequence) {
-    private val sizeMultiplier = 1.6f
+    private val sizeMultiplier = 2f
     fun getHighlighted(typeface: Typeface?): CharSequence {
         val listOfArabics = ArabicFinder(text).find()
         val highlightedStringBuilder = SpannableStringBuilder(text)

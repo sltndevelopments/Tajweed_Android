@@ -55,7 +55,7 @@ class ExercisePronounceFragment : Fragment() {
         exercise_pronounce_image.setOnClickListener { onExercisePronounceClick() }
 
         exercise_pronounce_title.text = exercise.content?.let {
-            ArabicHighlighter(it.text).getHighlighted(
+            ArabicHighlighter(it.title).getHighlighted(
                     ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
             )
         }
