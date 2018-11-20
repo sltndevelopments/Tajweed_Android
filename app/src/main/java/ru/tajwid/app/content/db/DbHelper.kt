@@ -18,8 +18,17 @@ class DbHelper internal constructor(context: Context) {
         Realm.init(context)
         val realmConfiguration = RealmConfiguration.Builder()
                 .name(Realm.DEFAULT_REALM_NAME)
-                .schemaVersion(DATABASE_VERSION.toLong())
-                .deleteRealmIfMigrationNeeded()
+                .schemaVersion(DATABASE_VERSION)
+                .migration { realm, _, _ ->
+                    realm.delete("Module")
+                    realm.delete("Lesson")
+                    realm.delete("LessonSection")
+                    realm.delete("LessonCard")
+                    realm.delete("LessonCardContentItem")
+                    realm.delete("Exercise")
+                    realm.delete("ExerciseContent")
+                }
+                //.deleteRealmIfMigrationNeeded()
                 .build()
         Realm.setDefaultConfiguration(realmConfiguration)
     }
@@ -43,7 +52,7 @@ class DbHelper internal constructor(context: Context) {
     }
 
     companion object {
-        private val DATABASE_VERSION = 2
+        private const val DATABASE_VERSION = 3L
 
         fun deleteAll() {
             val realm = Realm.getDefaultInstance()
