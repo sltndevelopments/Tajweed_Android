@@ -4,13 +4,16 @@ import android.graphics.Point
 import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.res.ResourcesCompat
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.fragment_exercise_reading.*
@@ -142,10 +145,20 @@ class ExerciseReadingFragment : Fragment() {
             }
             exercise_reading_content_container.addView(rowView)
         }
-        if (isLastExercise) {
-            exercise_reading_image.setImageResource(R.drawable.ic_go_to_lesson)
-            exercise_reading_next.setText(R.string.finishing)
-        }
+    }
+
+    private fun setCanGoNext() {
+        exercise_reading_go_next.visibility = VISIBLE
+        exercise_reading_image.setImageResource(R.drawable.ic_circle_check_green)
+        exercise_reading_next.setText(R.string.right)
+        Handler().postDelayed({
+            try {
+                exercise_reading_image.setImageResource(R.drawable.ic_go_to_lesson)
+                exercise_reading_next.setText(if (isLastExercise) R.string.finishing else R.string.onward)
+            } catch (e: Exception) {
+                Log.e(ExerciseReadingFragment::class.simpleName, e.localizedMessage)
+            }
+        }, 1000)
     }
 
     private fun getMaxWidth(): Int {

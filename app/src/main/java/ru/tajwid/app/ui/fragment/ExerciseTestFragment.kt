@@ -76,19 +76,9 @@ class ExerciseTestFragment : Fragment() {
 //                    child.isEnabled = false
 //                }
                 if (variant == exercise.content?.correctVariant) {
-                    exercise_test_go_next.visibility = VISIBLE
                     variantsView.setTextColor(ContextCompat.getColor(this.context!!, R.color.shamrock_green))
                     variantsView.setDone()
-                    exercise_test_image.setImageResource(R.drawable.ic_circle_check_green)
-                    exercise_test_text_right.setText(R.string.right)
-                    Handler().postDelayed({
-                        try {
-                            exercise_test_image.setImageResource(R.drawable.ic_go_to_lesson)
-                            exercise_test_text_right.setText(if (isLastExercise) R.string.finishing else R.string.onward)
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                        }
-                    }, 1000)
+                    setCanGoNext()
                 } else {
                     variantsView.setTextColor(ContextCompat.getColor(this.context!!, R.color.test_wrong_answer_color))
                     variantsView.setUndone()
@@ -104,6 +94,20 @@ class ExerciseTestFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun setCanGoNext() {
+        exercise_test_go_next.visibility = VISIBLE
+        exercise_test_image.setImageResource(R.drawable.ic_circle_check_green)
+        exercise_test_text_right.setText(R.string.right)
+        Handler().postDelayed({
+            try {
+                exercise_test_image.setImageResource(R.drawable.ic_go_to_lesson)
+                exercise_test_text_right.setText(if (isLastExercise) R.string.finishing else R.string.onward)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }, 1000)
     }
 
     private fun onExerciseTestClick() {
