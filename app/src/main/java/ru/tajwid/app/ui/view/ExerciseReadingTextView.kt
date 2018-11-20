@@ -2,14 +2,14 @@ package ru.tajwid.app.ui.view
 
 import android.content.Context
 import android.support.v4.content.ContextCompat
+import android.support.v7.widget.AppCompatTextView
 import android.util.AttributeSet
 import android.util.TypedValue
-import android.widget.TextView
 import ru.tajwid.app.R
 
 class ExerciseReadingTextView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : TextView(context, attrs, defStyleAttr) {
+) : AppCompatTextView(context, attrs, defStyleAttr) {
 
     init {
         setTextColor(ContextCompat.getColor(context, R.color.blueberry))

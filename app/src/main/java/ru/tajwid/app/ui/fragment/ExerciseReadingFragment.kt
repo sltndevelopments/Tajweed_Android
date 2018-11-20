@@ -2,10 +2,8 @@ package ru.tajwid.app.ui.fragment
 
 import android.graphics.Point
 import android.graphics.Rect
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.res.ResourcesCompat
@@ -47,7 +45,7 @@ class ExerciseReadingFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_exercise_reading, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private lateinit var isCorrectWordsFound: Array<Boolean>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val exercise = arguments!!.getParcelable<Exercise>(EXTRA_EXERCISE)
@@ -62,7 +60,9 @@ class ExerciseReadingFragment : Fragment() {
         val maxWidth = getMaxWidth()
 
         val rows = exercise.content?.text?.split("\n")
-
+        isCorrectWordsFound = exercise.content?.correctWords?.let { it ->
+            Array(it.size) { false }
+        } ?: run { Array(0) { false } }
         // Расставляем переносы, если строка слишком длинная
         val rowsWithBreaks = mutableListOf<String>()
         for (rowText in rows!!) {
@@ -106,7 +106,7 @@ class ExerciseReadingFragment : Fragment() {
                 rowItemViewLayoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
                 rowItemViewLayoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
                 rowItemViewLayoutParams.topMargin = resources.getDimension(R.dimen.dimen_20dp).toInt()
-                rowItemViewLayoutParams.marginEnd = resources.getDimension(R.dimen.dimen_4dp).toInt()
+                rowItemViewLayoutParams.rightMargin = resources.getDimension(R.dimen.dimen_4dp).toInt()
                 rowItemView.layoutParams = rowItemViewLayoutParams
 
                 val wordView = ExerciseReadingTextView(context!!)
@@ -130,17 +130,23 @@ class ExerciseReadingFragment : Fragment() {
                 underlineView.setBackgroundColor(ContextCompat.getColor(context!!, R.color.default_separator))
 
                 rowItemView.setOnClickListener {
-                    var isCorrect = false
-                    loop@ for (correctWord in exercise?.content?.correctWords!!) {
-                        if (word == correctWord) {
-                            isCorrect = true
-                            break@loop
+                    val isCorrect = exercise?.content?.correctWords?.let { correctWords ->
+                        for (i in 0 until correctWords.size) {
+                            if (word == correctWords[i]) {
+                                isCorrectWordsFound[i] = true
+                                return@let true
+                            }
                         }
-                    }
+                        false
+                    } ?: run { false }
+
                     underlineView.setBackgroundColor(ContextCompat.getColor(context!!, if (isCorrect)
                         R.color.shamrock_green
                     else
                         R.color.red))
+                    if (isCorrectWordsFound.all { item -> item }) {
+                        setCanGoNext()
+                    }
                 }
             }
             exercise_reading_content_container.addView(rowView)
@@ -156,7 +162,7 @@ class ExerciseReadingFragment : Fragment() {
                 exercise_reading_image.setImageResource(R.drawable.ic_go_to_lesson)
                 exercise_reading_next.setText(if (isLastExercise) R.string.finishing else R.string.onward)
             } catch (e: Exception) {
-                Log.e(ExerciseReadingFragment::class.simpleName, e.localizedMessage)
+                Log.e(ExerciseReadingFragment::class.java.simpleName, e.localizedMessage)
             }
         }, 1000)
     }
