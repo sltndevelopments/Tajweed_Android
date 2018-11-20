@@ -7,6 +7,7 @@ import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.res.ResourcesCompat
 import android.support.v4.widget.NestedScrollView
 import android.support.v7.widget.Toolbar
 import android.text.TextUtils
@@ -151,7 +152,9 @@ class LessonActivity : BaseActivity(), PlayerView.OnStateChangedListener, ViewSt
                             view.setText(
                                     TagHighlighter(
                                             ArabicHighlighter(card.contentItems[contentItemId]!!.content)
-                                                    .getHighlighted(null)
+                                                    .getHighlighted(
+                                                            ResourcesCompat.getFont(this, FontUtils.getArabicTypefaceResId())
+                                                    )
                                     ).getHighlighted(view.currentTextColor),
                                     TextView.BufferType.SPANNABLE)
                             lesson_content_container.addView(view)
