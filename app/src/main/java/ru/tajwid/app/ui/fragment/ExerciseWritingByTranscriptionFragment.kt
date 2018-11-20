@@ -2,6 +2,7 @@ package ru.tajwid.app.ui.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.res.ResourcesCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Exercise
 import ru.tajwid.app.ui.activity.ExerciseActivity
 import ru.tajwid.app.utils.FontUtils
+import ru.tajwid.app.utils.highlight.ArabicHighlighter
 
 private const val EXTRA_EXERCISE = "exercise"
 private const val EXTRA_IS_LAST = "is_last"
@@ -46,7 +48,11 @@ class ExerciseWritingByTranscriptionFragment : Fragment() {
         exercise_writing_title.text = exercise.content?.title
         FontUtils.setTextViewFont(exercise_writing_title, R.font.montserrat_regular)
 
-        exercise_writing_transcription.text = exercise.content?.transcription
+        exercise_writing_transcription.text = exercise.content?.transcription?.let {
+            ArabicHighlighter(it).getHighlighted(
+                    ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
+            )
+        } ?: run { null }
         FontUtils.setTextViewFont(exercise_writing_transcription, R.font.montserrat_regular)
 
         FontUtils.setTextViewFont(exercise_writing_text, R.font.montserrat_regular)
@@ -61,7 +67,11 @@ class ExerciseWritingByTranscriptionFragment : Fragment() {
             }
         } else {
             isCorrectWritingShown = true
-            exercise_writing_correct.text = exercise.content?.correctWriting
+            exercise_writing_correct.text = exercise.content?.correctWriting?.let {
+                ArabicHighlighter(it).getHighlighted(
+                        ResourcesCompat.getFont(exercise_writing_correct.context, FontUtils.getArabicTypefaceResId())
+                )
+            } ?: run { null }
 //            FontUtils.setTextViewFont(exercise_writing_correct, FontUtils.ARABIC_FONT)
 
             if (isLastExercise) {

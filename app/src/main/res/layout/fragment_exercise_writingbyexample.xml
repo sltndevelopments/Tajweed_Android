@@ -21,11 +21,10 @@
         android:id="@+id/exercise_writing_example"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="end"
         android:layout_marginTop="@dimen/dimen_48dp"
-        android:gravity="center"
         android:textColor="@color/blueberry"
-        android:textSize="@dimen/text_size_40sp"
+        android:textSize="@dimen/text_size_48sp"
         android:textStyle="normal"
         tools:text="أَمَرَ"/>
 

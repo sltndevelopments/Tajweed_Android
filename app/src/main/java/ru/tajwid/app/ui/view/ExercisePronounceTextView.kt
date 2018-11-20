@@ -17,7 +17,7 @@ class ExercisePronounceTextView @JvmOverloads constructor(
         setTextColor(ContextCompat.getColor(context, R.color.blueberry))
 //        FontUtils.setTextViewFont(this, FontUtils.ARABIC_FONT)
 
-        setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(R.dimen.text_size_40sp))
+        setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(R.dimen.text_size_48sp))
         val paddingTop = context.resources.getDimension(R.dimen.dimen_24dp).toInt()
         setPadding(0, paddingTop, 0, 0)
         typeface = ResourcesCompat.getFont(context, FontUtils.getArabicTypefaceResId())

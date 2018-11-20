@@ -2,6 +2,7 @@ package ru.tajwid.app.ui.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.res.ResourcesCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,6 +44,7 @@ class ExerciseWritingByExampleFragment : Fragment() {
         exercise_writing_example_title.text = exercise?.content?.title
         FontUtils.setTextViewFont(exercise_writing_example_title, R.font.montserrat_regular)
 
+        exercise_writing_example.typeface = ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
         exercise_writing_example.text = exercise?.content?.example
 //        FontUtils.setTextViewFont(exercise_writing_example, FontUtils.ARABIC_FONT)
 //        FontUtils.setTextViewFont(exercise_writing_example_text, FontUtils.ARABIC_FONT)

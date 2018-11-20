@@ -52,7 +52,7 @@ class DbHelper internal constructor(context: Context) {
     }
 
     companion object {
-        private const val DATABASE_VERSION = 3L
+        private const val DATABASE_VERSION = 5L
 
         fun deleteAll() {
             val realm = Realm.getDefaultInstance()

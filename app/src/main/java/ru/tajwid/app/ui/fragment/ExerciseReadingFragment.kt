@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.res.ResourcesCompat
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ import ru.tajwid.app.content.data.Exercise
 import ru.tajwid.app.ui.activity.ExerciseActivity
 import ru.tajwid.app.ui.view.ExerciseReadingTextView
 import ru.tajwid.app.utils.FontUtils
+import ru.tajwid.app.utils.highlight.ArabicHighlighter
 
 
 private const val EXTRA_EXERCISE = "exercise"
@@ -111,7 +113,9 @@ class ExerciseReadingFragment : Fragment() {
                 wordViewLayoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
                 wordViewLayoutParams.topMargin = resources.getDimension(R.dimen.dimen_20dp).toInt()
                 wordView.layoutParams = wordViewLayoutParams
-                wordView.text = word
+                wordView.text = ArabicHighlighter(word).getHighlighted(
+                        ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
+                )
 
                 val underlineView = View(context)
                 rowItemView.addView(underlineView)

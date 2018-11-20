@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.res.ResourcesCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
@@ -15,6 +16,7 @@ import ru.tajwid.app.content.data.Exercise
 import ru.tajwid.app.ui.activity.ExerciseActivity
 import ru.tajwid.app.ui.view.ExerciseVariantsTextView
 import ru.tajwid.app.utils.FontUtils
+import ru.tajwid.app.utils.highlight.ArabicHighlighter
 
 private const val EXTRA_EXERCISE = "exercise"
 private const val EXTRA_IS_LAST = "is_last"
@@ -65,7 +67,9 @@ class ExerciseTestFragment : Fragment() {
             layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
             layoutParams.topMargin = resources.getDimension(R.dimen.dimen_20dp).toInt()
             variantsView.layoutParams = layoutParams
-            variantsView.text = variant
+            variantsView.text = ArabicHighlighter(variant).getHighlighted(
+                    ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
+            )
             variantsView.setOnClickListener {
                 //                for (i in 0 until exercise_content_container.childCount) {
 //                    val child = exercise_content_container.getChildAt(i) as ExerciseVariantsTextView

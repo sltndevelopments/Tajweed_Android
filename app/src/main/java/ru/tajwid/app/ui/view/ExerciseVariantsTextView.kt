@@ -14,9 +14,10 @@ class ExerciseVariantsTextView @JvmOverloads constructor(
 
     init {
         setTextColor(ContextCompat.getColor(context, R.color.blueberry))
-        setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(R.dimen.text_size_40sp))
+        setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(R.dimen.text_size_20sp))
 //        FontUtils.setTextViewFont(this, FontUtils.ARABIC_FONT)
-
+        val padding = context.resources.getDimension(R.dimen.dimen_8dp).toInt()
+        setPadding(padding, padding, padding, padding)
         gravity = Gravity.CENTER
         background = ContextCompat.getDrawable(context, R.drawable.exercise_border_black)
     }

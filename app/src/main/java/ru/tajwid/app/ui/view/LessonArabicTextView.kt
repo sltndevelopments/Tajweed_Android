@@ -6,6 +6,7 @@ import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.widget.AppCompatTextView
 import android.util.AttributeSet
 import android.util.TypedValue
+import android.view.Gravity
 import ru.tajwid.app.R
 import ru.tajwid.app.utils.FontUtils
 
@@ -15,6 +16,7 @@ class LessonArabicTextView @JvmOverloads constructor(
 
     init {
         setTextColor(ContextCompat.getColor(context, R.color.blueberry))
+        gravity = Gravity.RIGHT
         setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(R.dimen.text_size_48sp))
 //        FontUtils.setTextViewFont(this, FontUtils.ARABIC_FONT)
         val paddingTop = context.resources.getDimension(R.dimen.dimen_4dp).toInt()

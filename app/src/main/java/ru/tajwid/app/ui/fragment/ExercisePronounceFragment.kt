@@ -66,7 +66,7 @@ class ExercisePronounceFragment : Fragment() {
         var isWordsSoundable = false
         var wordId = 0
         for (row in exercise?.content?.rows!!) {
-            val rowView = ExercisePronounceTextView(this.context!!)
+            val rowView = ExercisePronounceTextView(view.context)
             exercise_pronounce_content_container.addView(rowView)
             val layoutParams = rowView.layoutParams as ViewGroup.MarginLayoutParams
             layoutParams.width = LinearLayout.LayoutParams.MATCH_PARENT

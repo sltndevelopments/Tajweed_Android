@@ -23,9 +23,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.SettingsActivity"/>
-        <activity android:name=".ui.activity.LessonsListActivity"/>
-        <activity android:name=".ui.activity.LessonActivity"/>
-        <activity android:name=".ui.activity.ExerciseActivity"/>
+        <activity
+            android:name=".ui.activity.LessonsListActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity
+            android:name=".ui.activity.LessonActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity
+            android:name=".ui.activity.ExerciseActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
 
         <receiver android:name=".receiver.BootCompletedReceiver">
             <intent-filter>
