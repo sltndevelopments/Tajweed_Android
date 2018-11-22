@@ -144,7 +144,7 @@ class ExerciseReadingFragment : Fragment() {
                         R.color.shamrock_green
                     else
                         R.color.red))
-                    if (isCorrectWordsFound.all { item -> item }) {
+                    if (!goingNext && isCorrectWordsFound.all { item -> item }) {
                         setCanGoNext()
                     }
                 }
@@ -153,7 +153,10 @@ class ExerciseReadingFragment : Fragment() {
         }
     }
 
+    private var goingNext = false
+
     private fun setCanGoNext() {
+        goingNext = true
         exercise_reading_go_next.visibility = VISIBLE
         exercise_reading_image.setImageResource(R.drawable.ic_circle_check_green)
         exercise_reading_next.setText(R.string.right)
