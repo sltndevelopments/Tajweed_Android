@@ -8,12 +8,14 @@ import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.res.ResourcesCompat
 import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayout
 import kotlinx.android.synthetic.main.fragment_exercise_reading.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Exercise
@@ -92,28 +94,28 @@ class ExerciseReadingFragment : Fragment() {
         }
 
         for (rowText in rowsWithBreaks) {
-            val rowView = LinearLayout(context)
-            rowView.orientation = LinearLayout.HORIZONTAL
+            val rowView = FlexboxLayout(context)
+            rowView.flexDirection = FlexDirection.ROW_REVERSE
+            rowView.flexWrap = FlexWrap.WRAP
+            //rowView.orientation = LinearLayout.HORIZONTAL
+            //rowView.isRtl=true
             val rowViewLayoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            rowViewLayoutParams.gravity = Gravity.RIGHT
+            //rowViewLayoutParams.gravity = Gravity.RIGHT
             rowView.layoutParams = rowViewLayoutParams
             val words = rowText.split(" ")
             for (word in words.reversed()) {
                 val rowItemView = LinearLayout(context)
-                rowView.addView(rowItemView)
-                rowItemView.orientation = LinearLayout.VERTICAL
-                val rowItemViewLayoutParams = rowItemView.layoutParams as ViewGroup.MarginLayoutParams
-                rowItemViewLayoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
-                rowItemViewLayoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
+                val rowItemViewLayoutParams = ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
                 rowItemViewLayoutParams.topMargin = resources.getDimension(R.dimen.dimen_20dp).toInt()
                 rowItemViewLayoutParams.rightMargin = resources.getDimension(R.dimen.dimen_4dp).toInt()
-                rowItemView.layoutParams = rowItemViewLayoutParams
+                rowView.addView(rowItemView, rowItemViewLayoutParams)
+                rowItemView.orientation = LinearLayout.VERTICAL
 
                 val wordView = ExerciseReadingTextView(context!!)
                 rowItemView.addView(wordView)
                 val wordViewLayoutParams = wordView.layoutParams as ViewGroup.MarginLayoutParams
-                wordViewLayoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
-                wordViewLayoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
+                wordViewLayoutParams.width = ViewGroup.LayoutParams.WRAP_CONTENT
+                wordViewLayoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
                 wordViewLayoutParams.topMargin = resources.getDimension(R.dimen.dimen_20dp).toInt()
                 wordView.layoutParams = wordViewLayoutParams
                 wordView.text = ArabicHighlighter(word).getHighlighted(
@@ -123,7 +125,7 @@ class ExerciseReadingFragment : Fragment() {
                 val underlineView = View(context)
                 rowItemView.addView(underlineView)
                 val layoutParams = underlineView.layoutParams as ViewGroup.MarginLayoutParams
-                layoutParams.width = LinearLayout.LayoutParams.MATCH_PARENT
+                layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
                 layoutParams.height = resources.getDimension(R.dimen.dimen_2dp).toInt()
                 layoutParams.topMargin = resources.getDimension(R.dimen.dimen_20dp).toInt()
                 underlineView.layoutParams = layoutParams

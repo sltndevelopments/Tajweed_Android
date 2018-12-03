@@ -22,5 +22,60 @@ class ExercisePronounceTextView @JvmOverloads constructor(
         setPadding(0, paddingTop, 0, 0)
         typeface = ResourcesCompat.getFont(context, FontUtils.getArabicTypefaceResId())
 
+        /*addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                var text = s.toString()
+                var changed:Boolean
+                do {
+                    changed = false
+                    var totalCurrentLength=0
+                    val lines = text.lines()
+                    for (i in 0 until lines.size) {
+                        val line=lines[i]
+                        val lineLength=line.length
+                        val changedLength=getWrappedStringLength(line)
+                        if(changedLength!=lineLength){
+                            text=text.replaceRange(changedLength,changedLength,"\n")
+                            changed=true
+                        }
+                        totalCurrentLength+=lineLength
+                    }
+                } while (changed)
+                if(text!=s.toString()){
+                    setText(text)
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })*/
     }
+/*
+    private fun getWrappedStringLength(line: String): Int {
+        val maxWidth = measuredWidth - paddingLeft - paddingRight
+        if(maxWidth<=0){
+            return line.length
+        }
+
+        var currentLine = line
+        val rect = Rect()
+        paint.getTextBounds(currentLine, 0, currentLine.length, rect)
+        var width = rect.width()
+
+        while (width > maxWidth && currentLine.length > 1) {
+            var isSpace = true
+            while (!isSpace && currentLine.length > 1) {
+                currentLine = currentLine.substring(IntRange(0, currentLine.length - 1))
+                isSpace = ' ' == line[currentLine.length]
+            }
+            paint.getTextBounds(currentLine, 0, currentLine.length, rect)
+            width = rect.width()
+        }
+        if(currentLine.length<=1){
+            return line.length
+        }
+        return currentLine.length
+    }*/
+
 }
