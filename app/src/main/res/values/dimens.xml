@@ -25,6 +25,8 @@
     <dimen name="text_size_56sp">56sp</dimen>
     <dimen name="text_size_100sp">100sp</dimen>
 
+    <dimen name="text_size_step">2sp</dimen>
+
     <dimen name="player_height_small">32dp</dimen>
     <dimen name="player_height_large">120dp</dimen>
 

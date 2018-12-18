@@ -53,7 +53,7 @@ class ExerciseWritingByTranscriptionFragment : Fragment() {
                     ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
             )
         } ?: run { null }
-        FontUtils.setTextViewFont(exercise_writing_transcription, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(exercise_writing_transcription, R.font.roboto_regular)
 
         FontUtils.setTextViewFont(exercise_writing_text, R.font.montserrat_regular)
     }

@@ -33,7 +33,7 @@ class LessonsListItemView @JvmOverloads constructor(
 
     fun setTitle(title: String) {
         lessons_list_item_title.text = title
-        FontUtils.setTextViewFont(lessons_list_item_title, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(lessons_list_item_title, R.font.roboto_regular)
 
     }
 
