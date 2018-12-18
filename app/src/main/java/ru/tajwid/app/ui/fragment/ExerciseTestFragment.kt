@@ -47,10 +47,10 @@ class ExerciseTestFragment : Fragment() {
         isLastExercise = arguments?.getBoolean(EXTRA_IS_LAST) ?: false
 
         exercise_test_title.text = exercise?.content?.title
-        FontUtils.setTextViewFont(exercise_test_title, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(exercise_test_title, FontUtils.getRegularTypefaceResId())
 
         exercise_test_text.text = exercise?.content?.text
-        FontUtils.setTextViewFont(exercise_test_text, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(exercise_test_text, FontUtils.getRegularTypefaceResId())
 
         FontUtils.setTextViewFont(exercise_test_text_right, R.font.proxima_nova_semibold)
 

@@ -42,7 +42,7 @@ class ExerciseWritingByExampleFragment : Fragment() {
         exercise_writing_example_image.setOnClickListener { onExerciseTestClick() }
 
         exercise_writing_example_title.text = exercise?.content?.title
-        FontUtils.setTextViewFont(exercise_writing_example_title, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(exercise_writing_example_title, FontUtils.getRegularTypefaceResId())
 
         exercise_writing_example.typeface = ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
         exercise_writing_example.text = exercise?.content?.example

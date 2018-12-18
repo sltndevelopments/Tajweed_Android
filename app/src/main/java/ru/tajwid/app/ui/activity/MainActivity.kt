@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         FontUtils.setTextViewFont(author_project, R.font.proxima_nova_semibold)
         FontUtils.setTextViewFont(main_total_reading_progress_info, R.font.proxima_nova_semibold)
-        FontUtils.setTextViewFont(settings, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(settings, FontUtils.getRegularTypefaceResId())
 
         val calendar = Calendar.getInstance()
         calendar.add(Calendar.DAY_OF_MONTH, 7)
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         calendar.set(Calendar.MINUTE, 0)
         calendar.set(Calendar.SECOND, 0)
 
-        PreferencesHelper.get().setNextNotificationTime(calendar.getTimeInMillis())
+        PreferencesHelper.get().setNextNotificationTime(calendar.timeInMillis)
 
         JsonImportHelper.import(this)
         NotificationsAlarmReceiver.schedule(this)

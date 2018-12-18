@@ -27,5 +27,10 @@ class FontUtils {
         fun getArabicTypefaceResId(): Int {
             return R.font.traditional_arabic_regular
         }
+
+        @FontRes
+        fun getRegularTypefaceResId(): Int {
+            return R.font.roboto_regular
+        }
     }
 }

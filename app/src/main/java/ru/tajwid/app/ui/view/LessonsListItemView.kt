@@ -33,12 +33,12 @@ class LessonsListItemView @JvmOverloads constructor(
 
     fun setTitle(title: String) {
         lessons_list_item_title.text = title
-        FontUtils.setTextViewFont(lessons_list_item_title, R.font.roboto_regular)
+        FontUtils.setTextViewFont(lessons_list_item_title, FontUtils.getRegularTypefaceResId())
 
     }
 
     fun setInfo(text: String) {
         lessons_list_item_info.text = text
-        FontUtils.setTextViewFont(lessons_list_item_info, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(lessons_list_item_info, FontUtils.getRegularTypefaceResId())
     }
 }

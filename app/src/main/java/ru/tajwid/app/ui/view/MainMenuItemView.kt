@@ -18,7 +18,7 @@ class MainMenuItemView @JvmOverloads constructor(
 
     fun setText(text: String) {
         main_menu_text.text = text
-        FontUtils.setTextViewFont(main_menu_text, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(main_menu_text, FontUtils.getRegularTypefaceResId())
     }
 
     fun setDescription(description: String) {

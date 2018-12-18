@@ -56,7 +56,7 @@ class ExerciseReadingFragment : Fragment() {
         exercise_reading_image.setOnClickListener { onExerciseTestClick() }
 
         exercise_reading_title.text = exercise.content?.title
-        FontUtils.setTextViewFont(exercise_reading_title, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(exercise_reading_title, FontUtils.getRegularTypefaceResId())
 
         val paint = ExerciseReadingTextView(context!!).paint
         val maxWidth = getMaxWidth()

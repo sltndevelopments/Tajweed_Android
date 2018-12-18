@@ -60,7 +60,7 @@ class ExercisePronounceFragment : Fragment() {
             )
         }
 
-        FontUtils.setTextViewFont(exercise_pronounce_title, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(exercise_pronounce_title, FontUtils.getRegularTypefaceResId())
         FontUtils.setTextViewFont(exercise_pronounce_text_finishing, R.font.proxima_nova_semibold)
 
         var isWordsSoundable = false

@@ -15,7 +15,7 @@ class LessonCardTitleTextView @JvmOverloads constructor(
     init {
         setTextColor(ContextCompat.getColor(context, R.color.black))
         setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(R.dimen.text_size_24sp))
-        FontUtils.setTextViewFont(this, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(this, FontUtils.getRegularTypefaceResId())
 
         val paddingTop = context.resources.getDimension(R.dimen.dimen_24dp).toInt()
         setPadding(0, paddingTop, 0, 0)

@@ -46,16 +46,16 @@ class ExerciseWritingByTranscriptionFragment : Fragment() {
         exercise_writing_by_transcription_go_next.setOnClickListener { onExerciseTestClick() }
 
         exercise_writing_title.text = exercise.content?.title
-        FontUtils.setTextViewFont(exercise_writing_title, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(exercise_writing_title, FontUtils.getRegularTypefaceResId())
 
         exercise_writing_transcription.text = exercise.content?.transcription?.let {
             ArabicHighlighter(it).getHighlighted(
                     ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
             )
         } ?: run { null }
-        FontUtils.setTextViewFont(exercise_writing_transcription, R.font.roboto_regular)
+        FontUtils.setTextViewFont(exercise_writing_transcription, FontUtils.getRegularTypefaceResId())
 
-        FontUtils.setTextViewFont(exercise_writing_text, R.font.montserrat_regular)
+        FontUtils.setTextViewFont(exercise_writing_text, FontUtils.getRegularTypefaceResId())
     }
 
     private fun onExerciseTestClick() {
