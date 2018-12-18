@@ -150,12 +150,15 @@ class LessonActivity : BaseActivity(), PlayerView.OnStateChangedListener, ViewSt
                             view = LessonPlainTextView(this)
                             view.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
                             view.setText(
-                                    TagHighlighter(
-                                            ArabicHighlighter(card.contentItems[contentItemId]!!.content)
-                                                    .getHighlighted(
-                                                            ResourcesCompat.getFont(this, FontUtils.getArabicTypefaceResId())
-                                                    )
-                                    ).getHighlighted(view.currentTextColor),
+                                    ArabicHighlighter(
+                                            TagHighlighter(
+                                                    card.contentItems[contentItemId]!!.content
+                                            ).getHighlighted(view.currentTextColor)
+                                    )
+                                            .getHighlighted(
+                                                    ResourcesCompat.getFont(this, FontUtils.getArabicTypefaceResId())
+                                            )
+                                    ,
                                     TextView.BufferType.SPANNABLE)
                             lesson_content_container.addView(view)
                         }

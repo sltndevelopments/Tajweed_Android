@@ -53,7 +53,7 @@ class DbHelper internal constructor(context: Context) {
 
     companion object {
         /*каждый раз, когда меняется book.json, нужно увеличивать версию*/
-        private const val DATABASE_VERSION = 7L
+        private const val DATABASE_VERSION = 9L
 
         fun deleteAll() {
             val realm = Realm.getDefaultInstance()
