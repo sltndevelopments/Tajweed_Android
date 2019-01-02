@@ -1,7 +1,6 @@
 package ru.tajwid.app.ui.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v4.content.res.ResourcesCompat
 import android.view.LayoutInflater
 import android.view.View
@@ -9,17 +8,12 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_exercise_writingbytranscription.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Exercise
-import ru.tajwid.app.ui.activity.ExerciseActivity
 import ru.tajwid.app.utils.FontUtils
 import ru.tajwid.app.utils.highlight.ArabicHighlighter
 
-private const val EXTRA_EXERCISE = "exercise"
-private const val EXTRA_IS_LAST = "is_last"
-
-class ExerciseWritingByTranscriptionFragment : Fragment() {
+class ExerciseWritingByTranscriptionFragment : ExerciseFragment() {
 
     private lateinit var exercise: Exercise
-    private var isLastExercise = false
     private var isCorrectWritingShown = false
 
     companion object {
@@ -60,11 +54,7 @@ class ExerciseWritingByTranscriptionFragment : Fragment() {
 
     private fun onExerciseTestClick() {
         if (isCorrectWritingShown) {
-            if (isLastExercise) {
-                (activity as ExerciseActivity).goToLessonsListActivity()
-            } else {
-                (activity as ExerciseActivity).goToNextFragment()
-            }
+            onGoNextClick()
         } else {
             isCorrectWritingShown = true
             exercise_writing_correct.text = exercise.content?.correctWriting?.let {

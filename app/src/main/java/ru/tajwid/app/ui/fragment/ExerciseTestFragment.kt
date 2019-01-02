@@ -2,7 +2,6 @@ package ru.tajwid.app.ui.fragment
 
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.res.ResourcesCompat
 import android.view.LayoutInflater
@@ -13,17 +12,11 @@ import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.fragment_exercise_test.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Exercise
-import ru.tajwid.app.ui.activity.ExerciseActivity
 import ru.tajwid.app.ui.view.ExerciseVariantsTextView
 import ru.tajwid.app.utils.FontUtils
 import ru.tajwid.app.utils.highlight.ArabicHighlighter
 
-private const val EXTRA_EXERCISE = "exercise"
-private const val EXTRA_IS_LAST = "is_last"
-
-class ExerciseTestFragment : Fragment() {
-
-    private var isLastExercise = false
+class ExerciseTestFragment : ExerciseFragment() {
 
     companion object {
         fun newInstance(exercise: Exercise, isLastExercise: Boolean): ExerciseTestFragment {
@@ -57,7 +50,7 @@ class ExerciseTestFragment : Fragment() {
         exercise_test_image.setImageResource(R.drawable.ic_go_to_lesson)
         exercise_test_text_right.setText(if (isLastExercise) R.string.finishing else R.string.onward)
 
-        exercise_test_go_next.setOnClickListener { onExerciseTestClick() }
+        exercise_test_go_next.setOnClickListener { onGoNextClick() }
 
         for (variant in exercise?.content?.variants!!) {
             val variantsView = ExerciseVariantsTextView(this.context!!)
@@ -107,14 +100,6 @@ class ExerciseTestFragment : Fragment() {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }, 1000)
-    }
-
-    private fun onExerciseTestClick() {
-        if (isLastExercise) {
-            (activity as ExerciseActivity).goToLessonsListActivity()
-        } else {
-            (activity as ExerciseActivity).goToNextFragment()
-        }
+        }, CAN_GO_NEXT_ANIM_DELAY)
     }
 }

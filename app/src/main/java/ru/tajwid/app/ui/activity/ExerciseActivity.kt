@@ -22,11 +22,10 @@ class ExerciseActivity : BaseActivity() {
 
     private var moduleId = 0
     private var lessonId = 0
-    private var exerciseId = 0
+    private var exerciseNumber = 0
     private var lesson: Lesson? = null
     private val progressDao = DbManager.get().getProgressDAO()
     private var mediaPlayer: MediaPlayer = MediaPlayer()
-    //private lateinit var sounds: List<String>
 
     companion object {
 
@@ -57,13 +56,13 @@ class ExerciseActivity : BaseActivity() {
     }
 
     fun goToNextFragment() {
-        if (exerciseId > 0) {
+        if (exerciseNumber > 0) {
             setExerciseCompleted()
         }
-        exercise_toolbar.title = getString(R.string.exercise_title, lessonId + 1, exerciseId + 1)
-        val exercise = lesson?.exercises?.get(exerciseId)
+        exercise_toolbar.title = getString(R.string.exercise_title, lessonId + 1, exerciseNumber + 1)
+        val exercise = lesson?.exercises?.get(exerciseNumber)
         if (exercise != null) {
-            val isLastExercise = exerciseId == lesson?.exercises?.size?.minus(1)
+            val isLastExercise = exerciseNumber == lesson?.exercises?.size?.minus(1)
             when (exercise.type) {
                 "test" -> replaceFragment(ExerciseTestFragment.newInstance(exercise, isLastExercise))
                 "pronounce" -> replaceFragment(ExercisePronounceFragment.newInstance(exercise, isLastExercise))
@@ -71,21 +70,10 @@ class ExerciseActivity : BaseActivity() {
                 "writingByTranscription" -> replaceFragment(ExerciseWritingByTranscriptionFragment.newInstance(exercise, isLastExercise))
                 "reading" -> replaceFragment(ExerciseReadingFragment.newInstance(exercise, isLastExercise))
             }
-            /*if (exercise.type == "test") {
-                replaceFragment(ExerciseTestFragment.newInstance(exercise, isLastExercise))
-            } else if (exercise.type == "pronounce") {
-                replaceFragment(ExercisePronounceFragment.newInstance(exercise, isLastExercise))
-            } else if (exercise.type == "writingByExample") {
-                replaceFragment(ExerciseWritingByExampleFragment.newInstance(exercise, isLastExercise))
-            } else if (exercise.type == "writingByTranscription") {
-                replaceFragment(ExerciseWritingByTranscriptionFragment.newInstance(exercise, isLastExercise))
-            } else if (exercise.type == "reading") {
-                replaceFragment(ExerciseReadingFragment.newInstance(exercise, isLastExercise))
-            }*/
             exercise_scroll_view.fullScroll(View.FOCUS_UP)
         }
         updateProgress()
-        exerciseId++
+        exerciseNumber++
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -108,7 +96,7 @@ class ExerciseActivity : BaseActivity() {
         for (section in lesson?.sections!!) {
             cardsCount += section.cards.size
         }
-        val cardId = exerciseId + cardsCount
+        val cardId = exerciseNumber + cardsCount
         playSound(getAudioName(cardId, wordId))
     }
 
@@ -117,7 +105,7 @@ class ExerciseActivity : BaseActivity() {
         for (section in lesson?.sections!!) {
             cardsCount += section.cards.size
         }
-        val cardId = exerciseId + cardsCount
+        val cardId = exerciseNumber + cardsCount
         return resources.getIdentifier(
                 getAudioName(cardId, wordId),
                 "raw",
@@ -126,16 +114,16 @@ class ExerciseActivity : BaseActivity() {
         //sounds.contains((moduleId + 1).toString() + "_" + (lessonId + 1) + "_" + (cardId) + "_" + (wordId + 1) + ".mp3")
     }
 
-    fun getAudioName(cardId: Int, wordId: Int): String {
+    private fun getAudioName(cardId: Int, wordId: Int): String {
         return "audio_" + (moduleId + 1) + "_" + (lessonId + 1) + "_" + (cardId) + "_" + (wordId + 1)
     }
 
     private fun setExerciseCompleted() {
-        DbManager.get().getProgressDAO().setExerciseCompleted(moduleId, lessonId, exerciseId - 1)
+        DbManager.get().getProgressDAO().setExerciseCompleted(moduleId, lessonId, exerciseNumber - 1)
     }
 
     private fun updateProgress() {
-        exercise_progress.progress = (exerciseId + 2) * 100 / progressDao.getLessonScreensCount(moduleId, lessonId)
+        exercise_progress.progress = (exerciseNumber + 2) * 100 / progressDao.getLessonScreensCount(moduleId, lessonId)
     }
 
     private fun playSound(sound: String) {

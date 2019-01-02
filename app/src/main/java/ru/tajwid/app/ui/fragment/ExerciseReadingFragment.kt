@@ -4,7 +4,6 @@ import android.graphics.Point
 import android.graphics.Rect
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.res.ResourcesCompat
 import android.util.Log
@@ -19,18 +18,11 @@ import com.google.android.flexbox.FlexboxLayout
 import kotlinx.android.synthetic.main.fragment_exercise_reading.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Exercise
-import ru.tajwid.app.ui.activity.ExerciseActivity
 import ru.tajwid.app.ui.view.ExerciseReadingTextView
 import ru.tajwid.app.utils.FontUtils
 import ru.tajwid.app.utils.highlight.ArabicHighlighter
 
-
-private const val EXTRA_EXERCISE = "exercise"
-private const val EXTRA_IS_LAST = "is_last"
-
-class ExerciseReadingFragment : Fragment() {
-
-    private var isLastExercise = false
+class ExerciseReadingFragment : ExerciseFragment() {
 
     companion object {
         fun newInstance(exercise: Exercise, isLastExercise: Boolean): ExerciseReadingFragment {
@@ -53,7 +45,7 @@ class ExerciseReadingFragment : Fragment() {
         val exercise = arguments!!.getParcelable<Exercise>(EXTRA_EXERCISE)
         isLastExercise = arguments?.getBoolean(EXTRA_IS_LAST) ?: false
 
-        exercise_reading_image.setOnClickListener { onExerciseTestClick() }
+        exercise_reading_image.setOnClickListener { onGoNextClick() }
 
         exercise_reading_title.text = exercise.content?.title
         FontUtils.setTextViewFont(exercise_reading_title, FontUtils.getRegularTypefaceResId())
@@ -133,13 +125,18 @@ class ExerciseReadingFragment : Fragment() {
 
                 rowItemView.setOnClickListener {
                     val isCorrect = exercise?.content?.correctWords?.let { correctWords ->
+                        var wasCorrect = false
                         for (i in 0 until correctWords.size) {
                             if (word == correctWords[i]) {
-                                isCorrectWordsFound[i] = true
-                                return@let true
+                                if (isCorrectWordsFound[i]) {
+                                    wasCorrect = true
+                                } else {
+                                    isCorrectWordsFound[i] = true
+                                    return@let true
+                                }
                             }
                         }
-                        false
+                        wasCorrect
                     } ?: run { false }
 
                     underlineView.setBackgroundColor(ContextCompat.getColor(context!!, if (isCorrect)
@@ -169,7 +166,7 @@ class ExerciseReadingFragment : Fragment() {
             } catch (e: Exception) {
                 Log.e(ExerciseReadingFragment::class.java.simpleName, e.localizedMessage)
             }
-        }, 1000)
+        }, CAN_GO_NEXT_ANIM_DELAY)
     }
 
     private fun getMaxWidth(): Int {
@@ -177,13 +174,5 @@ class ExerciseReadingFragment : Fragment() {
         val size = Point()
         display.getSize(size)
         return size.x - resources.getDimension(R.dimen.dimen_8dp).toInt()
-    }
-
-    private fun onExerciseTestClick() {
-        if (isLastExercise) {
-            (activity as ExerciseActivity).goToLessonsListActivity()
-        } else {
-            (activity as ExerciseActivity).goToNextFragment()
-        }
     }
 }

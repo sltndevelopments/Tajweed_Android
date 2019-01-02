@@ -1,7 +1,6 @@
 package ru.tajwid.app.ui.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v4.content.res.ResourcesCompat
 import android.view.LayoutInflater
 import android.view.View
@@ -9,15 +8,9 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_exercise_writingbyexample.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Exercise
-import ru.tajwid.app.ui.activity.ExerciseActivity
 import ru.tajwid.app.utils.FontUtils
 
-private const val EXTRA_EXERCISE = "exercise"
-private const val EXTRA_IS_LAST = "is_last"
-
-class ExerciseWritingByExampleFragment : Fragment() {
-
-    private var isLastExercise = false
+class ExerciseWritingByExampleFragment : ExerciseFragment() {
 
     companion object {
         fun newInstance(exercise: Exercise, isLastExercise: Boolean): ExerciseWritingByExampleFragment {
@@ -39,7 +32,7 @@ class ExerciseWritingByExampleFragment : Fragment() {
         val exercise = arguments!!.getParcelable<Exercise>(EXTRA_EXERCISE)
         isLastExercise = arguments?.getBoolean(EXTRA_IS_LAST) ?: false
 
-        exercise_writing_example_image.setOnClickListener { onExerciseTestClick() }
+        exercise_writing_example_image.setOnClickListener { onGoNextClick() }
 
         exercise_writing_example_title.text = exercise?.content?.title
         FontUtils.setTextViewFont(exercise_writing_example_title, FontUtils.getRegularTypefaceResId())
@@ -52,14 +45,6 @@ class ExerciseWritingByExampleFragment : Fragment() {
         if (isLastExercise) {
             exercise_writing_example_image.setImageResource(R.drawable.ic_go_to_lesson)
             exercise_writing_example_text.setText(R.string.finishing)
-        }
-    }
-
-    private fun onExerciseTestClick() {
-        if (isLastExercise) {
-            (activity as ExerciseActivity).goToLessonsListActivity()
-        } else {
-            (activity as ExerciseActivity).goToNextFragment()
         }
     }
 }

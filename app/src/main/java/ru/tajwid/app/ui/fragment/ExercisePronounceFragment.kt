@@ -2,7 +2,6 @@ package ru.tajwid.app.ui.fragment
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v4.content.res.ResourcesCompat
 import android.text.SpannableString
 import android.text.Spanned
@@ -23,14 +22,10 @@ import ru.tajwid.app.ui.view.ExercisePronounceTextView
 import ru.tajwid.app.utils.FontUtils
 import ru.tajwid.app.utils.highlight.ArabicHighlighter
 
-
-private const val EXTRA_EXERCISE = "exercise"
-private const val EXTRA_IS_LAST = "is_last"
 private const val WORDS_DELIMITER = " ، "
 
-class ExercisePronounceFragment : Fragment() {
+class ExercisePronounceFragment : ExerciseFragment() {
 
-    private var isLastExercise = false
 
     companion object {
         fun newInstance(exercise: Exercise, isLastExercise: Boolean): ExercisePronounceFragment {
@@ -52,7 +47,7 @@ class ExercisePronounceFragment : Fragment() {
         val exercise = arguments!!.getParcelable<Exercise>(EXTRA_EXERCISE)
         isLastExercise = arguments?.getBoolean(EXTRA_IS_LAST) ?: false
 
-        exercise_pronounce_image.setOnClickListener { onExercisePronounceClick() }
+        exercise_pronounce_image.setOnClickListener { onGoNextClick() }
 
         exercise_pronounce_title.text = exercise.content?.let {
             ArabicHighlighter(it.title).getHighlighted(
@@ -111,14 +106,6 @@ class ExercisePronounceFragment : Fragment() {
                 super.updateDrawState(ds)
                 ds.isUnderlineText = false
             }
-        }
-    }
-
-    private fun onExercisePronounceClick() {
-        if (isLastExercise) {
-            (activity as ExerciseActivity).goToLessonsListActivity()
-        } else {
-            (activity as ExerciseActivity).goToNextFragment()
         }
     }
 }
