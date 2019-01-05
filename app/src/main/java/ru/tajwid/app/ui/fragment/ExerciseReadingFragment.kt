@@ -95,7 +95,7 @@ class ExerciseReadingFragment : ExerciseFragment() {
             //rowViewLayoutParams.gravity = Gravity.RIGHT
             rowView.layoutParams = rowViewLayoutParams
             val words = rowText.split(" ")
-            for (word in words.reversed()) {
+            for (word in words) {
                 val rowItemView = LinearLayout(context)
                 val rowItemViewLayoutParams = ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
                 rowItemViewLayoutParams.topMargin = resources.getDimension(R.dimen.dimen_20dp).toInt()
