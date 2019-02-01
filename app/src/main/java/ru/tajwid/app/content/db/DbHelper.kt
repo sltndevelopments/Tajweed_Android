@@ -1,6 +1,8 @@
 package ru.tajwid.app.content.db
 
 import android.content.Context
+import io.realm.Realm
+import io.realm.RealmConfiguration
 import ru.tajwid.app.content.db.dao.ModulesDAO
 import ru.tajwid.app.content.db.dao.ProgressDAO
 
@@ -51,7 +53,7 @@ class DbHelper internal constructor(context: Context) {
 
     companion object {
         /*каждый раз, когда меняется book.json, нужно увеличивать версию*/
-        private const val DATABASE_VERSION = 18L
+        private const val DATABASE_VERSION = 19L
 
         fun deleteAll() {
             val realm = Realm.getDefaultInstance()
