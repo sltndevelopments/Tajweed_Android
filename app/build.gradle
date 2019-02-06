@@ -27,9 +27,9 @@ android {
                 keyPassword System.getenv()["ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD"]
             } else {
                 storeFile file('keystore/android.jks')
-                storePassword('tajwid')
-                keyAlias('TajwidApp')
-                keyPassword('tajwid')
+                storePassword('3305446')
+                keyAlias('tajwid')
+                keyPassword('330546')
             }
         }
         debug {
@@ -40,9 +40,9 @@ android {
                 keyPassword System.getenv()["ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD"]
             } else {
                 storeFile file('keystore/android.jks')
-                storePassword('tajwid')
-                keyAlias('TajwidApp')
-                keyPassword('tajwid')
+                storePassword('330546')
+                keyAlias('tajwid')
+                keyPassword('330546')
             }
         }
 
