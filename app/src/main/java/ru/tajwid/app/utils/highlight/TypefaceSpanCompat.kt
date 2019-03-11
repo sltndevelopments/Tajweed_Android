@@ -3,14 +3,10 @@ package ru.tajwid.app.utils.highlight
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.os.Parcel
-import android.text.ParcelableSpan
 import android.text.TextPaint
 import android.text.style.MetricAffectingSpan
 
-class TypefaceSpanCompat : MetricAffectingSpan, ParcelableSpan {
-    override fun getSpanTypeId(): Int {
-        return 0
-    }
+class TypefaceSpanCompat : MetricAffectingSpan {
 
     /**
      * Returns the font family name set in the span.
@@ -25,7 +21,7 @@ class TypefaceSpanCompat : MetricAffectingSpan, ParcelableSpan {
      * @return the typeface set
      * @see .TypefaceSpanCompat
      */
-    val typeface: Typeface?
+    private val typeface: Typeface?
     /** @hide
      */
 
@@ -57,14 +53,6 @@ class TypefaceSpanCompat : MetricAffectingSpan, ParcelableSpan {
     private constructor(family: String?, typeface: Typeface?) {
         this.family = family
         this.typeface = typeface
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    override fun writeToParcel(dest: Parcel, flags: Int) {
-        writeToParcelInternal(dest, flags)
     }
 
     /** @hide

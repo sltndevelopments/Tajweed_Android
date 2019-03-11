@@ -42,7 +42,6 @@ class PlayerView @JvmOverloads constructor(
     private var lessonId = 0
     private var sectionCount = 0
     private var sectionId = 0
-    private var filePath = ""
     private lateinit var listener: OnStateChangedListener
 
     init {
@@ -95,12 +94,11 @@ class PlayerView @JvmOverloads constructor(
         this.sectionCount = sectionCount
         this.listener = listener
         sectionId = 0
-        createFilePath()
         updateNextPrevButtons()
     }
 
-    private fun createFilePath() {
-        filePath = "audio_${moduleId}_${lessonId}_${sectionId + 1}"
+    private fun getFilePath(sectionId: Int): String {
+        return "audio_${moduleId}_${lessonId}_${sectionId + 1}"
     }
 
     private fun onPreviousClick() {
@@ -288,19 +286,26 @@ class PlayerView @JvmOverloads constructor(
             listener.onPlayingStart(sectionId)
             updateProgressBar()
         } else {
+            val filePath = getFilePath(sectionId)
             player.reset()
             try {
-                val descriptor = resources.openRawResourceFd(
-                        resources.getIdentifier(filePath, "raw", context.applicationContext.packageName)
-                )
-                player.setDataSource(descriptor.fileDescriptor, descriptor.startOffset, descriptor.length)
-                player.prepareAsync()
-                descriptor.close()
-                isPrepared = true
+                if (hasResource(sectionId)) {
+                    val descriptor = resources.openRawResourceFd(
+                            resources.getIdentifier(filePath, "raw", context.applicationContext.packageName)
+                    )
+                    player.setDataSource(descriptor.fileDescriptor, descriptor.startOffset, descriptor.length)
+                    player.prepareAsync()
+                    descriptor.close()
+                    isPrepared = true
+                }
             } catch (e: IOException) {
                 Log.w(TAG, "Unable to open: $filePath", e)
             }
         }
+    }
+
+    private fun hasResource(sectionId: Int): Boolean {
+        return resources.getIdentifier(getFilePath(sectionId), "raw", context.applicationContext.packageName) > 0
     }
 
     private fun getTiming(time: Int): String {
@@ -312,15 +317,24 @@ class PlayerView @JvmOverloads constructor(
     private fun playAnother(shift: Int) {
         player.reset()
         isPrepared = false
-        val newSectionId = sectionId + shift
-        if (newSectionId in 0 until sectionCount) {
+        getNextWithResource(shift)
+        val nextSectionId = getNextWithResource(shift)
+        if (nextSectionId != null) {
             listener.onPlayingStop(sectionId)
-            sectionId = newSectionId
-            createFilePath()
+            sectionId = nextSectionId
             setPlayingState(true)
             play()
         }
         updateNextPrevButtons()
+    }
+
+    private fun getNextWithResource(shift: Int): Int? {
+        for (newSectionId in sectionId + shift until sectionCount) {
+            if (hasResource(newSectionId)) {
+                return newSectionId
+            }
+        }
+        return null
     }
 
     private fun updateNextPrevButtons() {
