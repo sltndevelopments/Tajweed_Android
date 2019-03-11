@@ -18,7 +18,7 @@ android {
         versionName "1.08"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    signingConfigs{
+    signingConfigs {
         release {
             if (System.getenv()["CI"]) {
                 storeFile file(System.getenv("HOME") + "/keystores/android.jks")
@@ -27,7 +27,7 @@ android {
                 keyPassword System.getenv()["ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD"]
             } else {
                 storeFile file('keystore/android.jks')
-                storePassword('3305446')
+                storePassword('330546')
                 keyAlias('tajwid')
                 keyPassword('330546')
             }
@@ -45,7 +45,6 @@ android {
                 keyPassword('330546')
             }
         }
-
     }
     buildTypes {
         release {
@@ -71,6 +70,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     implementation 'com.google.android:flexbox:1.0.0'
-
-//todo http://sapandiwakar.in/how-to-set-up-android-app-to-support-expansion-files/
+    //todo http://sapandiwakar.in/how-to-set-up-android-app-to-support-expansion-files/
 }
