@@ -14,8 +14,8 @@ android {
         applicationId "ru.tajwid.app"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 7
-        versionName "1.07"
+        versionCode 8
+        versionName "1.08"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     signingConfigs{
