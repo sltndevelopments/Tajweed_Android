@@ -22,7 +22,8 @@ class LessonArabicTextView @JvmOverloads constructor(
         val paddingTop = context.resources.getDimension(R.dimen.dimen_4dp).toInt()
         val paddingBottom = context.resources.getDimension(R.dimen.dimen_12dp).toInt()
         val paddingRight = context.resources.getDimension(R.dimen.dimen_24dp).toInt()
-        setPadding(0, paddingTop, paddingRight, paddingBottom)
+        val paddingLeft = context.resources.getDimension(R.dimen.dimen_4dp).toInt()
+        setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom)
         typeface = ResourcesCompat.getFont(context, FontUtils.getArabicTypefaceResId())
     }
 
