@@ -33,7 +33,7 @@ class LessonsListActivity : BaseActivity(), LessonsListAdapter.OnClickListener {
         val allLessonsStates = progressDao.getAllLessonsStates(moduleId, lessonId)
 
         for (lessonId in 0 until lesson.size) {
-            val isAvailable = lessonId < MAX_FREE_POSITION
+            val isAvailable = isFullVersion() || lessonId < MAX_FREE_POSITION
             if (allLessonsStates[lessonId]!!) {
                 val item = Item(
                     lesson = lesson[lessonId]!!,
@@ -59,10 +59,14 @@ class LessonsListActivity : BaseActivity(), LessonsListAdapter.OnClickListener {
 
     override fun onClick(position: Int) {
         when {
-            applicationContext.packageName == FULL_VERSION_PACKAGE -> openLesson(position)
+            isFullVersion() -> openLesson(position)
             position < MAX_FREE_POSITION -> openLesson(position)
             else -> openFullVersion(position)
         }
+    }
+
+    private fun isFullVersion(): Boolean {
+        return applicationContext.packageName == FULL_VERSION_PACKAGE
     }
 
     private fun openFullVersion(position: Int) {
