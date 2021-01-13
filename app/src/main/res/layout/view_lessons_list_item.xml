@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/lessons_list_item_number"
@@ -13,8 +14,9 @@
         android:layout_marginTop="@dimen/dimen_24dp"
         android:background="@drawable/lessons_list_item_filled_background"
         android:gravity="center"
+        android:textColor="@color/lessons_item_number_color"
         android:textSize="@dimen/text_size_12sp"
-        tools:text="1"/>
+        tools:text="1" />
 
     <TextView
         android:id="@+id/lessons_list_item_title"
@@ -25,9 +27,9 @@
         android:layout_marginTop="@dimen/dimen_16dp"
         android:layout_marginRight="@dimen/dimen_24dp"
         android:gravity="center_horizontal"
-        android:textColor="@color/black"
+        android:textColor="@color/lessons_item_title_color"
         android:textSize="@dimen/text_size_24sp"
-        tools:text="Арабский язык, арабское письмо, огласовки, транскрипция, арабский алфавит"/>
+        tools:text="Арабский язык, арабское письмо, огласовки, транскрипция, арабский алфавит" />
 
     <TextView
         android:id="@+id/lessons_list_item_info"
@@ -36,9 +38,24 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/dimen_20dp"
         android:gravity="center_horizontal"
-        android:textColor="@color/warm_grey"
+        android:textColor="@color/lessons_item_info_color"
         android:textSize="@dimen/text_size_16sp"
-        tools:text="4 карточки, без упражнении"/>
+        tools:text="4 карточки, без упражнении" />
+
+    <TextView
+        android:id="@+id/lessons_list_item_not_free"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/dimen_24dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_marginRight="@dimen/dimen_24dp"
+        android:gravity="center_horizontal"
+        android:text="@string/lessons_item_disabled_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_16sp"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <View
         android:layout_width="match_parent"
@@ -46,5 +63,5 @@
         android:layout_marginLeft="@dimen/dimen_24dp"
         android:layout_marginTop="@dimen/dimen_20dp"
         android:layout_marginRight="@dimen/dimen_24dp"
-        android:background="@color/default_separator"/>
+        android:background="@color/default_separator" />
 </LinearLayout>

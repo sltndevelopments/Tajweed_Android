@@ -1,7 +1,5 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-       android:shape="oval">
-    <stroke
-        android:width="@dimen/separator_size"
-        android:color="@color/black"/>
-    <solid android:color="@color/black"/>
-</shape>
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/lessons_list_item_filled_disabled_background" android:state_enabled="false" />
+    <item android:drawable="@drawable/lessons_list_item_filled_enabled_background" />
+</selector>

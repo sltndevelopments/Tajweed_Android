@@ -10,6 +10,8 @@
     <string name="main_reading_rules_info">Пройдено 0 из 17</string>
     <string name="main_author_name">Ильдар Аляутдинов</string>
 
+    <string name="lessons_item_disabled_text">Доступно в платной версии</string>
+
     <string name="settings_notice_info">Уведомления</string>
     <string name="settigs_communication">Связаться с автором</string>
     <string name="settings_about_project">О проекте</string>

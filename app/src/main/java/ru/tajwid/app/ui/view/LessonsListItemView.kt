@@ -20,16 +20,32 @@ class LessonsListItemView @JvmOverloads constructor(
         View.inflate(context, R.layout.view_lessons_list_item, this)
     }
 
+    fun setAvailable(isAvailable: Boolean) {
+        lessons_list_item_number.isEnabled = isAvailable
+        lessons_list_item_title.isEnabled = isAvailable
+        lessons_list_item_info.isEnabled = isAvailable
+        lessons_list_item_not_free.visibility = if (isAvailable) {
+            View.GONE
+        } else {
+            View.VISIBLE
+        }
+    }
+
     fun setNumber(number: Int, isFilled: Boolean) {
         lessons_list_item_number.text = number.toString()
         if (isFilled) {
-            lessons_list_item_number.setTextColor(ContextCompat.getColor(context, R.color.white))
+            lessons_list_item_number.setTextColor(ContextCompat.getColorStateList(context, R.color.white))
             lessons_list_item_number.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.lessons_list_item_filled_background
             )
         } else {
-            lessons_list_item_number.setTextColor(ContextCompat.getColor(context, R.color.black))
+            lessons_list_item_number.setTextColor(
+                ContextCompat.getColorStateList(
+                    context,
+                    R.color.lessons_item_number_color
+                )
+            )
             lessons_list_item_number.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.lessons_list_item_empty_background
@@ -40,7 +56,6 @@ class LessonsListItemView @JvmOverloads constructor(
     fun setTitle(title: String) {
         lessons_list_item_title.text = title
         FontUtils.setTextViewFont(lessons_list_item_title, FontUtils.getRegularTypefaceResId())
-
     }
 
     fun setInfo(text: String) {

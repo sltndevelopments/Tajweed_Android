@@ -10,7 +10,13 @@ import ru.tajwid.app.ui.view.LessonsListItemView
  * Created by BArtWell on 17.02.2018.
  */
 class LessonsListHolder(private val parent: LessonsListItemView) : RecyclerView.ViewHolder(parent) {
-    fun bind(lesson: Lesson, isFilled: Boolean, listener: LessonsListAdapter.OnClickListener?) {
+    fun bind(
+        lesson: Lesson,
+        isFilled: Boolean,
+        isAvailable: Boolean,
+        listener: LessonsListAdapter.OnClickListener?
+    ) {
+        parent.setAvailable(isAvailable)
         parent.setNumber(adapterPosition + 1, isFilled)
         parent.setTitle(lesson.title)
 
@@ -20,12 +26,20 @@ class LessonsListHolder(private val parent: LessonsListItemView) : RecyclerView.
         }
 
         val context = parent.context
-        val sectionsInfo = context.resources.getQuantityString(R.plurals.lessons_list_sections_info, cardsCount, cardsCount)
+        val sectionsInfo = context.resources.getQuantityString(
+            R.plurals.lessons_list_sections_info,
+            cardsCount,
+            cardsCount
+        )
         val exercisesInfo: String
         if (lesson.exercises.size == 0) {
             exercisesInfo = context.resources.getString(R.string.lessons_list_exercise_info)
         } else {
-            exercisesInfo = context.resources.getQuantityString(R.plurals.lessons_list_exercises_info, lesson.exercises.size, lesson.exercises.size)
+            exercisesInfo = context.resources.getQuantityString(
+                R.plurals.lessons_list_exercises_info,
+                lesson.exercises.size,
+                lesson.exercises.size
+            )
         }
         parent.setInfo(context.getString(R.string.lessons_list_info_format, sectionsInfo, exercisesInfo))
         parent.setOnClickListener { listener?.onClick(adapterPosition) }

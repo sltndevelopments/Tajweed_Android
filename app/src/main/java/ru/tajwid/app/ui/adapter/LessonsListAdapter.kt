@@ -24,10 +24,16 @@ class LessonsListAdapter : BaseRecyclerAdapter<LessonsListHolder>() {
     override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: LessonsListHolder, position: Int) {
-        holder.bind(items[position].lesson, items[position].isFilled, listener)
+        val item = items[position]
+        holder.bind(
+            lesson = item.lesson,
+            isFilled = item.isFilled,
+            isAvailable = item.isAvailable,
+            listener = listener
+        )
     }
 
-    data class Item(val lesson: Lesson, val isFilled: Boolean)
+    data class Item(val lesson: Lesson, val isFilled: Boolean, val isAvailable: Boolean)
     interface OnClickListener {
         fun onClick(adapterPosition: Int)
     }
