@@ -6,7 +6,7 @@
               android:orientation="vertical"
               tools:context="ru.tajwid.app.ui.activity.LessonsListActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/lessons_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"/>
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/lesson_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -80,5 +80,5 @@
                 android:progressDrawable="@drawable/lesson_progress_bar"
                 tools:progress="25"/>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

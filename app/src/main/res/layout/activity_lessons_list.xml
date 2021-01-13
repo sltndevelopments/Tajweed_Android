@@ -6,13 +6,13 @@
               android:orientation="vertical"
               tools:context="ru.tajwid.app.ui.activity.LessonsListActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/lessons_list_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppToolbar"/>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lessons_list_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

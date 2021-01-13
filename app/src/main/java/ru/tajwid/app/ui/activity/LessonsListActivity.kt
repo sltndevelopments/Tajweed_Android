@@ -3,7 +3,7 @@ package ru.tajwid.app.ui.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_lessons_list.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.db.DbManager

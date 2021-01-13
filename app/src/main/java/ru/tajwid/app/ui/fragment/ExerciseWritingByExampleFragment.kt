@@ -1,10 +1,10 @@
 package ru.tajwid.app.ui.fragment
 
 import android.os.Bundle
-import android.support.v4.content.res.ResourcesCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import kotlinx.android.synthetic.main.fragment_exercise_writingbyexample.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Exercise
@@ -29,7 +29,7 @@ class ExerciseWritingByExampleFragment : ExerciseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val exercise = arguments!!.getParcelable<Exercise>(EXTRA_EXERCISE)
+        val exercise = requireArguments().getParcelable<Exercise>(EXTRA_EXERCISE)
         isLastExercise = arguments?.getBoolean(EXTRA_IS_LAST) ?: false
 
         exercise_writing_example_image.setOnClickListener { onGoNextClick() }
@@ -39,8 +39,8 @@ class ExerciseWritingByExampleFragment : ExerciseFragment() {
 
         exercise_writing_example.typeface = ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
         exercise_writing_example.text = exercise?.content?.example
-//        FontUtils.setTextViewFont(exercise_writing_example, FontUtils.ARABIC_FONT)
-//        FontUtils.setTextViewFont(exercise_writing_example_text, FontUtils.ARABIC_FONT)
+        //        FontUtils.setTextViewFont(exercise_writing_example, FontUtils.ARABIC_FONT)
+        //        FontUtils.setTextViewFont(exercise_writing_example_text, FontUtils.ARABIC_FONT)
 
         if (isLastExercise) {
             exercise_writing_example_image.setImageResource(R.drawable.ic_go_to_lesson)

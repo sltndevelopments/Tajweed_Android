@@ -6,8 +6,8 @@ import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_exercise.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Lesson

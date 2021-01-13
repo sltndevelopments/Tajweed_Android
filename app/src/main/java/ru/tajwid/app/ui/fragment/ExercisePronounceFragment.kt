@@ -2,7 +2,6 @@ package ru.tajwid.app.ui.fragment
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.content.res.ResourcesCompat
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextPaint
@@ -14,6 +13,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.core.content.res.ResourcesCompat
 import kotlinx.android.synthetic.main.fragment_exercise_pronounce.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Exercise
@@ -25,7 +25,6 @@ import ru.tajwid.app.utils.highlight.ArabicHighlighter
 private const val WORDS_DELIMITER = " ، "
 
 class ExercisePronounceFragment : ExerciseFragment() {
-
 
     companion object {
         fun newInstance(exercise: Exercise, isLastExercise: Boolean): ExercisePronounceFragment {
@@ -44,14 +43,14 @@ class ExercisePronounceFragment : ExerciseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val exercise = arguments!!.getParcelable<Exercise>(EXTRA_EXERCISE)
+        val exercise = requireArguments().getParcelable<Exercise>(EXTRA_EXERCISE)
         isLastExercise = arguments?.getBoolean(EXTRA_IS_LAST) ?: false
 
         exercise_pronounce_image.setOnClickListener { onGoNextClick() }
 
-        exercise_pronounce_title.text = exercise.content?.let {
+        exercise_pronounce_title.text = exercise?.content?.let {
             ArabicHighlighter(it.title).getHighlighted(
-                    ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
+                ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
             )
         }
 
@@ -74,7 +73,12 @@ class ExercisePronounceFragment : ExerciseFragment() {
             var wordStartPosition = 0
             for (word in words) {
                 val wordEndPosition = wordStartPosition + word.length
-                spannableString.setSpan(createClickableSpan(wordId), wordStartPosition, wordEndPosition, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                spannableString.setSpan(
+                    createClickableSpan(wordId),
+                    wordStartPosition,
+                    wordEndPosition,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
                 wordStartPosition = wordEndPosition + WORDS_DELIMITER.length
                 if (!isWordsSoundable && (activity as ExerciseActivity).isWordHasSound(wordId)) {
                     isWordsSoundable = true

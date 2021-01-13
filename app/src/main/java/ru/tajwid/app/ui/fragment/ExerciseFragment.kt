@@ -1,6 +1,6 @@
 package ru.tajwid.app.ui.fragment
 
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import ru.tajwid.app.ui.activity.ExerciseActivity
 
 abstract class ExerciseFragment : Fragment() {

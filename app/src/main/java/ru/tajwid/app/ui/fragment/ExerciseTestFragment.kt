@@ -2,13 +2,13 @@ package ru.tajwid.app.ui.fragment
 
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.content.ContextCompat
-import android.support.v4.content.res.ResourcesCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import kotlinx.android.synthetic.main.fragment_exercise_test.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Exercise
@@ -53,7 +53,7 @@ class ExerciseTestFragment : ExerciseFragment() {
         exercise_test_go_next.setOnClickListener { onGoNextClick() }
 
         for (variant in exercise?.content?.variants!!) {
-            val variantsView = ExerciseVariantsTextView(this.context!!)
+            val variantsView = ExerciseVariantsTextView(requireContext())
             exercise_content_container.addView(variantsView)
             val layoutParams = variantsView.layoutParams as ViewGroup.MarginLayoutParams
             layoutParams.width = LinearLayout.LayoutParams.MATCH_PARENT
@@ -61,28 +61,28 @@ class ExerciseTestFragment : ExerciseFragment() {
             layoutParams.topMargin = resources.getDimension(R.dimen.dimen_20dp).toInt()
             variantsView.layoutParams = layoutParams
             variantsView.text = ArabicHighlighter(variant).getHighlighted(
-                    ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
+                ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
             )
             variantsView.setOnClickListener {
                 //                for (i in 0 until exercise_content_container.childCount) {
-//                    val child = exercise_content_container.getChildAt(i) as ExerciseVariantsTextView
-//                    child.isEnabled = false
-//                }
+                //                    val child = exercise_content_container.getChildAt(i) as ExerciseVariantsTextView
+                //                    child.isEnabled = false
+                //                }
                 if (variant == exercise.content?.correctVariant) {
-                    variantsView.setTextColor(ContextCompat.getColor(this.context!!, R.color.shamrock_green))
+                    variantsView.setTextColor(ContextCompat.getColor(requireContext(), R.color.shamrock_green))
                     variantsView.setDone()
                     setCanGoNext()
                 } else {
-                    variantsView.setTextColor(ContextCompat.getColor(this.context!!, R.color.test_wrong_answer_color))
+                    variantsView.setTextColor(ContextCompat.getColor(requireContext(), R.color.test_wrong_answer_color))
                     variantsView.setUndone()
-//                    loop@ for (i in 0 until exercise_content_container.childCount) {
-//                        val child = exercise_content_container.getChildAt(i) as ExerciseVariantsTextView
-//                        if (child.text == exercise.content?.correctVariant) {
-//                            child.setTextColor(ContextCompat.getColor(this.context!!, R.color.shamrock_green))
-//                            child.setDone()
-//                            break@loop
-//                        }
-//                    }
+                    //                    loop@ for (i in 0 until exercise_content_container.childCount) {
+                    //                        val child = exercise_content_container.getChildAt(i) as ExerciseVariantsTextView
+                    //                        if (child.text == exercise.content?.correctVariant) {
+                    //                            child.setTextColor(ContextCompat.getColor(this.context!!, R.color.shamrock_green))
+                    //                            child.setDone()
+                    //                            break@loop
+                    //                        }
+                    //                    }
 
                 }
             }
@@ -94,12 +94,12 @@ class ExerciseTestFragment : ExerciseFragment() {
         exercise_test_image.setImageResource(R.drawable.ic_circle_check_green)
         exercise_test_text_right.setText(R.string.right)
         Handler().postDelayed({
-            try {
-                exercise_test_image.setImageResource(R.drawable.ic_go_to_lesson)
-                exercise_test_text_right.setText(if (isLastExercise) R.string.finishing else R.string.onward)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }, CAN_GO_NEXT_ANIM_DELAY)
+                                  try {
+                                      exercise_test_image.setImageResource(R.drawable.ic_go_to_lesson)
+                                      exercise_test_text_right.setText(if (isLastExercise) R.string.finishing else R.string.onward)
+                                  } catch (e: Exception) {
+                                      e.printStackTrace()
+                                  }
+                              }, CAN_GO_NEXT_ANIM_DELAY)
     }
 }

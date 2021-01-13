@@ -7,7 +7,7 @@
               android:orientation="vertical"
               tools:context="ru.tajwid.app.ui.activity.MainActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/settings_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:textSize="@dimen/text_size_16sp"
             tools:ignore="InefficientWeight"/>
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/settings_switch"
             style="@style/AppSwitch"
             android:layout_width="wrap_content"

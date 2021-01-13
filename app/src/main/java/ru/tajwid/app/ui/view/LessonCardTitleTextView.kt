@@ -1,15 +1,15 @@
 package ru.tajwid.app.ui.view
 
 import android.content.Context
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.AppCompatTextView
 import android.util.AttributeSet
 import android.util.TypedValue
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.ContextCompat
 import ru.tajwid.app.R
 import ru.tajwid.app.utils.FontUtils
 
 class LessonCardTitleTextView @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : AppCompatTextView(context, attrs, defStyleAttr) {
 
     init {

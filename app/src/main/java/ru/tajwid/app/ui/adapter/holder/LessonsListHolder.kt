@@ -1,6 +1,6 @@
 package ru.tajwid.app.ui.adapter.holder
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Lesson
 import ru.tajwid.app.ui.adapter.LessonsListAdapter

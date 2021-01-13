@@ -1,21 +1,21 @@
 package ru.tajwid.app.ui.view
 
 import android.content.Context
-import android.support.v4.content.ContextCompat
-import android.support.v4.content.res.ResourcesCompat
-import android.support.v7.widget.AppCompatTextView
 import android.util.AttributeSet
 import android.util.TypedValue
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import ru.tajwid.app.R
 import ru.tajwid.app.utils.FontUtils
 
 class ExercisePronounceTextView @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : AppCompatTextView(context, attrs, defStyleAttr) {
 
     init {
         setTextColor(ContextCompat.getColor(context, R.color.blueberry))
-//        FontUtils.setTextViewFont(this, FontUtils.ARABIC_FONT)
+        //        FontUtils.setTextViewFont(this, FontUtils.ARABIC_FONT)
 
         setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(R.dimen.text_size_48sp))
         val paddingTop = context.resources.getDimension(R.dimen.dimen_24dp).toInt()
@@ -51,31 +51,31 @@ class ExercisePronounceTextView @JvmOverloads constructor(
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })*/
     }
-/*
-    private fun getWrappedStringLength(line: String): Int {
-        val maxWidth = measuredWidth - paddingLeft - paddingRight
-        if(maxWidth<=0){
-            return line.length
-        }
-
-        var currentLine = line
-        val rect = Rect()
-        paint.getTextBounds(currentLine, 0, currentLine.length, rect)
-        var width = rect.width()
-
-        while (width > maxWidth && currentLine.length > 1) {
-            var isSpace = true
-            while (!isSpace && currentLine.length > 1) {
-                currentLine = currentLine.substring(IntRange(0, currentLine.length - 1))
-                isSpace = ' ' == line[currentLine.length]
+    /*
+        private fun getWrappedStringLength(line: String): Int {
+            val maxWidth = measuredWidth - paddingLeft - paddingRight
+            if(maxWidth<=0){
+                return line.length
             }
+
+            var currentLine = line
+            val rect = Rect()
             paint.getTextBounds(currentLine, 0, currentLine.length, rect)
-            width = rect.width()
-        }
-        if(currentLine.length<=1){
-            return line.length
-        }
-        return currentLine.length
-    }*/
+            var width = rect.width()
+
+            while (width > maxWidth && currentLine.length > 1) {
+                var isSpace = true
+                while (!isSpace && currentLine.length > 1) {
+                    currentLine = currentLine.substring(IntRange(0, currentLine.length - 1))
+                    isSpace = ' ' == line[currentLine.length]
+                }
+                paint.getTextBounds(currentLine, 0, currentLine.length, rect)
+                width = rect.width()
+            }
+            if(currentLine.length<=1){
+                return line.length
+            }
+            return currentLine.length
+        }*/
 
 }

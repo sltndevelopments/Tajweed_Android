@@ -6,10 +6,6 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.content.ContextCompat
-import android.support.v4.content.res.ResourcesCompat
-import android.support.v4.widget.NestedScrollView
-import android.support.v7.widget.Toolbar
 import android.text.TextUtils
 import android.util.TypedValue
 import android.view.Gravity
@@ -23,6 +19,10 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.widget.NestedScrollView
 import kotlinx.android.synthetic.main.activity_lesson.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.LessonSection
@@ -269,6 +269,8 @@ class LessonActivity : BaseActivity(), PlayerView.OnStateChangedListener, ViewSt
                 resultCode == RESULT_OK &&
                 data != null && data.hasExtra(ExerciseActivity.EXTRA_FINISH_LESSONS)) {
             finish()
+        }else{
+            super.onActivityResult(requestCode, resultCode, data)
         }
     }
 

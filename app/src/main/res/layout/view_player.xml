@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/player_small"
         android:layout_width="match_parent"
         android:layout_height="@dimen/player_height_small"
@@ -22,7 +22,7 @@
             android:src="@drawable/ic_player_play"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/player_close"
@@ -35,8 +35,8 @@
             android:padding="@dimen/dimen_8dp"
             android:src="@drawable/ic_player_close"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-    </android.support.constraint.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/player_large"
@@ -45,15 +45,18 @@
         android:layout_gravity="center_horizontal"
         android:orientation="vertical">
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_20dp">
 
-            <android.support.v7.widget.AppCompatSeekBar
+            <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/player_progress"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/player_time_now"
@@ -66,7 +69,7 @@
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/player_progress"
-                tools:text="2:15"/>
+                tools:text="2:15" />
 
             <TextView
                 android:id="@+id/player_time_total"
@@ -79,8 +82,8 @@
                 android:textStyle="bold"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/player_progress"
-                tools:text="20:07"/>
-        </android.support.constraint.ConstraintLayout>
+                tools:text="20:07" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -101,7 +104,7 @@
                     android:layout_height="@dimen/dimen_32dp"
                     android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:src="@drawable/ic_player_previous"/>
+                    android:src="@drawable/ic_player_previous" />
             </FrameLayout>
 
             <FrameLayout
@@ -115,7 +118,7 @@
                     android:layout_height="@dimen/dimen_32dp"
                     android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:src="@drawable/ic_player_backward"/>
+                    android:src="@drawable/ic_player_backward" />
             </FrameLayout>
 
             <FrameLayout
@@ -129,7 +132,7 @@
                     android:layout_height="@dimen/dimen_32dp"
                     android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:src="@drawable/ic_player_play"/>
+                    android:src="@drawable/ic_player_play" />
             </FrameLayout>
 
             <FrameLayout
@@ -143,7 +146,7 @@
                     android:layout_height="@dimen/dimen_32dp"
                     android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:src="@drawable/ic_player_forward"/>
+                    android:src="@drawable/ic_player_forward" />
             </FrameLayout>
 
             <FrameLayout
@@ -157,7 +160,7 @@
                     android:layout_height="@dimen/dimen_32dp"
                     android:layout_gravity="center"
                     android:contentDescription="@null"
-                    android:src="@drawable/ic_player_next"/>
+                    android:src="@drawable/ic_player_next" />
             </FrameLayout>
         </LinearLayout>
 
@@ -165,12 +168,12 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/separator_size"
             android:alpha="0.3"
-            android:background="@color/warm_grey"/>
+            android:background="@color/warm_grey" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/separator_size"
         android:layout_gravity="bottom"
-        android:background="@color/default_separator"/>
+        android:background="@color/default_separator" />
 </FrameLayout>

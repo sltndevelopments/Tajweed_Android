@@ -8,7 +8,7 @@ import android.content.Context
 import android.content.Context.NOTIFICATION_SERVICE
 import android.content.Intent
 import android.os.Build
-import android.support.v4.app.NotificationCompat
+import androidx.core.app.NotificationCompat
 import ru.tajwid.app.R
 import ru.tajwid.app.ui.activity.MainActivity
 
@@ -20,15 +20,16 @@ private const val CHANNEL_ID = "Tajwid_Notifications_Channel"
 object NotificationsHelper {
 
     fun showNotification(context: Context, title: String, text: String) {
-        val notification = NotificationCompat.Builder(context).setContentIntent(getPendingIntent(context, NOTIFICATION_REQUEST_CODE))
-                .setSmallIcon(R.drawable.ic_notification_icon)
-                .setContentTitle(title)
-                .setContentText(text)
-                .setAutoCancel(true)
-                .setChannelId(CHANNEL_ID)
-                .setPriority(Notification.PRIORITY_MAX)
-                .setDefaults(Notification.DEFAULT_ALL)
-                .build()
+        val notification = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setContentIntent(getPendingIntent(context, NOTIFICATION_REQUEST_CODE))
+            .setSmallIcon(R.drawable.ic_notification_icon)
+            .setContentTitle(title)
+            .setContentText(text)
+            .setAutoCancel(true)
+            .setChannelId(CHANNEL_ID)
+            .setPriority(Notification.PRIORITY_MAX)
+            .setDefaults(Notification.DEFAULT_ALL)
+            .build()
         val notificationManager = getNotificationManager(context)
         notificationManager.notify(NOTIFICATION_ID, notification)
     }

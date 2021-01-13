@@ -1,10 +1,10 @@
 package ru.tajwid.app.ui.fragment
 
 import android.os.Bundle
-import android.support.v4.content.res.ResourcesCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import kotlinx.android.synthetic.main.fragment_exercise_writingbytranscription.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Exercise
@@ -34,7 +34,7 @@ class ExerciseWritingByTranscriptionFragment : ExerciseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        exercise = arguments!!.getParcelable(EXTRA_EXERCISE)
+        exercise = requireArguments().getParcelable(EXTRA_EXERCISE)!!
         isLastExercise = arguments?.getBoolean(EXTRA_IS_LAST) ?: false
 
         exercise_writing_by_transcription_go_next.setOnClickListener { onExerciseTestClick() }
@@ -44,7 +44,7 @@ class ExerciseWritingByTranscriptionFragment : ExerciseFragment() {
 
         exercise_writing_transcription.text = exercise.content?.transcription?.let {
             ArabicHighlighter(it).getHighlighted(
-                    ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
+                ResourcesCompat.getFont(view.context, FontUtils.getArabicTypefaceResId())
             )
         } ?: run { null }
         FontUtils.setTextViewFont(exercise_writing_transcription, FontUtils.getRegularTypefaceResId())
@@ -59,10 +59,10 @@ class ExerciseWritingByTranscriptionFragment : ExerciseFragment() {
             isCorrectWritingShown = true
             exercise_writing_correct.text = exercise.content?.correctWriting?.let {
                 ArabicHighlighter(it).getHighlighted(
-                        ResourcesCompat.getFont(exercise_writing_correct.context, FontUtils.getArabicTypefaceResId())
+                    ResourcesCompat.getFont(exercise_writing_correct.context, FontUtils.getArabicTypefaceResId())
                 )
             } ?: run { null }
-//            FontUtils.setTextViewFont(exercise_writing_correct, FontUtils.ARABIC_FONT)
+            //            FontUtils.setTextViewFont(exercise_writing_correct, FontUtils.ARABIC_FONT)
 
             if (isLastExercise) {
                 exercise_writing_image.setImageResource(R.drawable.ic_go_to_lesson)
