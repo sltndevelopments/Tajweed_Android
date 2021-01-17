@@ -6,17 +6,12 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_settings.*
+import ru.tajwid.app.BuildConfig
 import ru.tajwid.app.R
 import ru.tajwid.app.utils.FontUtils
 import ru.tajwid.app.utils.PreferencesHelper
 
-private const val URI_PREFIX_HTTP = "http://"
-
 class SettingsActivity : BaseActivity() {
-
-    companion object {
-        fun getIntent(context: Context) = Intent(context, SettingsActivity::class.java)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +40,7 @@ class SettingsActivity : BaseActivity() {
         try {
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = "text/plain"
-            intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.settings_recommend_text))
+            intent.putExtra(Intent.EXTRA_TEXT, "${getString(R.string.settings_recommend_text)}\n\n$MARKET_URL")
             startActivity(Intent.createChooser(intent, getString(R.string.settings_recommend_chooser_title)))
         } catch (e: ActivityNotFoundException) {
             e.printStackTrace()
@@ -62,7 +57,6 @@ class SettingsActivity : BaseActivity() {
             intent.type = "text/plain"
             intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("author@tajwid.ru"))
             intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.settings_recommend_subject))
-            intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.settings_recommend_text))
             startActivity(Intent.createChooser(intent, getString(R.string.settings_recommend_chooser_title)))
         } catch (e: ActivityNotFoundException) {
             e.printStackTrace()
@@ -72,10 +66,15 @@ class SettingsActivity : BaseActivity() {
     private fun onAssessmentClick() {
         try {
             val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(URI_PREFIX_HTTP + getString(R.string.settings_information_website))
+            intent.data = Uri.parse(MARKET_URL)
             startActivity(intent)
         } catch (e: ActivityNotFoundException) {
             e.printStackTrace()
         }
+    }
+
+    companion object {
+        private const val MARKET_URL = "https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}"
+        fun getIntent(context: Context) = Intent(context, SettingsActivity::class.java)
     }
 }

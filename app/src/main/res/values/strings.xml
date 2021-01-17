@@ -17,11 +17,9 @@
     <string name="settings_about_project">О проекте</string>
     <string name="settings_recommendation">Порекомендовать приложение</string>
     <string name="settings_assessment">Оценить в Google Play</string>
-    <string name="settings_information_website" translatable="false">play.google.com/store/apps/details?id=ru.tajwid.app</string>
-    <string name="settings_web_communication" translatable="false">play.google.com/store/apps/details?id=ru.tajwid.app</string>
     <string name="settings_web_site_about_project"> tajwid.com</string>
     <string name="settings_recommend_chooser_title">Выберите действие</string>
-    <string name="settings_recommend_text">Рекомендую скачать приложение Tajwid:\n\nhttps://play.google.com/store/apps/details?id=ru.tajwid.app</string>
+    <string name="settings_recommend_text">Рекомендую скачать приложение Tajwid:</string>
     <plurals name="lessons_list_sections_info">
         <item quantity="zero">Без карточек</item>
         <item quantity="one">%d карточка</item>

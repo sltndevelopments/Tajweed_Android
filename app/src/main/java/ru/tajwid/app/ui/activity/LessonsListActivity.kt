@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_lessons_list.*
+import ru.tajwid.app.BuildConfig
 import ru.tajwid.app.R
 import ru.tajwid.app.content.db.DbManager
 import ru.tajwid.app.ui.adapter.LessonsListAdapter
@@ -66,7 +67,7 @@ class LessonsListActivity : BaseActivity(), LessonsListAdapter.OnClickListener {
     }
 
     private fun isFullVersion(): Boolean {
-        return applicationContext.packageName == FULL_VERSION_PACKAGE
+        return BuildConfig.APPLICATION_ID == FULL_VERSION_PACKAGE
     }
 
     private fun openFullVersion(position: Int) {
