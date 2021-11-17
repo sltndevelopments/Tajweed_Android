@@ -146,5 +146,8 @@
             android:paddingBottom="@dimen/dimen_12dp"
             android:text="@string/settings_recommendation"
             android:textSize="@dimen/text_size_16sp"/>
+
     </FrameLayout>
+
+
 </LinearLayout>

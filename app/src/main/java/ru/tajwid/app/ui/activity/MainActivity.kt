@@ -3,7 +3,6 @@ package ru.tajwid.app.ui.activity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.tajwid.app.R
@@ -18,8 +17,6 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     val progressDao = DbManager.get().getProgressDAO()
-
-    val crashButton = Button(this)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +38,9 @@ class MainActivity : AppCompatActivity() {
         NotificationsAlarmReceiver.schedule(this)
 
         main_settings.setOnClickListener { onSettingsClick() }
-    }
 
+
+    }
     override fun onResume() {
         super.onResume()
         val (totalTotal, totalCompleted) = progressDao.getTotalProgressInfo()
