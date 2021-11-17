@@ -9,7 +9,7 @@ import ru.tajwid.app.R
  */
 abstract class BaseActivity : AppCompatActivity() {
 
-    fun setupSimpleToolbar(toolbar: Toolbar, title: String) {
+    fun setupSimpleToolbar(toolbar: Toolbar, title: String?) {
         toolbar.setNavigationIcon(R.drawable.ic_toolbar_back)
         toolbar.setNavigationOnClickListener { onBackPressed() }
         toolbar.title = title

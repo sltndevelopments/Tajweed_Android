@@ -3,8 +3,8 @@ package ru.tajwid.app.ui.activity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.db.DbManager
@@ -13,11 +13,14 @@ import ru.tajwid.app.ui.view.MainMenuItemView
 import ru.tajwid.app.utils.FontUtils
 import ru.tajwid.app.utils.JsonImportHelper
 import ru.tajwid.app.utils.PreferencesHelper
-import java.util.Calendar
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     val progressDao = DbManager.get().getProgressDAO()
+
+    val crashButton = Button(this)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,4 +87,6 @@ class MainActivity : AppCompatActivity() {
     private fun onSettingsClick() {
         startActivity(SettingsActivity.getIntent(this))
     }
+
+
 }

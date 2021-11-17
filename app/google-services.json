@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "705077294161",
+    "project_id": "tajweed-fa01e",
+    "storage_bucket": "tajweed-fa01e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705077294161:android:ca45e3709a80ef8cae3470",
+        "android_client_info": {
+          "package_name": "ru.tajwid.app.full"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705077294161-pi8u5r494489d3tn4modpj39rkdfjr7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5WFocsuz6l0HiEeBDps9ij_OIcvRkees"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705077294161-pi8u5r494489d3tn4modpj39rkdfjr7g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "705077294161-0nvm3kjeu0ssmfgh83s1hjidesl0usu6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "93BS6TU778.Tajwid"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
