@@ -13,8 +13,9 @@ androidExtensions {
 
 android {
     compileSdkVersion 31
+    flavorDimensions "version"
     defaultConfig {
-        applicationId "ru.tajwid.app.full"
+        applicationId "ru.tajwid.app"
         minSdkVersion 23
         targetSdkVersion 31
         versionCode 10
@@ -58,6 +59,16 @@ android {
     compileOptions {
         sourceCompatibility "1.8"
         targetCompatibility "1.8"
+    }
+
+    productFlavors {
+        free {
+            dimension "version"
+        }
+        full {
+            dimension "version"
+            applicationIdSuffix ".full"
+        }
     }
 }
 
