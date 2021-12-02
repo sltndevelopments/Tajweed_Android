@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.db.DbManager
@@ -13,11 +12,12 @@ import ru.tajwid.app.ui.view.MainMenuItemView
 import ru.tajwid.app.utils.FontUtils
 import ru.tajwid.app.utils.JsonImportHelper
 import ru.tajwid.app.utils.PreferencesHelper
-import java.util.Calendar
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     val progressDao = DbManager.get().getProgressDAO()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +38,9 @@ class MainActivity : AppCompatActivity() {
         NotificationsAlarmReceiver.schedule(this)
 
         main_settings.setOnClickListener { onSettingsClick() }
-    }
 
+
+    }
     override fun onResume() {
         super.onResume()
         val (totalTotal, totalCompleted) = progressDao.getTotalProgressInfo()
@@ -84,4 +85,6 @@ class MainActivity : AppCompatActivity() {
     private fun onSettingsClick() {
         startActivity(SettingsActivity.getIntent(this))
     }
+
+
 }
