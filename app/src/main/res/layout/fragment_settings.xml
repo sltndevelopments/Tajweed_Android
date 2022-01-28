@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@color/white_three"
-              android:orientation="vertical"
-              tools:context="ru.tajwid.app.ui.activity.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white_three"
+    android:orientation="vertical"
+    tools:context="ru.tajwid.app.ui.activity.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/settings_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppToolbar"/>
+        android:elevation="@dimen/dimen_4dp"
+        android:theme="@style/AppToolbar"
+        app:title="@string/settings" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/separator_size"
-        android:background="@color/default_separator"/>
+        android:background="@color/default_separator" />
 
     <LinearLayout
         android:id="@+id/settings_notice"
@@ -36,7 +39,7 @@
             android:paddingBottom="@dimen/dimen_12dp"
             android:text="@string/settings_notice_info"
             android:textSize="@dimen/text_size_16sp"
-            tools:ignore="InefficientWeight"/>
+            tools:ignore="InefficientWeight" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/settings_switch"
@@ -45,13 +48,13 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dimen_16dp"
             android:layout_marginRight="@dimen/dimen_16dp"
-            android:checked="true"/>
+            android:checked="true" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/separator_size"
-        android:background="@color/default_separator"/>
+        android:background="@color/default_separator" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -69,7 +72,7 @@
             android:paddingRight="@dimen/dimen_16dp"
             android:paddingBottom="@dimen/dimen_12dp"
             android:text="@string/settigs_communication"
-            android:textSize="@dimen/text_size_16sp"/>
+            android:textSize="@dimen/text_size_16sp" />
     </FrameLayout>
 
     <View
@@ -77,7 +80,7 @@
         android:layout_height="@dimen/separator_size"
         android:layout_marginStart="@dimen/dimen_16dp"
         android:layout_marginLeft="@dimen/dimen_16dp"
-        android:background="@color/default_separator"/>
+        android:background="@color/default_separator" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -95,13 +98,13 @@
             android:paddingBottom="@dimen/dimen_12dp"
             android:text="@string/settings_about_project"
             android:textSize="@dimen/text_size_16sp"
-            tools:ignore="NestedWeights"/>
+            tools:ignore="NestedWeights" />
     </FrameLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/separator_size"
-        android:background="@color/default_separator"/>
+        android:background="@color/default_separator" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -120,7 +123,7 @@
             android:paddingBottom="@dimen/dimen_12dp"
             android:text="@string/settings_assessment"
             android:textSize="@dimen/text_size_16sp"
-            tools:ignore="InefficientWeight"/>
+            tools:ignore="InefficientWeight" />
     </FrameLayout>
 
     <View
@@ -128,7 +131,7 @@
         android:layout_height="@dimen/separator_size"
         android:layout_marginStart="@dimen/dimen_16dp"
         android:layout_marginLeft="@dimen/dimen_16dp"
-        android:background="@color/default_separator"/>
+        android:background="@color/default_separator" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -145,7 +148,7 @@
             android:paddingRight="@dimen/dimen_16dp"
             android:paddingBottom="@dimen/dimen_12dp"
             android:text="@string/settings_recommendation"
-            android:textSize="@dimen/text_size_16sp"/>
+            android:textSize="@dimen/text_size_16sp" />
 
     </FrameLayout>
 

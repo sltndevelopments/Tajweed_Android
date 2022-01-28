@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <dimen name="separator_size">1dp</dimen>
     <dimen name="dimen_2dp">2dp</dimen>
     <dimen name="dimen_4dp">4dp</dimen>
@@ -33,4 +33,5 @@
     <dimen name="dotted_seek_bar_circle_size">8dp</dimen>
 
     <dimen name="text_size_lesson20">10sp</dimen>
+    <dimen name="design_bottom_navigation_height" tools:override="true">64dp</dimen>
 </resources>

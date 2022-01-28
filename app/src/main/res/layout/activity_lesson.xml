@@ -4,7 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context="ru.tajwid.app.ui.activity.LessonsListActivity">
+              tools:context="ru.tajwid.app.ui.activity.LessonActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/lessons_toolbar"

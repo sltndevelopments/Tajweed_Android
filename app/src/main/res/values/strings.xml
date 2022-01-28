@@ -60,5 +60,8 @@
     <string name="go_to_the_site">На сайт</string>
     <string name="settings_recommend_subject">Отзыв на приложение Таджвид</string>
     <string name="exercise_pronounce_sound">Нажмите на текст, чтобы его прослушать.</string>
+    <string name="title_reading">Чтение</string>
+    <string name="title_pronounce">Произношение</string>
+    <string name="title_main">Главная</string>
 
 </resources>
