@@ -28,7 +28,7 @@ class NotificationsAlarmReceiver : BroadcastReceiver() {
         fun schedule(context: Context) {
             val nextExecutionTime = PreferencesHelper.get().getNextNotificationTime()
             val intent = Intent(context, NotificationsAlarmReceiver::class.java)
-            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             alarmManager.set(AlarmManager.RTC_WAKEUP, nextExecutionTime, pendingIntent)
             Log.d(TAG, "Scheduled on " + DateFormat.format("dd/MM/yyyy HH:mm:ss", nextExecutionTime))

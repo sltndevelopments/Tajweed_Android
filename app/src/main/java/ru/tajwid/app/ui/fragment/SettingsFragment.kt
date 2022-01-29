@@ -1,28 +1,35 @@
-package ru.tajwid.app.ui.activity
+package ru.tajwid.app.ui.fragment
 
 import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_settings.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_settings.*
 import ru.tajwid.app.BuildConfig
 import ru.tajwid.app.R
+import ru.tajwid.app.ui.activity.AboutActivity
 import ru.tajwid.app.utils.FontUtils
 import ru.tajwid.app.utils.PreferencesHelper
 
-class SettingsActivity : BaseActivity() {
+class SettingsFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_settings, container, false)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         FontUtils.setTextViewFont(settings_notice_info, R.font.proxima_nova_semibold)
         FontUtils.setTextViewFont(settings_communication, R.font.proxima_nova_semibold)
         FontUtils.setTextViewFont(settings_about_project, R.font.proxima_nova_semibold)
         FontUtils.setTextViewFont(settings_assessment, R.font.proxima_nova_semibold)
         FontUtils.setTextViewFont(settings_recommendation, R.font.proxima_nova_semibold)
-
-        setupSimpleToolbar(settings_toolbar, getString(R.string.settings))
 
         settings_assessment.setOnClickListener { onAssessmentClick() }
         settings_communication.setOnClickListener { onCommunicationClick() }
@@ -48,7 +55,7 @@ class SettingsActivity : BaseActivity() {
     }
 
     private fun onAboutProjectClick() {
-        startActivity(AboutActivity.getIntent(this))
+        startActivity(AboutActivity.getIntent(requireContext()))
     }
 
     private fun onCommunicationClick() {
@@ -75,6 +82,5 @@ class SettingsActivity : BaseActivity() {
 
     companion object {
         private const val MARKET_URL = "https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}"
-        fun getIntent(context: Context) = Intent(context, SettingsActivity::class.java)
     }
 }

@@ -16,32 +16,28 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.MainActivity"
-            android:exported="true"> //**
-
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.SettingsActivity"/>
-        <activity
-            android:name=".ui.activity.LessonsListActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".ui.activity.LessonActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"/>
+            android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity
             android:name=".ui.activity.ExerciseActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"/>
 
-        <receiver android:name=".receiver.BootCompletedReceiver"
-            android:exported="false"> //**
-
+        <receiver
+            android:name=".receiver.BootCompletedReceiver"
+            android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
-                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
         <receiver android:name=".receiver.NotificationsAlarmReceiver"/>
