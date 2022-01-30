@@ -25,6 +25,7 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         FontUtils.setTextViewFont(settings_notice_info, R.font.proxima_nova_semibold)
         FontUtils.setTextViewFont(settings_communication, R.font.proxima_nova_semibold)
         FontUtils.setTextViewFont(settings_about_project, R.font.proxima_nova_semibold)
@@ -36,7 +37,13 @@ class SettingsFragment : Fragment() {
         settings_about_project.setOnClickListener { onAboutProjectClick() }
         settings_recommendation.setOnClickListener { onRecommendationClick() }
         settings_switch.isChecked = PreferencesHelper.get().isNotificationsEnabled()
-        settings_switch.setOnCheckedChangeListener { _, isChecked -> onSwitchCheckedChanged(isChecked) }
+        settings_switch.setOnCheckedChangeListener { _, isChecked ->
+            onSwitchCheckedChanged(
+                isChecked
+            )
+        }
+
+
     }
 
     private fun onSwitchCheckedChanged(isChecked: Boolean) {
@@ -47,8 +54,16 @@ class SettingsFragment : Fragment() {
         try {
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = "text/plain"
-            intent.putExtra(Intent.EXTRA_TEXT, "${getString(R.string.settings_recommend_text)}\n\n$MARKET_URL")
-            startActivity(Intent.createChooser(intent, getString(R.string.settings_recommend_chooser_title)))
+            intent.putExtra(
+                Intent.EXTRA_TEXT,
+                "${getString(R.string.settings_recommend_text)}\n\n$MARKET_URL"
+            )
+            startActivity(
+                Intent.createChooser(
+                    intent,
+                    getString(R.string.settings_recommend_chooser_title)
+                )
+            )
         } catch (e: ActivityNotFoundException) {
             e.printStackTrace()
         }
@@ -58,13 +73,19 @@ class SettingsFragment : Fragment() {
         startActivity(AboutActivity.getIntent(requireContext()))
     }
 
+
     private fun onCommunicationClick() {
         try {
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = "text/plain"
             intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("author@tajwid.ru"))
             intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.settings_recommend_subject))
-            startActivity(Intent.createChooser(intent, getString(R.string.settings_recommend_chooser_title)))
+            startActivity(
+                Intent.createChooser(
+                    intent,
+                    getString(R.string.settings_recommend_chooser_title)
+                )
+            )
         } catch (e: ActivityNotFoundException) {
             e.printStackTrace()
         }
@@ -81,6 +102,7 @@ class SettingsFragment : Fragment() {
     }
 
     companion object {
-        private const val MARKET_URL = "https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}"
+        private const val MARKET_URL =
+            "https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}"
     }
 }
