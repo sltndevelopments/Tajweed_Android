@@ -3,16 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="58dp"
-    android:layout_margin="16dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="8dp">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/colorPrimaryDark">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,7 +23,7 @@
                 android:layout_weight="1"
                 android:text="time zone :"
                 android:textColor="@color/black_text"
-                android:textSize="21sp" />
+                android:textSize="18sp" />
 
 
             <TextView
@@ -37,7 +33,7 @@
                 android:layout_weight="1"
                 android:text="MSK"
                 android:textColor="@color/black_text"
-                android:textSize="21sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/userhour1"
@@ -47,7 +43,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/black_text"
-                android:textSize="21sp" />
+                android:textSize="18sp" />
 
             <TextView
 
@@ -58,7 +54,7 @@
                 android:gravity="center"
                 android:text="-"
                 android:textColor="@color/black_text"
-                android:textSize="21sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/userhour2"
@@ -68,7 +64,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/black_text"
-                android:textSize="21sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/userday1"
@@ -78,7 +74,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/black_text"
-                android:textSize="21sp" />
+                android:textSize="18sp" />
 
             <TextView
 
@@ -89,7 +85,7 @@
                 android:gravity="center"
                 android:text="-"
                 android:textColor="@color/black_text"
-                android:textSize="21sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/userday2"
@@ -99,7 +95,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/black_text"
-                android:textSize="21sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -115,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:text="Учитель :"
                 android:textColor="@color/black_text"
-                android:textSize="21sp" />
+                android:textSize="18sp" />
 
 
             <TextView
@@ -125,7 +121,7 @@
                 android:layout_marginStart="3sp"
                 android:gravity="center"
                 android:textColor="@color/black_text"
-                android:textSize="21sp" />
+                android:textSize="18sp" />
 
 
         </LinearLayout>

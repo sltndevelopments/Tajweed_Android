@@ -31,40 +31,40 @@ public class OnlineLearningActivity extends AppCompatActivity {
 
 //    RadioButton buttun1, buttun2, buttun3, radioButtun1, radioButtun2, radioButtun3;
 
-//    RecyclerView recyclerView;
-//    DatabaseReference database;
-//    TimeZoneAdapter timeZoneAdapter;
-//    ArrayList<TimeZoneLearning> list;
-//
+    RecyclerView recyclerView;
+    DatabaseReference database;
+    TimeZoneAdapter timeZoneAdapter;
+    ArrayList<TimeZoneLearning> list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activitiy_learning);
-//
-//        recyclerView = findViewById(R.id.recycler_list);
-//        database = FirebaseDatabase.getInstance().getReference("TimeZoneLearning");
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
-//        list = new ArrayList<>();
-//        timeZoneAdapter = new TimeZoneAdapter(this,list);
-//        recyclerView.setAdapter(timeZoneAdapter);
-//
-//        database.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-//                    TimeZoneLearning timeZoneLearning = dataSnapshot.getValue(TimeZoneLearning.class);
-//                    list.add(timeZoneLearning);
-//                }
-//                timeZoneAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+        recyclerView = findViewById(R.id.recycler_list);
+        database = FirebaseDatabase.getInstance().getReference("TimeZoneLearning");
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        list = new ArrayList<>();
+        timeZoneAdapter = new TimeZoneAdapter(this, list);
+        recyclerView.setAdapter(timeZoneAdapter);
+
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    TimeZoneLearning timeZoneLearning = dataSnapshot.getValue(TimeZoneLearning.class);
+                    list.add(timeZoneLearning);
+                }
+                timeZoneAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
 //*********************************************************************
 //        buttun1 = (RadioButton) findViewById(R.id.button1);

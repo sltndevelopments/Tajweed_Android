@@ -34,9 +34,6 @@
         <activity android:name=".ui.activity.OnlineLearningActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
 
-        <activity android:name=".ui.activity.TimeZoneList"
-            android:configChanges="orientation|screenSize|keyboardHidden" />
-
         <receiver
             android:name=".receiver.BootCompletedReceiver"
             android:exported="false">
