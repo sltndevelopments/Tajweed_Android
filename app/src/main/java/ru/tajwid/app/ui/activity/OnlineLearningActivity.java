@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 import ru.tajwid.app.R;
@@ -29,60 +29,30 @@ import ru.tajwid.app.ui.adapter.TimeZoneAdapter;
 
 public class OnlineLearningActivity extends AppCompatActivity {
 
-    RadioButton buttun1, buttun2, buttun3, radioButtun1, radioButtun2, radioButtun3;
+    RadioButton button1, button2, button3;
 
     RecyclerView recyclerView;
     DatabaseReference database;
     TimeZoneAdapter timeZoneAdapter;
     ArrayList<TimeZoneLearning> list;
 
-
-
+    private FirebaseDatabase mdatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
         setContentView(R.layout.activitiy_learning);
         recyclerView = findViewById(R.id.recycler_list);
 
-        database = FirebaseDatabase.getInstance().getReference("TimeZoneLearning");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-
 
         list = new ArrayList<>();
         timeZoneAdapter = new TimeZoneAdapter(this, list);
         recyclerView.setAdapter(timeZoneAdapter);
 
-        database.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    TimeZoneLearning timeZoneLearning = dataSnapshot.getValue(TimeZoneLearning.class);
-                    list.add(timeZoneLearning);
-                }
-                timeZoneAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
-
-
-
-
-
-
-
+        mdatabase = FirebaseDatabase.getInstance();
+        database = mdatabase.getReference();
 
 // навигация назад  в меню
         Toolbar toolbar = findViewById(R.id.learning_toolbar);
@@ -91,49 +61,81 @@ public class OnlineLearningActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 //*********************************************************************
-        buttun1 = (RadioButton) findViewById(R.id.button1);
-        buttun2 = (RadioButton) findViewById(R.id.button2);
-        buttun3 = (RadioButton) findViewById(R.id.button3);
-
-        database.addValueEventListener(new ValueEventListener() {
-
+        button1 = (RadioButton) findViewById(R.id.button1);
+        database.child("TimeZoneLearning").child("User1").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 View.OnClickListener onClickListener = new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         switch (v.getId()) {
                             case R.id.button1:
 
-//                                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                                    TimeZoneLearning timeZoneLearning = dataSnapshot.getValue(TimeZoneLearning.class);
-//                                    list.add(timeZoneLearning);
-//                                }
-//                                timeZoneAdapter.notifyDataSetChanged();
-                                break;
-                            case R.id.button2:
-//                                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                                    TimeZoneLearning timeZoneLearning = dataSnapshot.getValue(TimeZoneLearning.class);
-//                                    list.add(timeZoneLearning);
-//                                }
-//                                timeZoneAdapter.notifyDataSetChanged();
-                                break;
-                            case R.id.button3:
-//                                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                                    TimeZoneLearning timeZoneLearning = dataSnapshot.getValue(TimeZoneLearning.class);
-//                                    list.add(timeZoneLearning);
-//                                }
-//                                timeZoneAdapter.notifyDataSetChanged();
+                                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                                    TimeZoneLearning timeZoneLearning = snapshot.getValue(TimeZoneLearning.class);
+                                    list.add(timeZoneLearning);
+                                }
+                                timeZoneAdapter.notifyDataSetChanged();
                                 break;
                         }
                     }
                 };
+                button1.setOnClickListener(onClickListener);
+            }
 
-                buttun1.setOnClickListener(onClickListener);
-                buttun2.setOnClickListener(onClickListener);
-                buttun3.setOnClickListener(onClickListener);
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
 
+        });
+        button2 = (RadioButton) findViewById(R.id.button2);
+        database.child("TimeZoneLearning").child("User2").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                View.OnClickListener onClickListener = new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        switch (v.getId()) {
+                            case R.id.button2:
+
+                                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                                    TimeZoneLearning timeZoneLearning = snapshot.getValue(TimeZoneLearning.class);
+                                    list.add(timeZoneLearning);
+                                }
+                                timeZoneAdapter.notifyDataSetChanged();
+                                break;
+                        }
+                    }
+                };
+                button2.setOnClickListener(onClickListener);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
+        button3 = (RadioButton) findViewById(R.id.button3);
+        database.child("TimeZoneLearning").child("User3").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                View.OnClickListener onClickListener = new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        switch (v.getId()) {
+                            case R.id.button3:
+
+                                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                                    TimeZoneLearning timeZoneLearning = snapshot.getValue(TimeZoneLearning.class);
+                                    list.add(timeZoneLearning);
+                                }
+                                timeZoneAdapter.notifyDataSetChanged();
+                                break;
+                        }
+                    }
+                };
+                button3.setOnClickListener(onClickListener);
             }
 
             @Override
@@ -151,3 +153,4 @@ public class OnlineLearningActivity extends AppCompatActivity {
         return true;
     }
 }
+

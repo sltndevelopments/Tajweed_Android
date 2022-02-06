@@ -40,12 +40,17 @@ public class TimeZoneAdapter extends RecyclerView.Adapter<TimeZoneAdapter.MyView
         holder.hour2.setText(timeZoneLearning.getHour2());
         holder.day1.setText(timeZoneLearning.getDay1());
         holder.day2.setText(timeZoneLearning.getDay2());
+
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
+
+//    public void clear() {
+//        list.clear();
+//    }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 

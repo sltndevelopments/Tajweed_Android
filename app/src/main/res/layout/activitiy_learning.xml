@@ -7,12 +7,12 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/learning_toolbar"
-        android:theme="@style/AppToolbar"
-        android:elevation="@dimen/dimen_4dp"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="С учителем" >
+        android:elevation="@dimen/dimen_4dp"
+        android:theme="@style/AppToolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="С учителем">
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -100,7 +100,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="50dp"
             android:layout_marginTop="170dp"
             android:layout_marginEnd="40dp"
