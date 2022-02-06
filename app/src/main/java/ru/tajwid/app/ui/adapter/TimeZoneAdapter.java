@@ -47,9 +47,10 @@ public class TimeZoneAdapter extends RecyclerView.Adapter<TimeZoneAdapter.MyView
     public int getItemCount() {
         return list.size();
     }
-
+//
 //    public void clear() {
 //        list.clear();
+////        notifyDataSetChanged();
 //    }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

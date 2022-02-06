@@ -70,15 +70,18 @@ public class OnlineLearningActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         switch (v.getId()) {
                             case R.id.button1:
-
+                                list.clear();
                                 for (DataSnapshot childSnapshot : snapshot.getChildren()) {
                                     TimeZoneLearning timeZoneLearning = snapshot.getValue(TimeZoneLearning.class);
                                     list.add(timeZoneLearning);
                                 }
                                 timeZoneAdapter.notifyDataSetChanged();
+
                                 break;
                         }
+
                     }
+
                 };
                 button1.setOnClickListener(onClickListener);
             }
@@ -97,7 +100,7 @@ public class OnlineLearningActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         switch (v.getId()) {
                             case R.id.button2:
-
+                                list.clear();
                                 for (DataSnapshot childSnapshot : snapshot.getChildren()) {
                                     TimeZoneLearning timeZoneLearning = snapshot.getValue(TimeZoneLearning.class);
                                     list.add(timeZoneLearning);
@@ -125,7 +128,7 @@ public class OnlineLearningActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         switch (v.getId()) {
                             case R.id.button3:
-
+                                list.clear();
                                 for (DataSnapshot childSnapshot : snapshot.getChildren()) {
                                     TimeZoneLearning timeZoneLearning = snapshot.getValue(TimeZoneLearning.class);
                                     list.add(timeZoneLearning);
