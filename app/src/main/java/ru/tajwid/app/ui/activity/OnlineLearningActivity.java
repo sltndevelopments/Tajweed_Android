@@ -1,8 +1,13 @@
 package ru.tajwid.app.ui.activity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,6 +52,7 @@ public class OnlineLearningActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
         list = new ArrayList<>();
         timeZoneAdapter = new TimeZoneAdapter(this, list);
         recyclerView.setAdapter(timeZoneAdapter);
@@ -70,18 +76,26 @@ public class OnlineLearningActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         switch (v.getId()) {
                             case R.id.button1:
-                                list.clear();
+                                list.clear(); // предварительно очищаем список
                                 for (DataSnapshot childSnapshot : snapshot.getChildren()) {
                                     TimeZoneLearning timeZoneLearning = snapshot.getValue(TimeZoneLearning.class);
                                     list.add(timeZoneLearning);
                                 }
                                 timeZoneAdapter.notifyDataSetChanged();
 
+                                TextView btn=(TextView) findViewById(R.id.bottonClass);
+                                btn.setOnClickListener(new View.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW);
+                                        intent.setData(Uri.parse("https://www.mail.ru"));
+                                        startActivity(intent);
+                                    }
+                                });
                                 break;
                         }
-
                     }
-
                 };
                 button1.setOnClickListener(onClickListener);
             }
@@ -92,7 +106,7 @@ public class OnlineLearningActivity extends AppCompatActivity {
 
         });
         button2 = (RadioButton) findViewById(R.id.button2);
-        database.child("TimeZoneLearning").child("User2").addValueEventListener(new ValueEventListener() {
+        database.child("TimeZoneLearning").child("User2").addValueEventListener(new ValueEventListener() { // стучимся на второй элемент спсика
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -106,6 +120,17 @@ public class OnlineLearningActivity extends AppCompatActivity {
                                     list.add(timeZoneLearning);
                                 }
                                 timeZoneAdapter.notifyDataSetChanged();
+
+                                TextView btn=(TextView) findViewById(R.id.bottonClass);
+                                btn.setOnClickListener(new View.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW);
+                                        intent.setData(Uri.parse("https://www.yandex.ru"));
+                                        startActivity(intent);
+                                    }
+                                });
                                 break;
                         }
                     }
@@ -134,6 +159,16 @@ public class OnlineLearningActivity extends AppCompatActivity {
                                     list.add(timeZoneLearning);
                                 }
                                 timeZoneAdapter.notifyDataSetChanged();
+                                TextView btn=(TextView) findViewById(R.id.bottonClass);
+                                btn.setOnClickListener(new View.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW);
+                                        intent.setData(Uri.parse("https://www.google.com"));
+                                        startActivity(intent);
+                                    }
+                                });
                                 break;
                         }
                     }
@@ -148,12 +183,15 @@ public class OnlineLearningActivity extends AppCompatActivity {
 
         });
 //*********************************************************************
+
+
     }
+
 
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
-}
 
+}

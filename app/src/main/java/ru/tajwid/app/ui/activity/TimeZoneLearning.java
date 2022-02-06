@@ -2,7 +2,7 @@ package ru.tajwid.app.ui.activity;
 
 public class TimeZoneLearning {
 
-    String name, hour1, hour2, day1, day2;
+    String name, hour1, hour2, day1, day2, url;
 
 
     public String getName() {
@@ -23,5 +23,8 @@ public class TimeZoneLearning {
 
     public String getDay2() {
         return day2;
+    }
+    public String getUrl() {
+        return url;
     }
 }

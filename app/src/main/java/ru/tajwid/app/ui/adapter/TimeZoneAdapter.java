@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -40,22 +41,17 @@ public class TimeZoneAdapter extends RecyclerView.Adapter<TimeZoneAdapter.MyView
         holder.hour2.setText(timeZoneLearning.getHour2());
         holder.day1.setText(timeZoneLearning.getDay1());
         holder.day2.setText(timeZoneLearning.getDay2());
-
+//        holder.url.setText(timeZoneLearning.getUrl());
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
-//
-//    public void clear() {
-//        list.clear();
-////        notifyDataSetChanged();
-//    }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, hour1, hour2, day1, day2;
+        TextView name, hour1, hour2, day1, day2, url;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +61,7 @@ public class TimeZoneAdapter extends RecyclerView.Adapter<TimeZoneAdapter.MyView
             hour2 = itemView.findViewById(R.id.userhour2);
             day1 = itemView.findViewById(R.id.userday1);
             day2 = itemView.findViewById(R.id.userday2);
+//            url=itemView.findViewById(R.id.url);
         }
     }
 
