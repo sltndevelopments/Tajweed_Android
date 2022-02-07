@@ -37,10 +37,8 @@ public class TimeZoneAdapter extends RecyclerView.Adapter<TimeZoneAdapter.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         TimeZoneLearning timeZoneLearning = list.get(position);
         holder.name.setText(timeZoneLearning.getName());
-        holder.hour1.setText(timeZoneLearning.getHour1());
-        holder.hour2.setText(timeZoneLearning.getHour2());
-        holder.day1.setText(timeZoneLearning.getDay1());
-        holder.day2.setText(timeZoneLearning.getDay2());
+        holder.data.setText(timeZoneLearning.getData());
+
 //        holder.url.setText(timeZoneLearning.getUrl());
     }
 
@@ -51,16 +49,14 @@ public class TimeZoneAdapter extends RecyclerView.Adapter<TimeZoneAdapter.MyView
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, hour1, hour2, day1, day2, url;
+        TextView name, data, url;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             name = itemView.findViewById(R.id.username);
-            hour1 = itemView.findViewById(R.id.userhour1);
-            hour2 = itemView.findViewById(R.id.userhour2);
-            day1 = itemView.findViewById(R.id.userday1);
-            day2 = itemView.findViewById(R.id.userday2);
+            data = itemView.findViewById(R.id.userdata);
+
 //            url=itemView.findViewById(R.id.url);
         }
     }

@@ -24,7 +24,7 @@
                 android:layout_weight="1"
                 android:text="time zone :"
                 android:textColor="@color/black_text"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
 
             <TextView
@@ -34,69 +34,18 @@
                 android:layout_weight="1"
                 android:text="MSK"
                 android:textColor="@color/black_text"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/userhour1"
+                android:id="@+id/userdata"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="3sp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/black_text"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="3sp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="-"
-                android:textColor="@color/black_text"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/userhour2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="3sp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/black_text"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/userday1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="3sp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/black_text"
-                android:textSize="18sp" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="3sp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="-"
-                android:textColor="@color/black_text"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/userday2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="3sp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/black_text"
-                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -111,7 +60,7 @@
                 android:layout_height="match_parent"
                 android:text="Учитель :"
                 android:textColor="@color/black_text"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
 
             <TextView
@@ -121,7 +70,7 @@
                 android:layout_marginStart="3sp"
                 android:gravity="center"
                 android:textColor="@color/black_text"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
 
         </LinearLayout>
