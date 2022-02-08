@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -18,26 +17,31 @@ import ru.tajwid.app.ui.activity.TimeZoneLearning;
 public class TimeZoneAdapter extends RecyclerView.Adapter<TimeZoneAdapter.MyViewHolder> {
 
     Context context;
-
     ArrayList<TimeZoneLearning> list;
+
 
     public TimeZoneAdapter(Context context, ArrayList<TimeZoneLearning> list) {
         this.context = context;
         this.list = list;
+
     }
+
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.item_timelearning, parent, false);
         return new MyViewHolder(v);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
         TimeZoneLearning timeZoneLearning = list.get(position);
         holder.name.setText(timeZoneLearning.getName());
         holder.data.setText(timeZoneLearning.getData());
+
 
 //        holder.url.setText(timeZoneLearning.getUrl());
     }
@@ -46,6 +50,8 @@ public class TimeZoneAdapter extends RecyclerView.Adapter<TimeZoneAdapter.MyView
     public int getItemCount() {
         return list.size();
     }
+
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 

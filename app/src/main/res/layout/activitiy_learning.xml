@@ -104,13 +104,12 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="170dp"
             android:layout_marginEnd="40dp"
-            android:layout_marginBottom="370dp"
-            android:orientation="vertical">
+            android:layout_marginBottom="370dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_list"
                 android:layout_width="match_parent"
-                android:layout_height="108dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical" />
 
         </LinearLayout>
