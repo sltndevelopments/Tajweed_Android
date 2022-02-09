@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -51,8 +52,7 @@ public class OnlineLearningActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_list);
 
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)); // остановка представления
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)); // перевод в горизонтальное полжение представление
 
         list = new ArrayList<>();
         timeZoneAdapter = new TimeZoneAdapter(this, list);
@@ -196,12 +196,29 @@ public class OnlineLearningActivity extends AppCompatActivity {
 
         });
 //*********************************************************************
-    }
 
+//  мгновенная блокировка recyclerView, нет прокрутке
+        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                return true;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+            }
+        });
+    }
+//*********************************************************************
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
+
 
 }
