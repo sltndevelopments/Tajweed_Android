@@ -42,16 +42,12 @@ public class TimeZoneAdapter extends RecyclerView.Adapter<TimeZoneAdapter.MyView
         holder.name.setText(timeZoneLearning.getName());
         holder.data.setText(timeZoneLearning.getData());
 
-
-//        holder.url.setText(timeZoneLearning.getUrl());
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
-
-
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -63,7 +59,6 @@ public class TimeZoneAdapter extends RecyclerView.Adapter<TimeZoneAdapter.MyView
             name = itemView.findViewById(R.id.username);
             data = itemView.findViewById(R.id.userdata);
 
-//            url=itemView.findViewById(R.id.url);
         }
     }
 

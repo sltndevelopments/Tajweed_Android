@@ -23,7 +23,6 @@
         android:layout_marginTop="58dp">
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginStart="50dp"
@@ -44,49 +43,44 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/button1"
+                android:id="@+id/radiobutton1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginRight="6dp"
                 android:layout_weight="1"
                 android:background="@drawable/costom_radiobutton"
                 android:button="@null"
-                android:checked="true"
                 android:gravity="center"
-                android:text="Мужская"
+                android:checked="true"
+                android:text="@string/radiobutton1"
                 android:textColor="@color/black_text" />
 
             <RadioButton
-                android:id="@+id/button2"
+                android:id="@+id/radiobutton2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/costom_radiobutton"
                 android:button="@null"
-                android:checked="true"
                 android:gravity="center"
-                android:text="Женская"
+                android:text="@string/radiobutton2"
                 android:textColor="@color/black_text" />
 
             <RadioButton
-                android:id="@+id/button3"
+                android:id="@+id/radiobutton3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="6dp"
                 android:layout_weight="1"
                 android:background="@drawable/costom_radiobutton"
                 android:button="@null"
-                android:checked="true"
                 android:gravity="center"
-                android:text="Детская"
+                android:text="@string/radiobutton3"
                 android:textColor="@color/black_text" />
-
 
         </RadioGroup>
 
-
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
@@ -131,7 +125,6 @@
         android:layout_marginTop="400dp"
         android:layout_marginEnd="110dp">
 
-
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="41dp"
@@ -143,10 +136,10 @@
             android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_marginStart="50dp"
-            android:gravity="center"
-            android:text="Войти в класс"
             android:clickable="true"
+            android:gravity="center"
             android:onClick="onClick"
+            android:text="@string/bottonClass"
             android:textColor="@color/black_text"
             android:textSize="21sp" />
 

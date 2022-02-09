@@ -63,5 +63,9 @@
     <string name="title_reading">Чтение</string>
     <string name="title_pronounce">Произношение</string>
     <string name="title_main">Главная</string>
+    <string name="radiobutton3">Детская</string>
+    <string name="radiobutton2">Женская</string>
+    <string name="radiobutton1">Мужская</string>
+    <string name="bottonClass">Войти в класс</string>
 
 </resources>
