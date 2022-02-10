@@ -80,6 +80,18 @@ public class OnlineLearningActivity extends AppCompatActivity {
                 }
                 timeZoneAdapter.notifyDataSetChanged();
 
+                TextView btn = (TextView) findViewById(R.id.bottonClass);
+                btn.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        String url = snapshot.child("url").getValue(String.class);
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(url));
+                        startActivity(i);
+                    }
+                });
+
                 View.OnClickListener onClickListener = new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
