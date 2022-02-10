@@ -66,6 +66,6 @@
     <string name="radiobutton3">Детская</string>
     <string name="radiobutton2">Женская</string>
     <string name="radiobutton1">Мужская</string>
-    <string name="bottonClass">Войти в класс</string>
+    <string name="bottonClass">Войти в группу</string>
 
 </resources>
