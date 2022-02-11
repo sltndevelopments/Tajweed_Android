@@ -12,6 +12,7 @@
     <dimen name="dimen_32dp">32dp</dimen>
     <dimen name="dimen_40dp">40dp</dimen>
     <dimen name="dimen_48dp">48dp</dimen>
+    <dimen name="dimen_55dp">55dp</dimen>
     <dimen name="dimen_80dp">80dp</dimen>
     <dimen name="dimen_114dp">114dp</dimen>
     <dimen name="dimen_160dp">160dp</dimen>
