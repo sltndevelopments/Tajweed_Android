@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,7 +53,7 @@ public class OnlineLearningActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_list);
 
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)); // перевод в горизонтальное полжение представление
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true)); // перевод в горизонтальное полжение представление
 
         list = new ArrayList<>();
         timeZoneAdapter = new TimeZoneAdapter(this, list);
@@ -68,13 +69,11 @@ public class OnlineLearningActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 //*********************************************************************
-        button1 = (RadioButton) findViewById(R.id.radiobutton1);
-        database.child("TimeZoneLearning").child("User1").addValueEventListener(new ValueEventListener() {
+        database.child("TimeZoneLearning").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                    TimeZoneLearning timeZoneLearning = snapshot.getValue(TimeZoneLearning.class);
+                    TimeZoneLearning timeZoneLearning = snapshot.child("User1").getValue(TimeZoneLearning.class);
                     list.add(timeZoneLearning);
 
                 }
@@ -85,128 +84,101 @@ public class OnlineLearningActivity extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
-                        String url = snapshot.child("url").getValue(String.class);
+                        String url = snapshot.child("User1").child("url").getValue(String.class);
                         Intent i = new Intent(Intent.ACTION_VIEW);
                         i.setData(Uri.parse(url));
                         startActivity(i);
                     }
                 });
 //*********************************************************************
+                button1 = (RadioButton) findViewById(R.id.radiobutton1);
+                button2 = (RadioButton) findViewById(R.id.radiobutton2);
+                button3 = (RadioButton) findViewById(R.id.radiobutton3);
+
                 View.OnClickListener onClickListener = new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         switch (v.getId()) {
                             case R.id.radiobutton1:
+                                Toast.makeText(getApplicationContext(), "Вы вошли в Мужскую группу", Toast.LENGTH_LONG).show();
                                 list.clear(); // предварительно очищаем список
                                 for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                                    TimeZoneLearning timeZoneLearning = snapshot.getValue(TimeZoneLearning.class);
+                                    TimeZoneLearning timeZoneLearning = snapshot.child("User1").getValue(TimeZoneLearning.class);
                                     list.add(timeZoneLearning);
 
+                                    TextView btn = (TextView) findViewById(R.id.bottonClass);
+                                    btn.setOnClickListener(new View.OnClickListener() {
+
+                                        @Override
+                                        public void onClick(View v) {
+                                            String url = snapshot.child("User1").child("url").getValue(String.class);
+                                            Intent i = new Intent(Intent.ACTION_VIEW);
+                                            i.setData(Uri.parse(url));
+                                            startActivity(i);
+                                        }
+                                    });
                                 }
-                                timeZoneAdapter.notifyDataSetChanged();
+                                break;
 
-                                TextView btn = (TextView) findViewById(R.id.bottonClass);
-                                btn.setOnClickListener(new View.OnClickListener() {
+                            case R.id.radiobutton2:
+                                Toast.makeText(getApplicationContext(), "Вы вошли в Женскую группу", Toast.LENGTH_LONG).show();
+                                list.clear(); // предварительно очищаем список
+                                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                                    TimeZoneLearning timeZoneLearning = snapshot.child("User2").getValue(TimeZoneLearning.class);
+                                    list.add(timeZoneLearning);
 
-                                    @Override
-                                    public void onClick(View v) {
-                                        String url = snapshot.child("url").getValue(String.class);
-                                        Intent i = new Intent(Intent.ACTION_VIEW);
-                                        i.setData(Uri.parse(url));
-                                        startActivity(i);
-                                    }
-                                });
+                                    TextView btn = (TextView) findViewById(R.id.bottonClass);
+                                    btn.setOnClickListener(new View.OnClickListener() {
+
+                                        @Override
+                                        public void onClick(View v) {
+                                            String url = snapshot.child("User2").child("url").getValue(String.class);
+                                            Intent i = new Intent(Intent.ACTION_VIEW);
+                                            i.setData(Uri.parse(url));
+                                            startActivity(i);
+                                        }
+                                    });
+                                }
+                                break;
+
+                            case R.id.radiobutton3:
+                                Toast.makeText(getApplicationContext(), "Вы вошли в Детскую группу", Toast.LENGTH_LONG).show();
+                                list.clear(); // предварительно очищаем список
+                                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                                    TimeZoneLearning timeZoneLearning = snapshot.child("User3").getValue(TimeZoneLearning.class);
+                                    list.add(timeZoneLearning);
+
+                                    TextView btn = (TextView) findViewById(R.id.bottonClass);
+                                    btn.setOnClickListener(new View.OnClickListener() {
+
+                                        @Override
+                                        public void onClick(View v) {
+                                            String url = snapshot.child("User3").child("url").getValue(String.class);
+                                            Intent i = new Intent(Intent.ACTION_VIEW);
+                                            i.setData(Uri.parse(url));
+                                            startActivity(i);
+                                        }
+                                    });
+                                }
                                 break;
                         }
+                        timeZoneAdapter.notifyDataSetChanged();
+
                     }
+
                 };
                 button1.setOnClickListener(onClickListener);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-
-        });
-        button2 = (RadioButton) findViewById(R.id.radiobutton2);
-        database.child("TimeZoneLearning").child("User2").addValueEventListener(new ValueEventListener() { // стучимся на второй элемент спсика
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                View.OnClickListener onClickListener = new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        switch (v.getId()) {
-                            case R.id.radiobutton2:
-                                list.clear();
-                                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                                    TimeZoneLearning timeZoneLearning = snapshot.getValue(TimeZoneLearning.class);
-                                    list.add(timeZoneLearning);
-                                }
-                                timeZoneAdapter.notifyDataSetChanged();
-
-                                TextView btn = (TextView) findViewById(R.id.bottonClass);
-                                btn.setOnClickListener(new View.OnClickListener() {
-
-                                    @Override
-                                    public void onClick(View v) {
-                                        String url = snapshot.child("url").getValue(String.class);// получаем  ссылку на трейтий элемент в БД
-                                        Intent i = new Intent(Intent.ACTION_VIEW);
-                                        i.setData(Uri.parse(url));
-                                        startActivity(i);
-                                    }
-                                });
-                                break;
-                        }
-                    }
-                };
                 button2.setOnClickListener(onClickListener);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-
-        });
-        button3 = (RadioButton) findViewById(R.id.radiobutton3);
-        database.child("TimeZoneLearning").child("User3").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                View.OnClickListener onClickListener = new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        switch (v.getId()) {
-                            case R.id.radiobutton3:
-                                list.clear();
-                                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                                    TimeZoneLearning timeZoneLearning = snapshot.getValue(TimeZoneLearning.class);
-                                    list.add(timeZoneLearning);
-                                }
-                                timeZoneAdapter.notifyDataSetChanged();
-                                TextView btn = (TextView) findViewById(R.id.bottonClass);
-                                btn.setOnClickListener(new View.OnClickListener() {
-
-                                    @Override
-                                    public void onClick(View v) {
-                                        String url = snapshot.child("url").getValue(String.class);
-                                        Intent i = new Intent(Intent.ACTION_VIEW);
-                                        i.setData(Uri.parse(url));
-                                        startActivity(i);
-                                    }
-                                });
-                                break;
-                        }
-                    }
-                };
                 button3.setOnClickListener(onClickListener);
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
 
         });
+
 //*********************************************************************
 
 //  мгновенная блокировка recyclerView, нет прокрутке
@@ -225,7 +197,8 @@ public class OnlineLearningActivity extends AppCompatActivity {
             }
         });
     }
-//*********************************************************************
+
+    //*********************************************************************
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
