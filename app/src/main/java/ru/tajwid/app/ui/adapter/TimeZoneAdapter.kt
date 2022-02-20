@@ -1,66 +1,48 @@
-package ru.tajwid.app.ui.adapter;
+package ru.tajwid.app.ui.adapter
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import ru.tajwid.app.R
+import ru.tajwid.app.content.data.Schedule
+import ru.tajwid.app.ui.adapter.TimeZoneAdapter.MyViewHolder
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+class TimeZoneAdapter : RecyclerView.Adapter<MyViewHolder>() {
 
-import java.util.ArrayList;
+    var list: List<Schedule> = emptyList()
+        set(value) {
+            if (field == value) return
+            field = value
 
-import ru.tajwid.app.R;
-import ru.tajwid.app.ui.activity.TimeZoneLearning;
+            notifyDataSetChanged()
+        }
 
-public class TimeZoneAdapter extends RecyclerView.Adapter<TimeZoneAdapter.MyViewHolder> {
-
-    Context context;
-    ArrayList<TimeZoneLearning> list;
-
-
-    public TimeZoneAdapter(Context context, ArrayList<TimeZoneLearning> list) {
-        this.context = context;
-        this.list = list;
-
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val v =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_timelearning, parent, false)
+        return MyViewHolder(v)
     }
 
-
-    @NonNull
-    @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item_timelearning, parent, false);
-        return new MyViewHolder(v);
-
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val timeZoneLearning = list[position]
+        holder.bind(timeZoneLearning)
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
-        TimeZoneLearning timeZoneLearning = list.get(position);
-        holder.name.setText(timeZoneLearning.getName());
-        holder.data.setText(timeZoneLearning.getData());
-
+    override fun getItemCount(): Int {
+        return list.size
     }
 
-    @Override
-    public int getItemCount() {
-        return list.size();
-    }
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val teacher: TextView by lazy { itemView.findViewById(R.id.teacher) }
+        val time: TextView by lazy { itemView.findViewById(R.id.time) }
+        val weekDay: TextView by lazy { itemView.findViewById(R.id.week_day) }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-
-        TextView name, data, url;
-
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            name = itemView.findViewById(R.id.username);
-            data = itemView.findViewById(R.id.userdata);
-
+        fun bind(schedule: Schedule) {
+            teacher.text = "Устаз: ${schedule.teacher}"
+            time.text = schedule.time
+            weekDay.text = schedule.day
         }
     }
-
-
 }
