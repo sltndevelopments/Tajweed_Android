@@ -2,7 +2,7 @@
     <string name="app_name">Таджвид</string>
     <string name="main_total_reading_progress_info">Вы прошли %1$d урок из %2$d</string>
     <string name="main_letters">Буквы</string>
-    <string name="main_modules_progress_info">Пройдено %1$d из %2$d</string>
+    <string name="main_modules_progress_info">%1$d / %2$d</string>
     <string name="settings">Настройки</string>
     <string name="main_pronunciation_rules">Правила произношения</string>
     <string name="main_pronunciation_rules_info">Пройдено 0 из 7</string>
@@ -63,5 +63,8 @@
     <string name="title_reading">Чтение</string>
     <string name="title_pronounce">Произношение</string>
     <string name="title_main">Главная</string>
-
+    <string name="your_score">Твоя статистика</string>
+    <string name="click_button">Приложение предназначено для самостоятельного обучения буквам и правильному произношению арабского текста при чтении Корана, но если ты хочешь обучаться с учителем то нажми кнопку:</string>
+    <string name="with_teacher">С учителем</string>
+    <string name="dear_friend">Дорогой друг!</string>
 </resources>

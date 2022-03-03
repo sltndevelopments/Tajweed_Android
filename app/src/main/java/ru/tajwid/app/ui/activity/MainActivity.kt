@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener when (it.itemId) {
                 R.id.main -> MainFragment()
                 R.id.alphabet -> openLessons(0)
-                R.id.reading -> openLessons(1)
-                R.id.pronunciation -> openLessons(2)
+                R.id.pronunciation -> openLessons(1)
+                R.id.reading -> openLessons(2)
                 else -> SettingsFragment()
             }?.let {
                 supportFragmentManager.beginTransaction()
