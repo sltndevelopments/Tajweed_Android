@@ -65,6 +65,7 @@
             android:textColor="@color/black" />
 
         <Button
+            android:id="@+id/go_to_online"
             android:layout_width="@dimen/dimen_114dp"
             android:layout_height="@dimen/dimen_32dp"
             android:layout_gravity="center_horizontal"
