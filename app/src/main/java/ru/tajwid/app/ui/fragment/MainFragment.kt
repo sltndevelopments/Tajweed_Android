@@ -1,5 +1,6 @@
 package ru.tajwid.app.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_main_new.*
 import kotlinx.android.synthetic.main.fragment_main.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.db.DbManager
+import ru.tajwid.app.ui.activity.OnlineLearningActivity
 import ru.tajwid.app.ui.view.MainMenuItemView
 
 class MainFragment : Fragment() {
@@ -21,10 +23,15 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_main, container, false)
 
-    override fun onResume() {
-        super.onResume()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val (moduleTotal, moduleCompleted) = progressDao.getModulesProgressInfo()
+
+        go_to_online.setOnClickListener {
+            val intent = Intent(activity, OnlineLearningActivity::class.java)
+            startActivity(intent)
+        }
 
         main_menu_container.removeAllViews()
         for (module in DbManager.get().getModulesDAO().getAll()!!) {

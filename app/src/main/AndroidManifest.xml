@@ -31,6 +31,9 @@
             android:name=".ui.activity.ExerciseActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"/>
 
+        <activity android:name=".ui.activity.OnlineLearningActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+
         <receiver
             android:name=".receiver.BootCompletedReceiver"
             android:exported="false">
