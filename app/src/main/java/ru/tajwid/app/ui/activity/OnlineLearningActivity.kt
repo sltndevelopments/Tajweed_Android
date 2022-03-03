@@ -50,7 +50,7 @@ class OnlineLearningActivity : AppCompatActivity() {
 
         goToClass.setOnClickListener {
             if (selectedGroup == null) {
-                showMessage("Пожалуйста, подождите...")
+                showMessage(R.string.text_please_wait)
                 return@setOnClickListener
             }
 
