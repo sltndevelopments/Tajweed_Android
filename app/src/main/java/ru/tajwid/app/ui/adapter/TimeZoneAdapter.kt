@@ -40,7 +40,8 @@ class TimeZoneAdapter : RecyclerView.Adapter<MyViewHolder>() {
         val weekDay: TextView by lazy { itemView.findViewById(R.id.week_day) }
 
         fun bind(schedule: Schedule) {
-            teacher.text = "Устаз: ${schedule.teacher}"
+            teacher.text =
+                itemView.context.getString(R.string.title_item_teacher_name, schedule.teacher)
             time.text = schedule.time
             weekDay.text = schedule.day
         }

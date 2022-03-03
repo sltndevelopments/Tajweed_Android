@@ -11,7 +11,7 @@
         android:elevation="@dimen/dimen_4dp"
         android:theme="@style/AppToolbar"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="С учителем">
+        app:title="@string/title_with_teacher">
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -38,7 +38,7 @@
                     android:layout_marginStart="@dimen/dimen_32dp"
                     android:layout_marginTop="@dimen/dimen_16dp"
                     android:layout_marginEnd="@dimen/dimen_32dp"
-                    android:text="Группы"
+                    android:text="@string/text_groups"
                     android:textColor="@color/black_text"
                     android:textSize="21sp"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -108,7 +108,7 @@
                     android:layout_marginTop="40dp"
                     android:layout_marginStart="@dimen/dimen_32dp"
                     android:layout_marginEnd="@dimen/dimen_32dp"
-                    android:text="Время занятий (по МСК)"
+                    android:text="@string/text_lessons_time"
                     android:textColor="@color/black_text"
                     android:textSize="21sp"
                     app:layout_constraintStart_toStartOf="parent"

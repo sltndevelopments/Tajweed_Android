@@ -92,7 +92,10 @@ class OnlineLearningActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onCancelled(error: DatabaseError) {}
+            override fun onCancelled(error: DatabaseError) {
+                showMessage(error.message)
+                swipe_refresh.isRefreshing = false
+            }
         })
     }
 
