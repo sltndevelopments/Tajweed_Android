@@ -4,6 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
+              android:background="@color/default_background"
               tools:context="ru.tajwid.app.ui.activity.LessonActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -67,6 +68,7 @@
                     android:layout_marginBottom="@dimen/dimen_32dp"
                     android:gravity="center"
                     android:text="@string/go_to_lesson"
+                    android:textColor="@color/black_text"
                     android:textAllCaps="true"
                     android:textSize="@dimen/text_size_12sp"/>
             </LinearLayout>

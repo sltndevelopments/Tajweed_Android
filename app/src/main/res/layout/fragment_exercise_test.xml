@@ -3,6 +3,7 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+    android:background="@color/default_background"
               android:orientation="vertical">
 
     <TextView
@@ -35,7 +36,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingBottom="@dimen/dimen_16dp"/>
@@ -68,6 +68,7 @@
             android:gravity="center"
             android:textAllCaps="true"
             android:textSize="@dimen/text_size_12sp"
+            android:textColor="@color/warm_grey"
             tools:text="Далее"/>
     </LinearLayout>
 </LinearLayout>

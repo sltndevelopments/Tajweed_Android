@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/default_background">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/lessons_list_toolbar"
         android:layout_width="match_parent"
         android:elevation="@dimen/dimen_4dp"
         android:layout_height="wrap_content"
-        android:theme="@style/AppToolbar" />
+        android:background="@color/default_background" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lessons_list_recycler_view"

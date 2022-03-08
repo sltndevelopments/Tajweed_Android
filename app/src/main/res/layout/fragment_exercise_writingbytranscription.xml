@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_background">
 
     <TextView
         android:id="@+id/exercise_writing_title"
@@ -17,7 +18,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Напишите арабскими буквами, принимая во внимание правильность соединения:"/>
+        tools:text="Напишите арабскими буквами, принимая во внимание правильность соединения:" />
 
     <TextView
         android:id="@+id/exercise_writing_transcription"
@@ -35,7 +36,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/exercise_writing_title"
-        tools:text="[с̱ат]"/>
+        tools:text="[с̱ат]" />
 
     <TextView
         android:id="@+id/exercise_writing_correct"
@@ -50,7 +51,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/exercise_writing_transcription"
-        tools:text="ثَت"/>
+        tools:text="ثَت" />
 
     <LinearLayout
         android:id="@+id/exercise_writing_by_transcription_go_next"
@@ -70,7 +71,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/dimen_24dp"
             android:src="@drawable/ic_show"
-            tools:ignore="ContentDescription"/>
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/exercise_writing_text"
@@ -83,7 +84,8 @@
             android:text="@string/right_answer"
             android:textAllCaps="true"
             android:textSize="@dimen/text_size_12sp"
-            tools:text="правильный ответ"/>
+            android:textColor="@color/warm_grey"
+            tools:text="правильный ответ" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

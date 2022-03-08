@@ -17,7 +17,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/dimen_55dp"
             android:text="@string/main_author_name"
-            android:textColor="@color/black" />
+            android:textColor="@color/black_text" />
 
         <ImageView
             android:layout_width="263dp"
@@ -28,14 +28,7 @@
             android:src="@drawable/main_logo_new"
             tools:ignore="ContentDescription" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_12dp"
-            android:text="@string/your_score"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="@dimen/text_size_20sp" />
+
 
         <LinearLayout
             android:id="@+id/main_menu_container"
@@ -46,33 +39,33 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_24dp"
-            android:layout_marginTop="@dimen/dimen_24dp"
-            android:layout_marginEnd="@dimen/dimen_24dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/dimen_55dp"
+            android:layout_marginTop="@dimen/dimen_40dp"
             android:text="@string/dear_friend"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_size_20sp"/>
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/text_size_18sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_48dp"
-            android:layout_marginTop="@dimen/dimen_16dp"
-            android:layout_marginEnd="@dimen/dimen_48dp"
-            android:gravity="center_horizontal"
+            android:layout_marginStart="@dimen/dimen_55dp"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:layout_marginEnd="@dimen/dimen_55dp"
             android:text="@string/click_button"
-            android:textColor="@color/black" />
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/text_size_15sp"/>
 
         <Button
             android:id="@+id/go_to_online"
             android:layout_width="@dimen/dimen_114dp"
             android:layout_height="@dimen/dimen_32dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/dimen_55dp"
             android:layout_marginTop="@dimen/dimen_12dp"
             android:layout_marginBottom="@dimen/dimen_8dp"
             android:background="@drawable/rounded_corner"
             android:text="@string/with_teacher"
+            android:textColor="@color/black_text"
             android:textAllCaps="false"
             android:textStyle="bold" />
 

@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/dimen_12dp"
-            android:textColor="@color/black"
+            android:textColor="@color/black_text"
             android:textSize="@dimen/text_size_16sp"
             tools:text="@string/main_letters" />
 
@@ -37,10 +37,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginEnd="@dimen/dimen_12dp"
+            android:layout_marginEnd="@dimen/dimen_75dp"
             android:gravity="end"
             android:textAllCaps="true"
-            android:textColor="@color/black"
+            android:textColor="@color/black_text"
             android:textSize="@dimen/text_size_16sp"
             tools:text="@string/main_modules_progress_info" />
 

@@ -18,6 +18,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/dimen_32dp"
             android:text="@string/main_author_name"
+            android:textColor="@color/black_text"
             android:textAllCaps="true"
             android:textSize="@dimen/text_size_12sp"/>
 
@@ -50,6 +51,7 @@
             android:layout_marginTop="@dimen/dimen_16dp"
             android:text="@string/main_total_reading_progress_info"
             android:textAllCaps="true"
+            android:textColor="@color/black_text"
             android:textSize="@dimen/text_size_12sp"/>
 
         <View
@@ -78,6 +80,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/dimen_16dp"
                 android:layout_marginBottom="@dimen/dimen_24dp"
+                android:textColor="@color/black_text"
                 android:text="@string/settings"
                 android:textSize="@dimen/text_size_24sp"/>
 

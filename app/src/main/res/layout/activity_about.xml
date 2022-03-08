@@ -4,13 +4,13 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context=".ui.activity.AboutActivity">
+              tools:context=".ui.activity.AboutActivity"
+              android:background="@color/default_background">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/about_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppToolbar"/>
+        android:layout_height="wrap_content" />
 
     <View
         android:layout_width="match_parent"
