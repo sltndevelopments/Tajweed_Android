@@ -12,6 +12,7 @@
     <color name="white_three">#f9f9f9</color>
     <color name="black">#f9f9f9</color>
     <color name="black_text">#f9f9f9</color>
+    <color name="black_text_radbutton">#000000</color>
     <color name="white">#000000</color>
     <color name="white_text">#f9f9f9</color>
     <color name="white_four">#f9f9f9</color>

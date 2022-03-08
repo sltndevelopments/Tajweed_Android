@@ -11,7 +11,7 @@
         android:id="@+id/lessons_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppToolbar"/>
+        android:background="@color/default_background"/>
 
     <ru.tajwid.app.ui.view.FontSettingsView
         android:id="@+id/lesson_font_settings"

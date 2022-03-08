@@ -24,7 +24,7 @@ const val KEY_THEME = "prefs.theme"
 const val THEME_UNDEFINED = -1
 const val THEME_LIGHT = 0
 const val THEME_DARK = 1
-const val THEME_SYSTEM = 2
+//const val THEME_SYSTEM = 2
 
 
 class SettingsFragment : Fragment() {
@@ -126,7 +126,7 @@ class SettingsFragment : Fragment() {
             when (checkedId) {
                 R.id.themeLight -> setTheme(AppCompatDelegate.MODE_NIGHT_NO, THEME_LIGHT)
                 R.id.themeDark -> setTheme(AppCompatDelegate.MODE_NIGHT_YES, THEME_DARK)
-                R.id.themeSystem -> setTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM, THEME_SYSTEM)
+//                R.id.themeSystem -> setTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM, THEME_SYSTEM)
             }
         }
     }
@@ -137,15 +137,15 @@ class SettingsFragment : Fragment() {
     }
 
     private fun initTheme() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
-            themeSystem.visibility = View.VISIBLE
-        } else {
-            themeSystem.visibility = View.GONE
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
+//            themeSystem.visibility = View.VISIBLE
+//        } else {
+//            themeSystem.visibility = View.GONE
+//        }
         when (getSavedTheme()) {
             THEME_LIGHT -> themeLight.isChecked = true
             THEME_DARK -> themeDark.isChecked = true
-            THEME_SYSTEM -> themeSystem.isChecked = true
+//            THEME_SYSTEM -> themeSystem.isChecked = true
 
             THEME_UNDEFINED -> {
                 when (resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)) {

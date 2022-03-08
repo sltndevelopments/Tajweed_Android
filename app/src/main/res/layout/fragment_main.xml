@@ -65,9 +65,8 @@
             android:layout_marginBottom="@dimen/dimen_8dp"
             android:background="@drawable/rounded_corner"
             android:text="@string/with_teacher"
-            android:textColor="@color/black_text"
-            android:textAllCaps="false"
-            android:textStyle="bold" />
+            android:textColor="@color/black_text_radbutton"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 </ScrollView>

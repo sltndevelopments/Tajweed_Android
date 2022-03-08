@@ -82,12 +82,6 @@
             android:layout_height="wrap_content"
             android:text="Светлая" />
 
-        <RadioButton
-            android:id="@+id/themeSystem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Системная" />
-
     </RadioGroup>
 
     <View

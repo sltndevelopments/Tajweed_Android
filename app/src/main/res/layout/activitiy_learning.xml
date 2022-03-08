@@ -68,6 +68,7 @@
                         android:textStyle="bold"
                         android:checked="true"
                         android:gravity="center"
+                        android:textColor="@color/black_text_radbutton"
                         android:text="@string/radiobutton1" />
 
                     <RadioButton
@@ -81,6 +82,7 @@
                         android:background="@drawable/costom_radiobutton"
                         android:button="@null"
                         android:gravity="center"
+                        android:textColor="@color/black_text_radbutton"
                         android:text="@string/radiobutton2" />
 
                     <RadioButton
@@ -95,6 +97,7 @@
                         android:background="@drawable/costom_radiobutton"
                         android:button="@null"
                         android:gravity="center"
+                        android:textColor="@color/black_text_radbutton"
                         android:text="@string/radiobutton3" />
 
                 </RadioGroup>

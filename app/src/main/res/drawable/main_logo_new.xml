@@ -9,24 +9,24 @@
         android:fillColor="#B7DA00"
         android:pathData="M203.8,0H2.8L0,50.2c0,0,24.4-2.8,37.3-2.8c14.8,0,40.1,0,40.1,0v45.1c0,29.2-4.9,44.7-21.1,55.2l22.8,45 c51.3-27.1,51.3-82.1,51.3-100.1V47.5c0,0,29.5,0,39.4,0c13.1,0,36.8,2.8,36.8,2.8L203.8,0z" />
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/black"
         android:pathData="M253.6,68.4h48.8v14.3H286v44.6h-16V82.7h-16.4V68.4z" />
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/black"
         android:pathData="M348.3,114.7h-19.4l-4.2,12.6h-17.3l22.3-58.9h17.7l22.3,58.9h-17.3L348.3,114.7z M344.1,102.1l-5.5-17.3l-5.5,17.3 H344.1z" />
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/black"
         android:pathData="M400,68.4h16v38.7c0,6.5-2,11.8-6,15.8c-4,4-9.2,6.1-15.5,6.1c-2.1,0-4.2-0.3-6.1-0.8c-2-0.5-3.6-1.2-4.9-1.9 c-1.3-0.7-2.4-1.5-3.4-2.2c-1-0.7-1.7-1.3-2.1-1.9l-0.7-0.8l9.7-9.7c1.4,2,3.5,3,6.3,3c1.9,0,3.5-0.7,4.8-2.1 c1.3-1.4,1.9-3.2,1.9-5.5V68.4z" />
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/black"
         android:pathData="M476.1,93.2l-10.9,34.1h-14.3l-19.4-58.9h17.3l10.1,35.8l10.5-35.8h13.5l10.5,35.8l10.1-35.8h17.2l-19.4,58.9h-14.3 L476.1,93.2z" />
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/black"
         android:pathData="M552.7,113.8H583v13.5h-46.3V68.4h45.4v13.5h-29.5v9.2h22.7v12.7h-22.7V113.8z" />
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/black"
         android:pathData="M617.5,113.8h30.3v13.5h-46.3V68.4h45.4v13.5h-29.5v9.2h22.7v12.7h-22.7V113.8z" />
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/black"
         android:pathData="M666.3,68.4H689c9,0,16.4,2.8,22.3,8.5c5.9,5.7,8.8,12.7,8.8,21s-3,15.3-8.9,21c-5.9,5.7-13.3,8.5-22.3,8.5h-22.7V68.4z M689,82.7h-6.7V113h6.7c4.1,0,7.7-1.4,10.6-4.3c3-2.9,4.5-6.5,4.5-10.8c0-4.4-1.4-8.1-4.2-10.9C697.1,84.1,693.4,82.7,689,82.7z" />
 </vector>
