@@ -17,5 +17,6 @@
         android:id="@+id/lessons_list_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/default_background"
         tools:listitem="@layout/view_lessons_list_item"/>
 </LinearLayout>

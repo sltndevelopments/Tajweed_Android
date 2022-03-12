@@ -5,7 +5,7 @@
     <color name="colorAccent">@color/blueberry</color>
     <color name="default_background">@color/white</color>
     <color name="default_separator">#f9f9f9</color>
-    <color name="blueberry">#f9f9f9</color>
+    <color name="blueberry">#4d2d8d</color>
     <color name="light_warm_grey">#f9f9f9</color>
     <color name="button_color">#f9f9f9</color>
     <color name="warm_grey">#f9f9f9</color>
@@ -14,7 +14,7 @@
     <color name="black_text">#f9f9f9</color>
     <color name="black_text_radbutton">#000000</color>
     <color name="white">#000000</color>
-    <color name="white_text">#f9f9f9</color>
+    <color name="white_text">#000000</color>
     <color name="white_four">#f9f9f9</color>
     <color name="greyish_brown">#f9f9f9</color>
     <color name="wisteria">#9782C2</color>

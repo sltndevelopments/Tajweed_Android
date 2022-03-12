@@ -17,6 +17,7 @@
         android:id="@+id/lesson_font_settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/default_background"
         android:visibility="gone"/>
 
     <ru.tajwid.app.ui.view.PlayerView
@@ -28,11 +29,13 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/lesson_scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/default_background">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/default_background"
             android:orientation="vertical">
 
             <LinearLayout

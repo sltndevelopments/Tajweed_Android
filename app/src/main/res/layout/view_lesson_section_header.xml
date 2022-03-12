@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:gravity="center"
-              android:orientation="horizontal"
-              android:paddingTop="@dimen/dimen_16dp"
-              android:paddingBottom="@dimen/dimen_20dp"
-              tools:context="ru.tajwid.app.ui.activity.LessonActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/dimen_16dp"
+    android:paddingBottom="@dimen/dimen_20dp"
+    android:background="@color/default_background"
+    tools:context="ru.tajwid.app.ui.activity.LessonActivity">
 
     <TextView
         android:id="@+id/lesson_section_header_letter"
@@ -16,22 +17,22 @@
         android:layout_gravity="center"
         android:background="@drawable/lessons_list_item_filled_enabled_background"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black_text"
         android:textSize="@dimen/text_size_12sp"
-        tools:text="ب"/>
+        tools:text="ب" />
 
     <TextView
         android:id="@+id/lesson_section_header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginStart="@dimen/dimen_12dp"
         android:layout_marginEnd="@dimen/dimen_12dp"
         android:gravity="center"
-        android:layout_marginStart="@dimen/dimen_12dp"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_12sp"
         android:textStyle="bold"
-        tools:text="Буква «ба»"/>
+        tools:text="Буква «ба»" />
 </LinearLayout>
