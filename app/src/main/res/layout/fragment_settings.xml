@@ -48,6 +48,8 @@
             android:checked="true" />
     </LinearLayout>
 
+
+
     <TextView
         android:id="@+id/settings_theme"
         android:layout_width="match_parent"

@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_settings.*
 import ru.tajwid.app.BuildConfig
@@ -51,10 +52,13 @@ class SettingsFragment : Fragment() {
         settings_about_project.setOnClickListener { onAboutProjectClick() }
         settings_recommendation.setOnClickListener { onRecommendationClick() }
         settings_switch.isChecked = PreferencesHelper.get().isNotificationsEnabled()
+
         settings_switch.setOnCheckedChangeListener { _, isChecked ->
             onSwitchCheckedChanged(
                 isChecked
             )
+
+
         }
         initThemeListener()
         initTheme()
@@ -151,7 +155,7 @@ class SettingsFragment : Fragment() {
                 when (resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)) {
                     Configuration.UI_MODE_NIGHT_NO -> themeLight.isChecked = true
                     Configuration.UI_MODE_NIGHT_YES -> themeDark.isChecked = true
-                    Configuration.UI_MODE_NIGHT_UNDEFINED -> themeLight.isChecked = true
+//                    Configuration.UI_MODE_NIGHT_UNDEFINED -> themeLight.isChecked = true
                 }
             }
         }
