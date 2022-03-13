@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <item android:state_checked="true">
+    <item android:state_selected="true">
         <shape android:shape="rectangle" >
             <corners android:radius="30dip" />
-            <stroke android:width="1dip" android:color="#B7DA00" />
+            <stroke android:width="4dp" android:color="#0000" />
             <solid android:color="#B7DA00" />
         </shape>
     </item>
@@ -12,6 +12,7 @@
     <item>
         <shape android:shape="rectangle"  >
             <corners android:radius="30dip" />
+            <stroke android:width="4dp" android:color="#0000" />
 <!--            <stroke android:width="1dip" android:color="#B7DA00" />-->
             <solid android:color="#FFFFFF" />
         </shape>

@@ -22,4 +22,10 @@
     <style name="BottomNavigationViewTextAppearance">
         <item name="android:textSize">10sp</item>
     </style>
+
+    <style name="TabTextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

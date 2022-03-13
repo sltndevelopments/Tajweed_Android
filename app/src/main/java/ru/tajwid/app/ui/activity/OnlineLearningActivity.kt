@@ -10,6 +10,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.google.android.material.tabs.TabLayout
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activitiy_learning.*
 import ru.tajwid.app.R
@@ -77,13 +78,21 @@ class OnlineLearningActivity : AppCompatActivity() {
             }
         }
 
-        radio_group_1.setOnCheckedChangeListener { radioGroup, i ->
-            when (i) {
-                R.id.radiobutton1 -> selectedGroup = list.getOrNull(0)
-                R.id.radiobutton2 -> selectedGroup = list.getOrNull(1)
-                R.id.radiobutton3 -> selectedGroup = list.getOrNull(2)
+        radio_group_1.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                selectedGroup = (tab?.tag as? Group)
             }
-        }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                selectedGroup = (tab?.tag as? Group)
+            }
+
+        })
+
         swipe_refresh.isRefreshing = true
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -105,8 +114,15 @@ class OnlineLearningActivity : AppCompatActivity() {
 
         if (list.isEmpty()) return
 
-        selectedGroup = list[0]
-        radio_group_1.check(R.id.radiobutton1)
+        radio_group_1.removeAllTabs()
+        list.forEach {
+            radio_group_1.addTab(radio_group_1.newTab().apply {
+                text = it.name
+                tag = it
+            }, false)
+        }
+
+        radio_group_1.selectTab(radio_group_1.getTabAt(0))
         swipe_refresh.isRefreshing = false
     }
 

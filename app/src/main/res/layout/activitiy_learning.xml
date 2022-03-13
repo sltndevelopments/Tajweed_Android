@@ -43,62 +43,21 @@
                     android:textSize="21sp"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <RadioGroup
-                    android:id="@+id/radio_group_1"
+                <com.google.android.material.tabs.TabLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:layout_marginEnd="@dimen/dimen_32dp"
-                    android:layout_marginStart="@dimen/dimen_32dp"
+                    android:id="@+id/radio_group_1"
+                    android:layout_height="40dp"
                     android:layout_marginTop="@dimen/dimen_12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/groups_title">
-
-                    <RadioButton
-                        android:id="@+id/radiobutton1"
-                        android:elevation="@dimen/dimen_4dp"
-                        android:layout_margin="@dimen/dimen_4dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="6dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/costom_radiobutton"
-                        android:button="@null"
-                        android:textStyle="bold"
-                        android:checked="true"
-                        android:gravity="center"
-                        android:text="@string/radiobutton1"
-                        android:textColor="@color/black_text" />
-
-                    <RadioButton
-                        android:id="@+id/radiobutton2"
-                        android:textStyle="bold"
-                        android:elevation="@dimen/dimen_4dp"
-                        android:layout_margin="@dimen/dimen_4dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/costom_radiobutton"
-                        android:button="@null"
-                        android:gravity="center"
-                        android:text="@string/radiobutton2"
-                        android:textColor="@color/black_text" />
-
-                    <RadioButton
-                        android:id="@+id/radiobutton3"
-                        android:textStyle="bold"
-                        android:elevation="@dimen/dimen_4dp"
-                        android:layout_margin="@dimen/dimen_4dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="6dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/costom_radiobutton"
-                        android:button="@null"
-                        android:gravity="center"
-                        android:text="@string/radiobutton3"
-                        android:textColor="@color/black_text" />
-
-                </RadioGroup>
+                    app:layout_constraintTop_toBottomOf="@id/groups_title"
+                    app:tabBackground="@drawable/costom_radiobutton"
+                    app:tabGravity="center"
+                    app:tabIndicator="@color/white_text"
+                    app:tabMinWidth="96dp"
+                    app:tabMode="auto"
+                    app:tabPadding="@dimen/dimen_4dp"
+                    app:tabSelectedTextColor="@color/black"
+                    app:tabTextAppearance="@style/TabTextAppearance"
+                    app:tabTextColor="#9000" />
 
                 <TextView
                     android:textStyle="bold"
