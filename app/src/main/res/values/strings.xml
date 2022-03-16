@@ -75,6 +75,8 @@
     <string name="text_lessons_time">Время занятий (по МСК)</string>
     <string name="title_with_teacher">С учителем</string>
     <string name="title_item_teacher_name">Устаз: %s</string>
-    <string name="text_please_wait">"Пожалуйста, подождите…"</string>
+    <string name="text_please_wait">Пожалуйста, подождите…</string>
+    <string name="title_new_app_version">Новая версия приложения</string>
+    <string name="desc_new_app_version">Кликните по уведомлению для перехода в магазин приложений</string>
 
 </resources>
