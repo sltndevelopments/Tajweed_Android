@@ -11,7 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.android.material.tabs.TabLayout
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activitiy_learning.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Group
@@ -26,7 +31,7 @@ class OnlineLearningActivity : AppCompatActivity() {
     private val list: MutableList<Group> = mutableListOf()
 
     private val database: DatabaseReference by lazy {
-        FirebaseDatabase.getInstance().reference
+        Firebase.database.reference
     }
 
     private var selectedGroup: Group? by Delegates.observable(null) { prop, old, new ->

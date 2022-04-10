@@ -46,6 +46,14 @@
         <receiver android:name=".receiver.NotificationsAlarmReceiver"/>
 
         <activity android:name=".ui.activity.AboutActivity"/>
+
+        <service
+            android:name=".service.FBMessageService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
