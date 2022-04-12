@@ -17,7 +17,7 @@
     <string name="settings_about_project">О проекте</string>
     <string name="settings_recommendation">Порекомендовать приложение</string>
     <string name="settings_assessment">Оценить в Google Play</string>
-    <string name="settings_web_site_about_project"> tajwid.com</string>
+    <string name="settings_web_site_about_project">tajweed.ru</string>
     <string name="settings_recommend_chooser_title">Выберите действие</string>
     <string name="settings_recommend_text">Рекомендую скачать приложение Tajwid:</string>
     <plurals name="lessons_list_sections_info">
@@ -56,7 +56,7 @@
     <string name="onward">далее</string>
     <string name="right_answer">правильный ответ</string>
     <string name="notification_channel_description">Вы давно не учили Таджвид</string>
-    <string name="application_for_study_koran">Приложение для изучение Корана</string>
+    <string name="application_for_study_koran">Изучение правил чтения Корана, доступное каждому</string>
     <string name="go_to_the_site">На сайт</string>
     <string name="settings_recommend_subject">Отзыв на приложение Таджвид</string>
     <string name="exercise_pronounce_sound">Нажмите на текст, чтобы его прослушать.</string>
@@ -87,5 +87,6 @@
     <string name="checkbox_title_individual">Прошу связаться со мной по поводу индивидуальных курсов</string>
     <string name="desc_individual">Заявка на индивидуальные курсы будет отправлена в Исламский Центр Дар г. Москвы в отделение обучения Корана</string>
     <string name="hint_name">Имя</string>
+    <string name="text_send">Отправить</string>
 
 </resources>

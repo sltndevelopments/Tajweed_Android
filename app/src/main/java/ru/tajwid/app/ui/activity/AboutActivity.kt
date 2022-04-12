@@ -8,7 +8,7 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_about.*
 import ru.tajwid.app.R
 
-private const val URI_PREFIX_HTTP = "http://"
+private const val URI_PREFIX_HTTP = "https://"
 
 class AboutActivity : BaseActivity() {
 
