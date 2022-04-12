@@ -14,15 +14,14 @@ import retrofit2.http.POST
 import java.util.concurrent.TimeUnit
 
 object NetworkService {
-    private const val BASE_URL =
-        "https://api.telegram.org/bot5152032997:AAHgfopBIF7EYElOKkdtWCBJnDrsZg2c4wM/"
-    private const val CHAT_ID = "@tajweed_users"
+    private fun getBaseUrl() = "https://api.telegram.org/${prefs.getBotId()}/"
     private const val DEFAULT_PARSE_MODE = "MarkdownV2"
+    private val prefs by lazy { PreferencesHelper.get() }
 
     private val service by lazy {
         Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
+            .baseUrl(getBaseUrl())
             .client(
                 OkHttpClient().newBuilder()
                     .callTimeout(10, TimeUnit.SECONDS)
@@ -47,7 +46,7 @@ object NetworkService {
             *Телефон:* $phone
             *Примечания:* ${if (needIndividual) "Нужны идивидуальные занятия" else "\\-"}
         """.trimIndent()
-        val resp = service.writeUserInfo(userInfo, CHAT_ID, DEFAULT_PARSE_MODE)
+        val resp = service.writeUserInfo(userInfo, prefs.getChatId().orEmpty(), DEFAULT_PARSE_MODE)
 
         if (!resp.isSuccessful) {
             val error = Gson().fromJson(resp.errorBody()?.charStream(), Response::class.java)

@@ -27,12 +27,17 @@ class TajwidApplication : Application() {
 
     private fun checkUpdates() {
         val configSettings = remoteConfigSettings {
-            minimumFetchIntervalInSeconds = 3600
+            minimumFetchIntervalInSeconds = 60
         }
         Firebase.remoteConfig.apply {
             setConfigSettingsAsync(configSettings)
             fetchAndActivate().addOnCompleteListener {
                 val playStoreVersionCode = getLong(KEY_FB_VERSION_CODE)
+                val botId = getString(KEY_TELEGRAM_BOT_ID)
+                val chatId = getString(KEY_TELEGRAM_CHAT_ID)
+
+                PreferencesHelper.get().saveBotId(botId)
+                PreferencesHelper.get().saveChatId(chatId)
 
                 if (BuildConfig.VERSION_CODE < playStoreVersionCode
                     && PreferencesHelper.get().isNotificationsEnabled()
@@ -65,5 +70,7 @@ class TajwidApplication : Application() {
 
     companion object {
         private const val KEY_FB_VERSION_CODE = "android_version_code"
+        private const val KEY_TELEGRAM_BOT_ID = "telegram_bot"
+        private const val KEY_TELEGRAM_CHAT_ID = "telegram_channel"
     }
 }
