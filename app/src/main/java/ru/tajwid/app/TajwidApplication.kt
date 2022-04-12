@@ -1,6 +1,7 @@
 package ru.tajwid.app
 
 import android.app.Application
+import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
@@ -18,6 +19,7 @@ class TajwidApplication : Application() {
         super.onCreate()
         PreferencesHelper.init(this)
         DbManager.init(applicationContext)
+        Firebase.analytics.setAnalyticsCollectionEnabled(true)
         JsonImportHelper.import(this)
         scheduleReminder()
         checkUpdates()
@@ -32,7 +34,9 @@ class TajwidApplication : Application() {
             fetchAndActivate().addOnCompleteListener {
                 val playStoreVersionCode = getLong(KEY_FB_VERSION_CODE)
 
-                if (BuildConfig.VERSION_CODE < playStoreVersionCode) {
+                if (BuildConfig.VERSION_CODE < playStoreVersionCode
+                    && PreferencesHelper.get().isNotificationsEnabled()
+                ) {
                     NotificationsHelper.showCheckUpdatesNotification(
                         this@TajwidApplication,
                         getString(R.string.title_new_app_version),

@@ -1,14 +1,6 @@
 package ru.tajwid.app.ui.activity
 
-import android.app.Activity
-import android.content.ActivityNotFoundException
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
-import androidx.annotation.StringRes
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.database.DataSnapshot
@@ -22,9 +14,10 @@ import ru.tajwid.app.R
 import ru.tajwid.app.content.data.Group
 import ru.tajwid.app.content.data.OnlineLearning
 import ru.tajwid.app.ui.adapter.TimeZoneAdapter
+import ru.tajwid.app.ui.fragment.RegisterFragment
 import kotlin.properties.Delegates
 
-class OnlineLearningActivity : AppCompatActivity() {
+class OnlineLearningActivity : BaseActivity() {
     private val timeZoneAdapter: TimeZoneAdapter by lazy {
         TimeZoneAdapter()
     }
@@ -55,25 +48,11 @@ class OnlineLearningActivity : AppCompatActivity() {
         }
 
         goToClass.setOnClickListener {
-            if (selectedGroup == null) {
-                showMessage(R.string.text_please_wait)
-                return@setOnClickListener
-            }
-
-            try {
-                val i = Intent(Intent.ACTION_VIEW)
-                i.data = Uri.parse(selectedGroup?.link)
-                startActivity(i)
-            } catch (e: ActivityNotFoundException) {
-                e.printStackTrace()
-            }
+            openDialog(RegisterFragment())
         }
 
         // навигация назад  в меню
-        val toolbar = findViewById<Toolbar>(R.id.learning_toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_toolbar_back)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        setupSimpleToolbar(learning_toolbar, getString(R.string.title_with_teacher))
 
         swipe_refresh.setOnRefreshListener {
             database.get().addOnCompleteListener {
@@ -135,12 +114,4 @@ class OnlineLearningActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
-}
-
-fun Activity.showMessage(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-}
-
-fun Activity.showMessage(@StringRes messageRes: Int) {
-    Toast.makeText(this, getString(messageRes), Toast.LENGTH_SHORT).show()
 }

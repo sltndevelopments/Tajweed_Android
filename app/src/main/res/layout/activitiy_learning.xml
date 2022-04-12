@@ -114,7 +114,7 @@
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:gravity="center"
-                        android:text="@string/bottonClass"
+                        android:text="@string/text_register"
                         android:textColor="@color/black_text"
                         android:textSize="21sp" />
 

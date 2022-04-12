@@ -70,7 +70,7 @@
     <string name="radiobutton3">Детская</string>
     <string name="radiobutton2">Женская</string>
     <string name="radiobutton1">Мужская</string>
-    <string name="bottonClass">Войти в группу</string>
+    <string name="text_register">Зарегистрироваться</string>
     <string name="text_groups">Группы</string>
     <string name="text_lessons_time">Время занятий (по МСК)</string>
     <string name="title_with_teacher">С учителем</string>
@@ -78,5 +78,14 @@
     <string name="text_please_wait">Пожалуйста, подождите…</string>
     <string name="title_new_app_version">Новая версия приложения</string>
     <string name="desc_new_app_version">Кликните по уведомлению для перехода в магазин приложений</string>
+    <string name="unknown_error">Что-то пошло не так…</string>
+    <string name="error_empty_phone">Введите телефон</string>
+    <string name="error_empty_email">Введите почту</string>
+    <string name="error_empty_name">Введите имя</string>
+    <string name="hint_email">Электронная почта</string>
+    <string name="hint_phone">Номер телефона</string>
+    <string name="checkbox_title_individual">Прошу связаться со мной по поводу индивидуальных курсов</string>
+    <string name="desc_individual">Заявка на индивидуальные курсы будет отправлена в Исламский Центр Дар г. Москвы в отделение обучения Корана</string>
+    <string name="hint_name">Имя</string>
 
 </resources>
