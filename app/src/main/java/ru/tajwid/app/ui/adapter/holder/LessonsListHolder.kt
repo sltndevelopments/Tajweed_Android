@@ -13,10 +13,8 @@ class LessonsListHolder(private val parent: LessonsListItemView) : RecyclerView.
     fun bind(
         lesson: Lesson,
         isFilled: Boolean,
-        isAvailable: Boolean,
         listener: LessonsListAdapter.OnClickListener?
     ) {
-        parent.setAvailable(isAvailable)
         parent.setNumber(adapterPosition + 1, isFilled)
         parent.setTitle(lesson.title)
 
