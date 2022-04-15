@@ -20,17 +20,6 @@ class LessonsListItemView @JvmOverloads constructor(
         View.inflate(context, R.layout.view_lessons_list_item, this)
     }
 
-    fun setAvailable(isAvailable: Boolean) {
-        lessons_list_item_number.isEnabled = isAvailable
-        lessons_list_item_title.isEnabled = isAvailable
-        lessons_list_item_info.isEnabled = isAvailable
-        lessons_list_item_not_free.visibility = if (isAvailable) {
-            View.GONE
-        } else {
-            View.VISIBLE
-        }
-    }
-
     fun setNumber(number: Int, isFilled: Boolean) {
         lessons_list_item_number.text = number.toString()
         if (isFilled) {

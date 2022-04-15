@@ -28,12 +28,11 @@ class LessonsListAdapter : BaseRecyclerAdapter<LessonsListHolder>() {
         holder.bind(
             lesson = item.lesson,
             isFilled = item.isFilled,
-            isAvailable = item.isAvailable,
             listener = listener
         )
     }
 
-    data class Item(val lesson: Lesson, val isFilled: Boolean, val isAvailable: Boolean)
+    data class Item(val lesson: Lesson, val isFilled: Boolean)
     interface OnClickListener {
         fun onClick(adapterPosition: Int)
     }

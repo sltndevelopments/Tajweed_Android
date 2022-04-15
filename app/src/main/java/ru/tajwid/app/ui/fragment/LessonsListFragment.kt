@@ -43,19 +43,16 @@ class LessonsListFragment : Fragment(), LessonsListAdapter.OnClickListener {
         val allLessonsStates = progressDao.getAllLessonsStates(moduleId, lessonId)
 
         for (lessonId in 0 until lesson.size) {
-            val isAvailable = isFullVersion() || lessonId < MAX_FREE_POSITION
             if (allLessonsStates[lessonId]!!) {
                 val item = Item(
                     lesson = lesson[lessonId]!!,
                     isFilled = true,
-                    isAvailable = isAvailable
                 )
                 items.add(item)
             } else {
                 val item = Item(
                     lesson = lesson[lessonId]!!,
                     isFilled = false,
-                    isAvailable = isAvailable
                 )
                 items.add(item)
             }
@@ -68,11 +65,7 @@ class LessonsListFragment : Fragment(), LessonsListAdapter.OnClickListener {
     }
 
     override fun onClick(position: Int) {
-        when {
-            isFullVersion() -> openLesson(position)
-            position < MAX_FREE_POSITION -> openLesson(position)
-            else -> openFullVersion(position)
-        }
+        openLesson(position)
     }
 
     private fun isFullVersion(): Boolean {
@@ -109,8 +102,6 @@ class LessonsListFragment : Fragment(), LessonsListAdapter.OnClickListener {
     companion object {
         private const val FULL_VERSION_PACKAGE = "ru.tajwid.app.full"
         private val FULL_VERSION_URI = Uri.parse("market://details?id=$FULL_VERSION_PACKAGE")
-
-        private const val MAX_FREE_POSITION = 2
 
         fun newInstance(title: String, moduleId: Int): LessonsListFragment {
             return LessonsListFragment().apply {
