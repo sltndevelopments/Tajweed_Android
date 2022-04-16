@@ -92,8 +92,8 @@
     <string name="secure_confidentiality">"Политика конфиденциальности"</string>
     <string name="user_information">Пользовательское соглашение</string>
     <string name="click_secure_confidentiality"><u>Политика конфидициальности</u></string>
-    <string name="url_secure_confidentiality">https://www.mail.ru</string>
-    <string name="url_user_information">https://www.yandex.ru</string>
+    <string name="url_secure_confidentiality">https://telegra.ph/POLITIKA-KONFIDENCIALNOSTI-04-16-2</string>
+    <string name="url_user_information">https://telegra.ph/POLZOVATELSKOE-SOGLASHENIE-DLYA-PRILOZHENIYA-04-16</string>
 
 
 </resources>
