@@ -88,13 +88,31 @@
                 android:layout_marginTop="@dimen/dimen_8dp"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/text_send"
+                android:enabled="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/need_individual" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkbox_secure_confidentiality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:text="@string/checkbox_title_secure_confidentiality"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/clickText_secure_confidentiality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="10sp"
+                android:text="@string/click_secure_confidentiality" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimen_8dp"
                 android:text="@string/desc_individual"
                 android:textColor="@color/black" />
 

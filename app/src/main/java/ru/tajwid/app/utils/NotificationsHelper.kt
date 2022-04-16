@@ -22,12 +22,6 @@ private const val CHANNEL_ID = "Tajwid_Notifications_Channel"
 
 object NotificationsHelper {
 
-
-
-
-
-
-
     fun showNotification(
         context: Context,
         title: String,

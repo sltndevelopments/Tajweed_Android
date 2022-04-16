@@ -88,5 +88,12 @@
     <string name="desc_individual">Заявка на индивидуальные курсы будет отправлена в Исламский Центр Дар г. Москвы в отделение обучения Корана</string>
     <string name="hint_name">Имя</string>
     <string name="text_send">Отправить</string>
+    <string name="checkbox_title_secure_confidentiality">Нажимая на кнопку ОТПРАВИТЬ, вы даете согласие на обработку своих персональных данных: </string>
+    <string name="secure_confidentiality">"Политика конфиденциальности"</string>
+    <string name="user_information">Пользовательское соглашение</string>
+    <string name="click_secure_confidentiality"><u>Политика конфидициальности</u></string>
+    <string name="url_secure_confidentiality">https://www.mail.ru</string>
+    <string name="url_user_information">https://www.yandex.ru</string>
+
 
 </resources>
