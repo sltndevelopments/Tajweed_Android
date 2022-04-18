@@ -101,9 +101,10 @@ class RegisterFragment : DialogFragment(R.layout.fragment_register) {
 
     private fun checkName(nameText: String) = nameText.matches("[а-яА-Яa-zA-Z ]+".toRegex())
     private fun checkEmail(emailText: String) = android.util.Patterns.EMAIL_ADDRESS.matcher(emailText).matches()
-
-    private fun checkPhoneNumber(phoneText: String) =
-        (phoneText[0] == '+' && phoneText.count { "+".contains(it) } == 1)
+    private fun checkPhoneNumber(phoneText: String): Boolean {
+        if (phoneText.count { "+".contains(it) } == 1) { return phoneText[0] == '+' }
+        return phoneText.count { "+".contains(it) } == 0
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return super.onCreateDialog(savedInstanceState).apply {
