@@ -14,6 +14,7 @@ import ru.tajwid.app.R
 import ru.tajwid.app.ui.activity.AboutActivity
 import ru.tajwid.app.utils.FontUtils
 import ru.tajwid.app.utils.PreferencesHelper
+import java.util.regex.Pattern
 
 class SettingsFragment : Fragment() {
 
@@ -31,11 +32,15 @@ class SettingsFragment : Fragment() {
         FontUtils.setTextViewFont(settings_about_project, R.font.proxima_nova_semibold)
         FontUtils.setTextViewFont(settings_assessment, R.font.proxima_nova_semibold)
         FontUtils.setTextViewFont(settings_recommendation, R.font.proxima_nova_semibold)
+        FontUtils.setTextViewFont(secure_confidentiality, R.font.proxima_nova_semibold)
+        FontUtils.setTextViewFont(user_information, R.font.proxima_nova_semibold)
 
         settings_assessment.setOnClickListener { onAssessmentClick() }
         settings_communication.setOnClickListener { onCommunicationClick() }
         settings_about_project.setOnClickListener { onAboutProjectClick() }
         settings_recommendation.setOnClickListener { onRecommendationClick() }
+        secure_confidentiality.setOnClickListener { onConfidentialityClick() }
+        user_information.setOnClickListener { onInformationClick() }
         settings_switch.isChecked = PreferencesHelper.get().isNotificationsEnabled()
         settings_switch.setOnCheckedChangeListener { _, isChecked ->
             onSwitchCheckedChanged(
@@ -105,4 +110,21 @@ class SettingsFragment : Fragment() {
         private const val MARKET_URL =
             "https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}"
     }
+//*************************************
+    private fun onConfidentialityClick() {
+        val url = getString(R.string.url_secure_confidentiality)
+        val i = Intent(Intent.ACTION_VIEW)
+        i.data = Uri.parse(url)
+        startActivity(i)
+    }
+
+    private fun onInformationClick() {
+        val url = getString(R.string.url_user_information)
+        val i = Intent(Intent.ACTION_VIEW)
+        i.data = Uri.parse(url)
+        startActivity(i)
+    }
+
+
+
 }

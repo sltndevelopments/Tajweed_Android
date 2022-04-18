@@ -1,7 +1,9 @@
 package ru.tajwid.app.ui.fragment
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -16,10 +18,13 @@ import kotlinx.coroutines.launch
 import ru.tajwid.app.R
 import ru.tajwid.app.ui.activity.showMessage
 import ru.tajwid.app.utils.NetworkService
+import ru.tajwid.app.utils.getDialogListener
+
 
 class RegisterFragment : DialogFragment(R.layout.fragment_register) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         register.setOnClickListener {
             val emailText = email.text.toString()
             val phoneText = phone.text.toString()
@@ -60,6 +65,7 @@ class RegisterFragment : DialogFragment(R.layout.fragment_register) {
                     )
 
                     if (resp?.result == true) {
+                        getDialogListener<OnSuccessListener>()?.onSuccess()
                         dismiss()
                     } else {
                         throw IllegalStateException(getString(R.string.unknown_error))
@@ -72,8 +78,12 @@ class RegisterFragment : DialogFragment(R.layout.fragment_register) {
                         setEnable(true)
                     }
                 }
-
             }
+        }
+        clickText_secure_confidentiality.setOnClickListener { onConfidentialityClick() }
+
+        checkbox_secure_confidentiality.setOnCheckedChangeListener { buttonView, isChecked ->
+            register.isEnabled = isChecked
         }
     }
 
@@ -94,5 +104,19 @@ class RegisterFragment : DialogFragment(R.layout.fragment_register) {
         phone.isEnabled = isEnable
         email.isEnabled = isEnable
         need_individual.isEnabled = isEnable
+        checkbox_secure_confidentiality.isEnabled = isEnable
+        clickText_secure_confidentiality.isEnabled = isEnable
     }
+
+    private fun onConfidentialityClick() {
+        val url = getString(R.string.url_secure_confidentiality)
+        val i = Intent(Intent.ACTION_VIEW)
+        i.data = Uri.parse(url)
+        startActivity(i)
+    }
+
+    interface OnSuccessListener {
+        fun onSuccess()
+    }
+
 }
