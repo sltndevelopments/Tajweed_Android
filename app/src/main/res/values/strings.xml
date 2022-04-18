@@ -89,9 +89,9 @@
     <string name="hint_name">Имя</string>
     <string name="text_send">Отправить</string>
     <string name="checkbox_title_secure_confidentiality">Нажимая на кнопку ОТПРАВИТЬ, вы даете согласие на обработку своих персональных данных: </string>
-    <string name="secure_confidentiality">"Политика конфиденциальности"</string>
+    <string name="secure_confidentiality">Политика конфиденциальности</string>
     <string name="user_information">Пользовательское соглашение</string>
-    <string name="click_secure_confidentiality"><u>Политика конфидециальности</u></string>
+    <string name="click_secure_confidentiality"><u>Политика конфиденциальности</u></string>
     <string name="url_secure_confidentiality">https://telegra.ph/POLITIKA-KONFIDENCIALNOSTI-04-16-2</string>
     <string name="url_user_information">https://telegra.ph/POLZOVATELSKOE-SOGLASHENIE-DLYA-PRILOZHENIYA-04-16</string>
 
