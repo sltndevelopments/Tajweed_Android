@@ -2,6 +2,7 @@ package ru.tajwid.app.ui.activity
 
 import android.os.Bundle
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -17,7 +18,7 @@ import ru.tajwid.app.ui.adapter.TimeZoneAdapter
 import ru.tajwid.app.ui.fragment.RegisterFragment
 import kotlin.properties.Delegates
 
-class OnlineLearningActivity : BaseActivity() {
+class OnlineLearningActivity : BaseActivity(), RegisterFragment.OnSuccessListener {
     private val timeZoneAdapter: TimeZoneAdapter by lazy {
         TimeZoneAdapter()
     }
@@ -113,5 +114,9 @@ class OnlineLearningActivity : BaseActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    override fun onSuccess() {
+        Snackbar.make(root, R.string.success_register, Snackbar.LENGTH_LONG).show()
     }
 }

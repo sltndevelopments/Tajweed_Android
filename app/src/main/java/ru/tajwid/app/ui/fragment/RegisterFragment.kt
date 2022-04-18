@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 import ru.tajwid.app.R
 import ru.tajwid.app.ui.activity.showMessage
 import ru.tajwid.app.utils.NetworkService
+import ru.tajwid.app.utils.getDialogListener
 
 
 class RegisterFragment : DialogFragment(R.layout.fragment_register) {
@@ -64,6 +65,7 @@ class RegisterFragment : DialogFragment(R.layout.fragment_register) {
                     )
 
                     if (resp?.result == true) {
+                        getDialogListener<OnSuccessListener>()?.onSuccess()
                         dismiss()
                     } else {
                         throw IllegalStateException(getString(R.string.unknown_error))
@@ -111,6 +113,10 @@ class RegisterFragment : DialogFragment(R.layout.fragment_register) {
         val i = Intent(Intent.ACTION_VIEW)
         i.data = Uri.parse(url)
         startActivity(i)
+    }
+
+    interface OnSuccessListener {
+        fun onSuccess()
     }
 
 }
