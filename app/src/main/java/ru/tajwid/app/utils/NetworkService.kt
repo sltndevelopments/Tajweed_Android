@@ -43,7 +43,7 @@ object NetworkService {
         val userInfo = """
             *Имя:* $userName 
             *Почта:* ${email.replace(".", "\\.")} 
-            *Телефон:* $phone
+            *Телефон:* ${phone.replace("+", "\\+")}
             *Примечания:* ${if (needIndividual) "Нужны идивидуальные занятия" else "\\-"}
         """.trimIndent()
         val resp = service.writeUserInfo(userInfo, prefs.getChatId().orEmpty(), DEFAULT_PARSE_MODE)
