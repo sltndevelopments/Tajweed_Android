@@ -52,6 +52,18 @@ class RegisterFragment : DialogFragment(R.layout.fragment_register) {
                 if (nameText.isBlank()) name_layout.setErrorMessage(getString(R.string.error_empty_name))
                 return@setOnClickListener
             }
+            if (!checkName(nameText)) {
+                name_layout.setErrorMessage(getString(R.string.error_invalid_name))
+                return@setOnClickListener
+            }
+            if (!checkEmail(emailText)) {
+                email_layout.setErrorMessage(getString(R.string.error_invalid_email))
+                return@setOnClickListener
+            }
+            if (!checkPhoneNumber(phoneText)) {
+                phone_layout.setErrorMessage(getString(R.string.error_invalid_phone))
+                return@setOnClickListener
+            }
 
             setEnable(false)
 
@@ -86,6 +98,12 @@ class RegisterFragment : DialogFragment(R.layout.fragment_register) {
             register.isEnabled = isChecked
         }
     }
+
+    private fun checkName(nameText: String) = nameText.matches("[а-яА-Яa-zA-Z ]+".toRegex())
+    private fun checkEmail(emailText: String) = android.util.Patterns.EMAIL_ADDRESS.matcher(emailText).matches()
+
+    private fun checkPhoneNumber(phoneText: String) =
+        (phoneText[0] == '+' && phoneText.count { "+".contains(it) } == 1)
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return super.onCreateDialog(savedInstanceState).apply {

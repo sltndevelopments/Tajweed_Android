@@ -69,6 +69,7 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="actionDone"
                     android:inputType="phone"
+                    android:digits="0123456789+"
                     android:lines="1"
                     android:maxLength="20" />
             </com.google.android.material.textfield.TextInputLayout>
