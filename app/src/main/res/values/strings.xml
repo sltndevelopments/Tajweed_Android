@@ -64,8 +64,8 @@
     <string name="title_pronounce">Произношение</string>
     <string name="title_main">Главная</string>
     <string name="your_score">Твоя статистика</string>
-    <string name="click_button">Приложение предназначено для самостоятельного обучения буквам и правильному произношению арабского текста при чтении Корана, но если ты хочешь обучаться с учителем то нажми кнопку:</string>
-    <string name="with_teacher">С учителем</string>
+    <string name="click_button">Приложение предназначено для самостоятельного обучения арабским буквам и правильному произношению при чтении Корана.\n\nДля желающих заниматься онлайн с преподавателем есть платные курсы в Центре Корана.</string>
+    <string name="with_teacher">Онлайн Курсы</string>
     <string name="dear_friend">Дорогой друг!</string>
     <string name="radiobutton3">Детская</string>
     <string name="radiobutton2">Женская</string>
@@ -88,7 +88,7 @@
     <string name="hint_email">Электронная почта</string>
     <string name="hint_phone">Номер телефона</string>
     <string name="checkbox_title_individual">Прошу связаться со мной по поводу индивидуальных курсов</string>
-    <string name="desc_individual">Заявка на индивидуальные курсы будет отправлена в Исламский Центр Дар г. Москвы в отделение обучения Корана</string>
+    <string name="desc_individual">Заявка на платные курсы будет отправлена в Исламский Центр Дар г. Москвы в отделение обучения Корана</string>
     <string name="hint_name">Имя</string>
     <string name="text_send">Отправить</string>
     <string name="checkbox_title_secure_confidentiality">Нажимая на кнопку ОТПРАВИТЬ, вы даете согласие на обработку своих персональных данных: </string>
@@ -98,6 +98,7 @@
     <string name="url_secure_confidentiality">https://telegra.ph/POLITIKA-KONFIDENCIALNOSTI-04-16-2</string>
     <string name="url_user_information">https://telegra.ph/POLZOVATELSKOE-SOGLASHENIE-DLYA-PRILOZHENIYA-04-16</string>
     <string name="success_register">Спасибо за регистрацию!\nС вами свяжутся по предоставленным контактам.</string>
+    <string name="price_placeholder">%s руб/урок</string>
 
 
 </resources>

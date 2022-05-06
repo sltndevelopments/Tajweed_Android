@@ -13,6 +13,7 @@ data class OnlineLearning(
 data class Group(
     val name: String = "",
     val link: String = "",
+    val price: String = "",
     val schedule: List<Schedule> = emptyList()
 ) : Parcelable
 

@@ -31,7 +31,7 @@ class OnlineLearningActivity : BaseActivity(), RegisterFragment.OnSuccessListene
     private var selectedGroup: Group? by Delegates.observable(null) { prop, old, new ->
         if (old == new) return@observable
 
-        timeZoneAdapter.list = new?.schedule.orEmpty()
+        timeZoneAdapter.setData(new?.schedule.orEmpty(), new?.price.orEmpty())
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
