@@ -29,5 +29,14 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="FullScreenDialogStyle" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground">@drawable/costom_dialog</item>
+    </style>
+
     <style name="RegistrationDialogTheme" parent="Theme.Material3.Light.NoActionBar" />
 </resources>

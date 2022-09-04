@@ -1,17 +1,22 @@
 package ru.tajwid.app.ui.fragment
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import kotlinx.android.synthetic.main.activity_main_new.*
 import kotlinx.android.synthetic.main.fragment_main.*
 import ru.tajwid.app.R
 import ru.tajwid.app.content.db.DbManager
 import ru.tajwid.app.ui.activity.OnlineLearningActivity
 import ru.tajwid.app.ui.view.MainMenuItemView
+import java.util.*
 
 class MainFragment : Fragment() {
 
@@ -23,10 +28,19 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_main, container, false)
 
+    @SuppressLint("UseRequireInsteadOfGet")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val (moduleTotal, moduleCompleted) = progressDao.getModulesProgressInfo()
+
+      //Start fragment_language
+        val dialogFrg= LanguageFragment()
+        val bundle = Bundle()
+        dialogFrg.arguments = bundle
+        val ft = Objects.requireNonNull<FragmentManager>(fragmentManager).beginTransaction()
+        dialogFrg.show(ft, dialogFrg.TAG)
+      //***
 
         go_to_online.setOnClickListener {
             val intent = Intent(activity, OnlineLearningActivity::class.java)
