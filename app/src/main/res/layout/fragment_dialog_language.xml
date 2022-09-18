@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:theme="@style/FullScreenDialogStyle">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_8dp">
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Сменить язык программы?" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_8dp">
+
+            <Button
+                android:id="@+id/buttonYES"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_batton_yes"
+                android:stateListAnimator="@null"
+                android:text="Да"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/buttonNO"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_batton_no"
+                android:stateListAnimator="@null"
+                android:text="Нет"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+        </TableRow>
+
+    </LinearLayout>
+
+</LinearLayout>

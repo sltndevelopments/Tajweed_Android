@@ -28,6 +28,7 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         FontUtils.setTextViewFont(settings_notice_info, R.font.proxima_nova_semibold)
+        FontUtils.setTextViewFont(settings_languages, R.font.proxima_nova_semibold)
         FontUtils.setTextViewFont(settings_communication, R.font.proxima_nova_semibold)
         FontUtils.setTextViewFont(settings_about_project, R.font.proxima_nova_semibold)
         FontUtils.setTextViewFont(settings_assessment, R.font.proxima_nova_semibold)
@@ -36,6 +37,7 @@ class SettingsFragment : Fragment() {
         FontUtils.setTextViewFont(user_information, R.font.proxima_nova_semibold)
 
         settings_assessment.setOnClickListener { onAssessmentClick() }
+        settings_languages.setOnClickListener { onLanguagesClick() }
         settings_communication.setOnClickListener { onCommunicationClick() }
         settings_about_project.setOnClickListener { onAboutProjectClick() }
         settings_recommendation.setOnClickListener { onRecommendationClick() }
@@ -49,6 +51,13 @@ class SettingsFragment : Fragment() {
         }
 
 
+    }
+
+    private fun onLanguagesClick() {
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.replace(R.id.host, LanguageSettingsFragment())
+        transaction?.disallowAddToBackStack()
+        transaction?.commit()
     }
 
     private fun onSwitchCheckedChanged(isChecked: Boolean) {

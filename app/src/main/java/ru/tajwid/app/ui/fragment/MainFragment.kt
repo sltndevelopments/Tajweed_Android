@@ -34,12 +34,13 @@ class MainFragment : Fragment() {
 
         val (moduleTotal, moduleCompleted) = progressDao.getModulesProgressInfo()
 
-      //Start fragment_language
-        val dialogFrg= LanguageFragment()
+      //Start dialog_language
+        val dialogFrg= LanguageDialog()
         val bundle = Bundle()
         dialogFrg.arguments = bundle
         val ft = Objects.requireNonNull<FragmentManager>(fragmentManager).beginTransaction()
         dialogFrg.show(ft, dialogFrg.TAG)
+
       //***
 
         go_to_online.setOnClickListener {

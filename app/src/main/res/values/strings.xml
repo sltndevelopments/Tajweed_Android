@@ -99,6 +99,8 @@
     <string name="url_user_information">https://telegra.ph/POLZOVATELSKOE-SOGLASHENIE-DLYA-PRILOZHENIYA-04-16</string>
     <string name="success_register">Спасибо за регистрацию!\nС вами свяжутся по предоставленным контактам.</string>
     <string name="price_placeholder">%s руб/урок</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
