@@ -8,9 +8,9 @@
     </item>
     <item
         android:bottom="10dp"
-        android:drawable="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:drawable="@drawable/ic_baseline_about_project"
         android:color="@color/warm_grey"
-        android:left="10dp"
+        android:left="16dp"
         android:right="10dp"
         android:top="10dp" />
 </layer-list>

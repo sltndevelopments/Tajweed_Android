@@ -28,12 +28,19 @@
         android:background="@color/white_four"
         android:orientation="horizontal">
 
+        <ImageView
+            android:id="@+id/notification_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/costom_ic_notification"
+            android:checked="true" />
+
         <TextView
             android:id="@+id/settings_notice_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/dimen_16dp"
+            android:paddingLeft="2dp"
             android:paddingTop="@dimen/dimen_12dp"
             android:paddingRight="@dimen/dimen_16dp"
             android:paddingBottom="@dimen/dimen_12dp"
@@ -61,12 +68,18 @@
         android:layout_height="match_parent"
         android:background="@color/white_four">
 
+        <ImageView
+            android:id="@+id/languages_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/costom_ic_language"
+            android:checked="true" />
         <TextView
             android:id="@+id/settings_languages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/dimen_16dp"
+            android:paddingLeft="2dp"
             android:paddingTop="@dimen/dimen_12dp"
             android:paddingRight="@dimen/dimen_16dp"
             android:paddingBottom="@dimen/dimen_12dp"
@@ -80,8 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dimen_16dp"
             android:layout_marginRight="@dimen/dimen_16dp"
-            android:background="@drawable/castom_ic_language"
-            android:checked="true" />
+            android:background="@drawable/costom_ic_language_go"/>
 
 
     </LinearLayout>
@@ -90,24 +102,32 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/separator_size"
         android:background="@color/default_separator" />
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/dimen_24dp"
         android:background="@color/white_four">
+
+        <ImageView
+            android:id="@+id/contact_author_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/costom_ic_contact_author"
+            android:checked="true" />
 
         <TextView
             android:id="@+id/settings_communication"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
-            android:paddingLeft="@dimen/dimen_16dp"
+            android:layout_weight="1"
+            android:paddingLeft="2dp"
             android:paddingTop="@dimen/dimen_12dp"
             android:paddingRight="@dimen/dimen_16dp"
             android:paddingBottom="@dimen/dimen_12dp"
             android:text="@string/settigs_communication"
             android:textSize="@dimen/text_size_16sp" />
-    </FrameLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -116,49 +136,67 @@
         android:layout_marginLeft="@dimen/dimen_16dp"
         android:background="@color/default_separator" />
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_four">
+
+        <ImageView
+            android:id="@+id/contact_about_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/costom_ic_about_project"
+            android:checked="true" />
+
 
         <TextView
             android:id="@+id/settings_about_project"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
-            android:paddingLeft="@dimen/dimen_16dp"
+            android:layout_weight="1"
+            android:paddingLeft="2dp"
             android:paddingTop="@dimen/dimen_12dp"
             android:paddingRight="@dimen/dimen_16dp"
             android:paddingBottom="@dimen/dimen_12dp"
             android:text="@string/settings_about_project"
             android:textSize="@dimen/text_size_16sp"
             tools:ignore="NestedWeights" />
-    </FrameLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/separator_size"
         android:background="@color/default_separator" />
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/dimen_24dp"
         android:background="@color/white_four">
+
+        <ImageView
+            android:id="@+id/star_rate_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/costom_ic_star_rate"
+            android:checked="true" />
+
 
         <TextView
             android:id="@+id/settings_assessment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
-            android:paddingLeft="@dimen/dimen_16dp"
+            android:layout_weight="1"
+            android:paddingLeft="2dp"
             android:paddingTop="@dimen/dimen_12dp"
             android:paddingRight="@dimen/dimen_16dp"
             android:paddingBottom="@dimen/dimen_12dp"
             android:text="@string/settings_assessment"
             android:textSize="@dimen/text_size_16sp"
             tools:ignore="InefficientWeight" />
-    </FrameLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -167,24 +205,32 @@
         android:layout_marginLeft="@dimen/dimen_16dp"
         android:background="@color/default_separator" />
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_four">
+
+        <ImageView
+            android:id="@+id/recommend_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/costom_ic_recommend"
+            android:checked="true" />
 
         <TextView
             android:id="@+id/settings_recommendation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
-            android:paddingLeft="@dimen/dimen_16dp"
+            android:layout_weight="1"
+            android:paddingLeft="2dp"
             android:paddingTop="@dimen/dimen_12dp"
             android:paddingRight="@dimen/dimen_16dp"
             android:paddingBottom="@dimen/dimen_12dp"
             android:text="@string/settings_recommendation"
             android:textSize="@dimen/text_size_16sp" />
 
-    </FrameLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -194,24 +240,32 @@
         android:layout_marginTop="@dimen/dimen_24dp"
         android:background="@color/default_separator" />
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_four">
+
+        <ImageView
+            android:id="@+id/privacy_policy_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/costom_ic_privacy_policy"
+            android:checked="true" />
 
         <TextView
             android:id="@+id/secure_confidentiality"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
-            android:paddingLeft="@dimen/dimen_16dp"
+            android:layout_weight="1"
+            android:paddingLeft="2dp"
             android:paddingTop="@dimen/dimen_12dp"
             android:paddingRight="@dimen/dimen_16dp"
             android:paddingBottom="@dimen/dimen_12dp"
             android:text="@string/secure_confidentiality"
             android:textSize="@dimen/text_size_16sp" />
 
-    </FrameLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -220,23 +274,31 @@
         android:layout_marginLeft="@dimen/dimen_16dp"
         android:background="@color/default_separator" />
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_four">
+
+        <ImageView
+            android:id="@+id/terms_use_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/costom_ic_terms_use"
+            android:checked="true" />
 
         <TextView
             android:id="@+id/user_information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
-            android:paddingLeft="@dimen/dimen_16dp"
+            android:layout_weight="1"
+            android:paddingLeft="2dp"
             android:paddingTop="@dimen/dimen_12dp"
             android:paddingRight="@dimen/dimen_16dp"
             android:paddingBottom="@dimen/dimen_12dp"
             android:text="@string/user_information"
             android:textSize="@dimen/text_size_16sp" />
 
-    </FrameLayout>
+    </LinearLayout>
 
 </LinearLayout>

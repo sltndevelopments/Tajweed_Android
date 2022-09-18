@@ -126,7 +126,7 @@
                         android:layout_marginStart="@dimen/dimen_16dp"
                         android:layout_height="24dp"
                         android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                        app:srcCompat="@drawable/ic_baseline_arrow_forward" />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
