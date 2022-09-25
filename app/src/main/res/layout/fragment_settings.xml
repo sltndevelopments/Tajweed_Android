@@ -86,16 +86,6 @@
             android:text="Выбор языка"
             android:textSize="@dimen/text_size_16sp" />
 
-        <ImageView
-            android:id="@+id/settings_languages_ic"
-            style="@style/AppSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dimen_16dp"
-            android:layout_marginRight="@dimen/dimen_16dp"
-            android:background="@drawable/costom_ic_language_go"/>
-
-
     </LinearLayout>
 
     <View
