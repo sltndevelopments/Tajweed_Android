@@ -59,6 +59,7 @@ class LanguageDialog : DialogFragment() {
             transaction?.disallowAddToBackStack()
             transaction?.commit()
 
+
             dismiss()
         }
         view.buttonNO.setOnClickListener {

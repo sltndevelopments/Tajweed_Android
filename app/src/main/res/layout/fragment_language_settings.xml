@@ -39,28 +39,20 @@
             android:padding="@dimen/dimen_8dp">
 
             <RadioButton
-                android:id="@+id/radio1"
-                android:layout_width="160dp"
+                android:id="@+id/radioRU"
+                android:layout_width="80dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="@dimen/dimen_8dp"
-                android:drawableRight="@drawable/ic_rus_48"
-                android:text="Русский" />
+                android:drawableRight="@drawable/ic_rus_48" />
 
             <RadioButton
-                android:id="@+id/radio2"
-                android:layout_width="160dp"
+                android:id="@+id/radioTR"
+                android:layout_width="80dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="@dimen/dimen_2dp"
-                android:drawableRight="@drawable/ic_tr_48"
-                android:text="Турецкий" />
+                android:drawableRight="@drawable/ic_tr_48" />
 
-            <RadioButton
-                android:id="@+id/radio3"
-                android:layout_width="160dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="@dimen/dimen_2dp"
-                android:drawableRight="@drawable/ic_en_48"
-                android:text="США" />
+
 
 
         </RadioGroup>
