@@ -14,15 +14,17 @@ import ru.tajwid.app.R
 import ru.tajwid.app.ui.activity.AboutActivity
 import ru.tajwid.app.utils.FontUtils
 import ru.tajwid.app.utils.PreferencesHelper
-import java.util.regex.Pattern
+
 
 class SettingsFragment : Fragment() {
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_settings, container, false)
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -2,6 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/main"
+        android:icon="@drawable/ic_main"
+        android:title="@string/title_main" />
+    <item
         android:id="@+id/alphabet"
         android:icon="@drawable/ic_alphabet"
         android:title="@string/main_letters" />
@@ -9,10 +13,7 @@
         android:id="@+id/pronunciation"
         android:icon="@drawable/ic_pronunciation"
         android:title="@string/title_pronounce" />
-    <item
-        android:id="@+id/main"
-        android:icon="@drawable/ic_main"
-        android:title="@string/title_main" />
+
     <item
         android:id="@+id/reading"
         android:icon="@drawable/ic_reading"

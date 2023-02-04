@@ -20,6 +20,7 @@ android {
         targetSdkVersion 33
         versionCode 13
         versionName "2.0.0"
+        resConfigs "tr"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     signingConfigs {
@@ -77,11 +78,13 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
     implementation "androidx.core:core-ktx:1.9.0"
     implementation "androidx.collection:collection-ktx:1.2.0"
     implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation "androidx.fragment:fragment-ktx:1.5.3"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
 
     implementation platform('com.google.firebase:firebase-bom:29.0.0')
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
