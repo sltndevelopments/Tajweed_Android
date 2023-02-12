@@ -7,24 +7,30 @@ import android.os.Bundle
 import android.os.LocaleList
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.annotation.RequiresApi
-import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat.getSystemService
 import kotlinx.android.synthetic.main.activitiy_learning.*
 import kotlinx.android.synthetic.main.activity_about.*
 import kotlinx.android.synthetic.main.fragment_language_settings.*
 import ru.tajwid.app.R
-import ru.tajwid.app.content.data.OnlineLearning
 import java.util.*
 
 
 class LanguageSettingsFragment : Fragment() {
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            updateActivityTitle()
+        }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,23 +53,20 @@ class LanguageSettingsFragment : Fragment() {
             transaction?.replace(R.id.host, SettingsFragment())
             transaction?.disallowAddToBackStack()
             transaction?.commit()
-
         }
 
-//    * Выбор языка*
-
-
+        //    * Выбор языка*
 
         val systemLocale = getString(R.string.system_locale)
         val spinner: Spinner = view.findViewById(R.id.localePicker)
-        val locales = listOf(systemLocale, "ru-RU", "tr-rTR")
+        val locales = listOf(systemLocale, "ru", "tr")
         spinner.adapter = ArrayAdapter(
             requireActivity().applicationContext,
             android.R.layout.simple_list_item_1,
             locales
         )
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -72,10 +75,13 @@ class LanguageSettingsFragment : Fragment() {
             ) {
                 val selectedLocale = spinner.adapter.getItem(position) as String
                 if (selectedLocale != systemLocale) {
-                    updateAppLocales(Locale.forLanguageTag(selectedLocale))
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        updateAppLocales(Locale.forLanguageTag(selectedLocale))
+                    }
                 } else {
-                    updateAppLocales()
-
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        updateAppLocales()
+                    }
                 }
             }
 
@@ -83,21 +89,33 @@ class LanguageSettingsFragment : Fragment() {
         }
     }
 
-//    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-//    fun updateActivityTitle() {
-//        val localeManager = Activity().getSystemService(LocaleManager::class.java)
-//        val appLocales = localeManager.applicationLocales
-//        var title = if (appLocales.isEmpty) {
-//            getString(R.string.system_locale)
-//        } else {
-//            appLocales.get(0).displayName
-//        }
-//    }
+
+ private fun updateActivityTitle() {
+        val localeManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            Activity().getSystemService(LocaleManager::class.java)
+        } else {
+            TODO("VERSION.SDK_INT < TIRAMISU")
+        }
+        val appLocales = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            localeManager.applicationLocales
+        } else {
+            TODO("VERSION.SDK_INT < TIRAMISU")
+        }
+        if (appLocales.isEmpty) {
+            getString(R.string.system_locale)
+        } else {
+            appLocales.get(0).displayName
+        }
+    }
 
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+
     fun updateAppLocales(vararg locales: Locale) {
-        val localeManager = getSystemService(LocaleManager::class.java)
+        val localeManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            Activity().getSystemService(LocaleManager::class.java)
+        } else {
+            TODO("VERSION.SDK_INT < TIRAMISU")
+        }
         localeManager.applicationLocales = LocaleList(*locales)
     }
 }

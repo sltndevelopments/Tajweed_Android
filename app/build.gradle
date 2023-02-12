@@ -20,7 +20,7 @@ android {
         targetSdkVersion 33
         versionCode 13
         versionName "2.0.0"
-        resConfigs "tr"
+        resConfigs "ru", "tr"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     signingConfigs {
